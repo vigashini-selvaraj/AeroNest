@@ -1,0 +1,1299 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact AeroNest — Book a commercial drone shoot, request aerial video quotes, or discuss airspace clearances with certified remote flight pilots.">
+  <title>Contact &amp; Flight Booking | AeroNest Drone Photography &amp; Video</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function(){
+      try {
+        var d = localStorage.getItem('aeronest-direction');
+        if (d === 'rtl') document.documentElement.setAttribute('dir', 'rtl');
+        var t = localStorage.getItem('aeronest-theme');
+        if (t === 'dark') {
+          document.documentElement.classList.add('dark-mode');
+        } else {
+          document.documentElement.classList.remove('dark-mode');
+        }
+      } catch(e){}
+    })();
+  </script>
+
+  <!-- ================= CONTACT PAGE SPECIFIC STYLES ================= -->
+  <style>
+    /* Section 1: Hero Section (Sunrise Theme & Matching Other Pages) */
+    .contact-hero-bg {
+      position: absolute;
+      inset: -6%;
+      width: 112%;
+      height: 112%;
+      background: url('assets/contact-hero-sunrise.jpg') center 40% / cover no-repeat;
+      animation: heroCinematicZoom 24s ease-in-out infinite alternate;
+      z-index: 1;
+      will-change: transform;
+    }
+
+    /* Section 2: Contact Information Cards */
+    .contact-info-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .contact-info-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--sky-blue);
+      box-shadow: var(--shadow-lg);
+    }
+    .contact-info-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      background: rgba(22, 141, 243, 0.1);
+      border: 1px solid rgba(22, 141, 243, 0.25);
+      color: var(--sky-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 22px;
+    }
+    .contact-info-card h4 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .contact-info-card .info-value {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--sky-blue);
+      margin-bottom: 8px;
+      word-break: break-word;
+      text-decoration: none;
+    }
+    .contact-info-card p {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+    .contact-info-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--sky-blue);
+      text-decoration: none;
+      transition: gap 0.2s ease;
+    }
+    .contact-info-action:hover {
+      gap: 10px;
+      color: #0284c7;
+    }
+
+    /* Section 3: Contact Form & Dispatch Checklist */
+    .contact-dispatch-panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 36px 32px;
+      box-shadow: var(--shadow);
+      height: 100%;
+    }
+    .dispatch-step-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .dispatch-step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(22, 141, 243, 0.12);
+      border: 1px solid rgba(22, 141, 243, 0.25);
+      color: var(--sky-blue);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .dispatch-step-content h6 {
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+      font-size: 14.5px;
+    }
+    .dispatch-step-content p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+    .whatsapp-quick-box {
+      background: rgba(22, 141, 243, 0.06);
+      border: 1px solid rgba(22, 141, 243, 0.2);
+      border-radius: 18px;
+      padding: 24px;
+      margin-top: 28px;
+    }
+
+    .contact-form-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
+    }
+    .contact-form-card label {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .contact-form-card .form-control,
+    .contact-form-card .form-select {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 14px;
+      transition: all 0.25s ease;
+    }
+    .contact-form-card .form-control:focus,
+    .contact-form-card .form-select:focus {
+      background: var(--card);
+      border-color: var(--sky-blue);
+      box-shadow: 0 0 0 3px rgba(22, 141, 243, 0.18);
+      outline: none;
+    }
+    .contact-form-card .form-select option {
+      background: var(--card);
+      color: var(--ink);
+    }
+
+    /* Section 4: Our Services Quick Links */
+    .contact-service-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.35s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--sky-blue);
+      box-shadow: var(--shadow-lg);
+    }
+    .contact-service-thumb {
+      height: 190px;
+      position: relative;
+      overflow: hidden;
+      background: #07172c;
+    }
+    .contact-service-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .contact-service-card:hover .contact-service-thumb img {
+      transform: scale(1.08);
+    }
+    .contact-service-icon-pill {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(7, 26, 49, 0.75);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #38bdf8;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .contact-service-body {
+      padding: 24px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-service-body h4 {
+      font-size: 17.5px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .contact-service-body p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+    .contact-service-link {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--sky-blue);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
+    }
+    .contact-service-link:hover {
+      gap: 10px;
+      color: #0284c7;
+    }
+
+    /* Section 5: Why Work With AeroNest */
+    .why-aeronest-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: all 0.35s ease;
+      height: 100%;
+    }
+    .why-aeronest-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--sky-blue);
+      box-shadow: var(--shadow-lg);
+    }
+    .why-aeronest-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(22, 141, 243, 0.1);
+      border: 1px solid rgba(22, 141, 243, 0.25);
+      color: var(--sky-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .why-aeronest-card h4 {
+      font-size: 17.5px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .why-aeronest-card p {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 0;
+    }
+
+    /* Section 6: Location & Interactive Map */
+    .contact-map-wrapper {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-lg);
+      height: 480px;
+    }
+    .contact-map-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .contact-map-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px 26px;
+      box-shadow: var(--shadow-lg);
+      max-width: 380px;
+      z-index: 10;
+    }
+    html[dir="rtl"] .contact-map-badge {
+      left: auto;
+      right: 24px;
+    }
+    html[dir="rtl"] .contact-service-icon-pill {
+      left: auto;
+      right: 14px;
+    }
+
+    /* Section 8: Social Media Connect */
+    .social-connect-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 32px 24px;
+      box-shadow: var(--shadow);
+      transition: all 0.35s ease;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+    }
+    .social-connect-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--sky-blue);
+      box-shadow: var(--shadow-lg);
+    }
+    .social-connect-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 18px;
+      background: rgba(22, 141, 243, 0.1);
+      color: var(--sky-blue);
+      border: 1px solid rgba(22, 141, 243, 0.25);
+      transition: all 0.3s ease;
+    }
+    .social-connect-card:hover .social-connect-icon {
+      background: var(--sky-blue);
+      color: #ffffff;
+      transform: scale(1.1);
+    }
+    .social-connect-card h4 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .social-connect-handle {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--sky-blue);
+      margin-bottom: 8px;
+    }
+    .social-connect-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+    .social-connect-btn {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--sky-blue);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+  </style>
+</head>
+<body>
+  <!-- ================= STICKY NAVBAR ================= -->
+  <nav class="navbar navbar-expand-xl fixed-top site-nav" id="top">
+    <div class="container">
+      <a class="navbar-brand brand-container" href="index.html" aria-label="AeroNest home">
+        <div class="brand-logo-mark">
+          <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="12" fill="url(#navBrandGradContFinal)"/>
+            <path d="M15 15L33 33M33 15L15 33" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="14" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="34" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="14" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="34" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="14" cy="14" r="1.8" fill="white"/>
+            <circle cx="34" cy="14" r="1.8" fill="white"/>
+            <circle cx="14" cy="34" r="1.8" fill="white"/>
+            <circle cx="34" cy="34" r="1.8" fill="white"/>
+            <circle cx="24" cy="24" r="8" fill="#071a31" stroke="white" stroke-width="2"/>
+            <circle cx="24" cy="24" r="4" fill="#38bdf8"/>
+            <defs>
+              <linearGradient id="navBrandGradContFinal" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#168df3"/>
+                <stop offset="1" stop-color="#0284c7"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title"><span class="brand-aero">Aero</span><span class="brand-nest">Nest</span></div>
+          <div class="brand-subtitle">AERIAL PHOTOGRAPHY &amp; VIDEO</div>
+        </div>
+      </a>
+            <!-- Mobile Quick Actions: RTL & Color Theme right next to hamburger -->
+      <div class="nav-mobile-actions d-xl-none ms-auto me-2">
+        <button class="nav-btn-mobile" id="mobileDirectionToggle" aria-label="Switch text direction" title="Switch LTR / RTL">
+          <span class="direction-text">LTR</span>
+          <i class="bi bi-arrow-left-right"></i>
+        </button>
+        <button class="nav-btn-mobile nav-btn-icon" id="mobileThemeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <i class="bi bi-sun mobileThemeIcon"></i>
+        </button>
+      </div>
+      <button class="navbar-toggler nav-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto align-items-xl-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="home2.html">Home 2</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions d-flex align-items-center">
+          <button class="nav-btn-ltr d-none d-xl-inline-flex" id="directionToggle" aria-label="Switch text direction" title="Switch LTR / RTL">
+            <span class="direction-text">LTR</span>
+            <i class="bi bi-arrow-left-right"></i>
+          </button>
+          <button class="nav-btn-icon d-none d-xl-inline-flex" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+            <i class="bi bi-sun" id="themeIcon"></i>
+          </button>
+          <a class="nav-btn-book" href="contact.html">
+            <span>Book a Shoot</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ================= SECTION 1: CONTACT HERO SECTION ================= -->
+    <section class="hero-section" id="contact-hero">
+      <div class="contact-hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow light-eyebrow"><span></span><span>START YOUR AERIAL PRODUCTION</span></p>
+          <h1>Let's Capture<br><em>Something Extraordinary.</em></h1>
+          <p class="hero-description">
+            Have a commercial campaign, luxury real estate portfolio, or landmark live event in mind? Our certified remote pilots and aerial cinema directors are ready to plan your flight mission, verify airspace coordinates, and deliver cinema-grade perspectives.
+          </p>
+          <div class="hero-buttons">
+            <a href="#contact-form-section" class="btn btn-primary btn-lg rounded-pill"><span>Book an Aerial Shoot</span> <i class="bi bi-arrow-down-circle ms-2"></i></a>
+            <a href="https://wa.me/919876543210?text=Hello%20AeroNest%20Flight%20Ops%2C%20I%20would%20like%20to%20enquire%20about%20an%20aerial%20shoot." target="_blank" rel="noopener" class="btn btn-outline-light btn-lg rounded-pill"><i class="bi bi-whatsapp me-2"></i><span>WhatsApp Flight Desk</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-wave"></div>
+    </section>
+
+    <!-- ================= SECTION 2: CONTACT INFORMATION ================= -->
+    <section class="section-pad" style="background: var(--paper);" id="contact-info">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <div class="section-kicker justify-content-center"><span></span> DIRECT FLIGHT CHANNELS <span></span></div>
+          <h2 class="section-title">Get in Touch with <span>Our Crew.</span></h2>
+          <p class="section-copy mx-auto" style="max-width: 680px;">
+            Connect directly with our flight dispatch desk, operations director, or legal airspace coordinator across our certified communication channels.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Card 1: Phone -->
+          <div class="col-lg-3 col-md-6">
+            <div class="contact-info-card">
+              <div class="contact-info-icon"><i class="bi bi-telephone-inbound"></i></div>
+              <h4>Direct Phone Hotline</h4>
+              <a href="tel:+919876543210" class="info-value">+91 98765 43210</a>
+              <p>24/7 Flight dispatch, emergency shoot coordination, and real-time mission availability.</p>
+              <a href="tel:+919876543210" class="contact-info-action">Call Dispatch Desk &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 2: Email -->
+          <div class="col-lg-3 col-md-6">
+            <div class="contact-info-card">
+              <div class="contact-info-icon"><i class="bi bi-envelope-paper"></i></div>
+              <h4>Official Email Dispatch</h4>
+              <a href="mailto:hello@aeronest.com" class="info-value">hello@aeronest.com</a>
+              <p>Commercial RFPs, agency pitch decks, tailored quotation requests, and billing.</p>
+              <a href="mailto:hello@aeronest.com" class="contact-info-action">Send Flight Brief &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 3: Location -->
+          <div class="col-lg-3 col-md-6">
+            <div class="contact-info-card">
+              <div class="contact-info-icon"><i class="bi bi-geo-alt"></i></div>
+              <h4>Studio &amp; Hangar Base</h4>
+              <div class="info-value" style="color: var(--ink);">Chennai Coastal Zone, India</div>
+              <p>AeroNest Flight Ops, 42 Ocean Breeze Way, ECR Coastal Corridor. Client 4K screening suite.</p>
+              <a href="#location-map" class="contact-info-action">View Hangar Map &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 4: Hours -->
+          <div class="col-lg-3 col-md-6">
+            <div class="contact-info-card">
+              <div class="contact-info-icon"><i class="bi bi-clock-history"></i></div>
+              <h4>Flight &amp; Office Hours</h4>
+              <div class="info-value" style="color: var(--ink);">Mon – Sat: 6:00 AM – 7:30 PM</div>
+              <p>Sunrise to sunset flight slots. Sunday emergency commercial shoots by prior LAANC waiver.</p>
+              <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="contact-info-action">Chat on WhatsApp &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 3: CONTACT FORM & DISPATCH CHECKLIST ================= -->
+    <section class="section-pad" style="background: var(--sky-tint);" id="contact-form-section">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <div class="section-kicker justify-content-center"><span></span> BOOK A FLIGHT MISSION <span></span></div>
+          <h2 class="section-title">Send a Flight Enquiry / <span>Request a Quote.</span></h2>
+          <p class="section-copy mx-auto" style="max-width: 680px;">
+            Provide your target location coordinates and creative timeline below. Our lead pilot will verify airspace classification and deliver a complete proposal within 24 hours.
+          </p>
+        </div>
+
+        <div class="row g-5 align-items-start">
+          <!-- Left Column: Flight Planning Checklist & WhatsApp Option -->
+          <div class="col-lg-5">
+            <div class="contact-dispatch-panel">
+              <h4 class="fw-bold mb-3" style="color: var(--ink); letter-spacing: -0.3px;">What Happens Next?</h4>
+              <p class="text-muted small mb-4" style="line-height: 1.65;">
+                Every flight enquiry is reviewed by a licensed Remote Pilot-in-Command (RPIC) to ensure optimal lighting, flight authorization, and budget alignment.
+              </p>
+
+              <div class="dispatch-step-item">
+                <div class="dispatch-step-num">01</div>
+                <div class="dispatch-step-content">
+                  <h6>Airspace &amp; LAANC Clearance</h6>
+                  <p>We verify digital sectional aeronautical charts, NOTAMs, and airport proximity for your coordinates.</p>
+                </div>
+              </div>
+
+              <div class="dispatch-step-item">
+                <div class="dispatch-step-num">02</div>
+                <div class="dispatch-step-content">
+                  <h6>Solar Ephemeris &amp; Sun Angle Check</h6>
+                  <p>We calculate the golden hour and blue hour angles to guarantee cinematic contrast on your subject.</p>
+                </div>
+              </div>
+
+              <div class="dispatch-step-item">
+                <div class="dispatch-step-num">03</div>
+                <div class="dispatch-step-content">
+                  <h6>Itemized Flight Proposal</h6>
+                  <p>You receive an all-inclusive quote covering dual-pilot crew, insurance, color grading, and delivery timeline.</p>
+                </div>
+              </div>
+
+              <!-- Quick WhatsApp Box -->
+              <div class="whatsapp-quick-box">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; background: rgba(22, 141, 243, 0.15); color: var(--sky-blue); font-size: 22px;">
+                    <i class="bi bi-whatsapp"></i>
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-0" style="color: var(--ink);">Prefer Instant Messaging?</h6>
+                    <small class="text-muted">Direct WhatsApp line with Chief Pilot</small>
+                  </div>
+                </div>
+                <p class="small text-muted mb-3" style="line-height: 1.5;">
+                  Need an urgent quotation or same-day flight availability? Text our flight coordination deck directly.
+                </p>
+                <a href="https://wa.me/919876543210?text=Hello%20AeroNest%2C%20I%20would%20like%20to%20enquire%20about%20a%20drone%20shoot%20quote." target="_blank" rel="noopener" class="btn btn-outline-sky w-100 rounded-pill py-2" style="font-size: 13.5px; font-weight: 700;">
+                  <i class="bi bi-chat-dots me-2"></i> Message on WhatsApp (+91 98765 43210)
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: The Contact Form -->
+          <div class="col-lg-7">
+            <div class="contact-form-card">
+              <h3 class="fw-bold mb-2" style="color: var(--ink); letter-spacing: -0.5px;">Flight Brief &amp; Booking Form</h3>
+              <p class="text-muted small mb-4">Complete all required fields below. We will reply within 24 hours.</p>
+
+              <!-- Success Alert Placeholder -->
+              <div id="contactFormFeedback" class="d-none mb-4 p-3 rounded-3" role="alert"></div>
+
+              <form id="contactFlightForm" novalidate>
+                <div class="row g-3">
+                  <!-- Full Name -->
+                  <div class="col-md-6">
+                    <label for="contactName">Full Name <span class="text-primary">*</span></label>
+                    <input type="text" class="form-control" id="contactName" name="name" required placeholder="E.g. Priya Sharma">
+                    <div class="invalid-feedback">Please enter your full name.</div>
+                  </div>
+
+                  <!-- Email Address -->
+                  <div class="col-md-6">
+                    <label for="contactEmail">Email Address <span class="text-primary">*</span></label>
+                    <input type="email" class="form-control" id="contactEmail" name="email" required placeholder="name@company.com">
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                  </div>
+
+                  <!-- Phone Number -->
+                  <div class="col-md-6">
+                    <label for="contactPhone">Phone / Mobile <span class="text-primary">*</span></label>
+                    <input type="tel" class="form-control" id="contactPhone" name="phone" required placeholder="+91 98765 43210">
+                    <div class="invalid-feedback">Please enter your contact phone number.</div>
+                  </div>
+
+                  <!-- Service Interested In -->
+                  <div class="col-md-6">
+                    <label for="contactService">Service Interested In <span class="text-primary">*</span></label>
+                    <select class="form-select" id="contactService" name="service" required>
+                      <option value="">Select a flight service</option>
+                      <option value="Aerial Photography (48MP Stills)">Aerial Photography (48MP Stills)</option>
+                      <option value="Cinematic Aerial Videography (4K/6K ProRes)">Cinematic Aerial Videography (4K/6K ProRes)</option>
+                      <option value="Real Estate &amp; Property Shoots">Real Estate &amp; Property Shoots</option>
+                      <option value="Events &amp; Wedding Coverage">Events &amp; Wedding Coverage</option>
+                      <option value="FPV Dynamic Fly-Throughs">FPV Dynamic Fly-Throughs</option>
+                      <option value="Commercial 3D Mapping &amp; Survey">Commercial 3D Mapping &amp; Survey</option>
+                      <option value="Custom Multi-Day Cinema Production">Custom Multi-Day Cinema Production</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a service.</div>
+                  </div>
+
+                  <!-- Event / Shoot Date -->
+                  <div class="col-md-6">
+                    <label for="contactDate">Event / Shoot Date <span class="text-primary">*</span></label>
+                    <input type="date" class="form-control" id="contactDate" name="date" required>
+                    <div class="invalid-feedback">Please select your preferred shoot date.</div>
+                  </div>
+
+                  <!-- Location -->
+                  <div class="col-md-6">
+                    <label for="contactLocation">Location / City <span class="text-primary">*</span></label>
+                    <input type="text" class="form-control" id="contactLocation" name="location" required placeholder="E.g. ECR Beachfront Villa, Chennai">
+                    <div class="invalid-feedback">Please provide target shoot coordinates or city.</div>
+                  </div>
+
+                  <!-- Subject -->
+                  <div class="col-12">
+                    <label for="contactSubject">Subject <span class="text-primary">*</span></label>
+                    <input type="text" class="form-control" id="contactSubject" name="subject" required placeholder="E.g. Commercial Luxury Resort Aerial Video Showcase">
+                    <div class="invalid-feedback">Please enter an inquiry subject.</div>
+                  </div>
+
+                  <!-- Message -->
+                  <div class="col-12">
+                    <label for="contactMessage">Project Details &amp; Message <span class="text-primary">*</span></label>
+                    <textarea class="form-control" id="contactMessage" name="message" rows="4" required placeholder="Describe property scale, specific shot requirements, desired lighting (sunrise/golden hour), and final video deliverables needed..."></textarea>
+                    <div class="invalid-feedback">Please share some brief project details.</div>
+                  </div>
+
+                  <!-- Submit Button -->
+                  <div class="col-12 mt-4 d-flex flex-wrap align-items-center justify-content-between gap-3">
+                    <button type="submit" class="btn btn-primary rounded-pill px-5 py-3 fw-bold shadow">
+                      <span>Submit Enquiry</span> <i class="bi bi-arrow-right ms-2"></i>
+                    </button>
+                    <div class="text-muted small">
+                      <i class="bi bi-shield-check text-primary me-1"></i> $5M Insured &bull; Zero Spam Guarantee
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 4: OUR SERVICES ================= -->
+    <section class="section-pad" style="background: var(--paper);" id="our-services">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <div class="section-kicker justify-content-center"><span></span> WHAT WE CAPTURE <span></span></div>
+          <h2 class="section-title">Explore Our <span>Core Services.</span></h2>
+          <p class="section-copy mx-auto" style="max-width: 680px;">
+            Dual-pilot crews, calibrated optics, and cinema post-production tailored for architects, directors, and event producers.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Service 1: Aerial Photography -->
+          <div class="col-lg-3 col-md-6">
+            <div class="contact-service-card">
+              <div class="contact-service-thumb">
+                <img src="assets/gallery-nature-1.jpg" alt="Aerial Photography">
+                <div class="contact-service-icon-pill"><i class="bi bi-camera"></i></div>
+              </div>
+              <div class="contact-service-body">
+                <h4>Aerial Photography</h4>
+                <p>High-resolution 48MP raw stills with precision exposure bracketing for architectural, commercial, and billboard use.</p>
+                <a href="service-details.html?service=aerial-photography" class="contact-service-link">View Details &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 2: Cinematic Videography -->
+          <div class="col-lg-3 col-md-6">
+            <div class="contact-service-card">
+              <div class="contact-service-thumb">
+                <img src="assets/gallery-cinematic-1.jpg" alt="Cinematic Videography">
+                <div class="contact-service-icon-pill"><i class="bi bi-camera-video"></i></div>
+              </div>
+              <div class="contact-service-body">
+                <h4>Cinematic Videography</h4>
+                <p>Silky 4K and 6K Apple ProRes footage with 10-bit D-Log grading, dynamic orbital sweeps, and custom cinema LUTs.</p>
+                <a href="service-details.html?service=cinematic-videography" class="contact-service-link">View Details &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 3: Real Estate Shoots -->
+          <div class="col-lg-3 col-md-6">
+            <div class="contact-service-card">
+              <div class="contact-service-thumb">
+                <img src="assets/gallery-realestate-2.jpg" alt="Real Estate Shoots">
+                <div class="contact-service-icon-pill"><i class="bi bi-buildings"></i></div>
+              </div>
+              <div class="contact-service-body">
+                <h4>Real Estate Shoots</h4>
+                <p>Elevated luxury estate showcases, boundary photogrammetry, and dynamic orbital sweeps that accelerate property sales.</p>
+                <a href="service-details.html?service=real-estate-shoots" class="contact-service-link">View Details &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 4: Event Coverage -->
+          <div class="col-lg-3 col-md-6">
+            <div class="contact-service-card">
+              <div class="contact-service-thumb">
+                <img src="assets/gallery-events-1.jpg" alt="Event Coverage">
+                <div class="contact-service-icon-pill"><i class="bi bi-calendar2-event"></i></div>
+              </div>
+              <div class="contact-service-body">
+                <h4>Event Coverage</h4>
+                <p>Ultra-quiet multi-rotor flight paths capturing festivals, sports regattas, and luxury weddings with live HD sky feeds.</p>
+                <a href="service-details.html?service=event-coverage" class="contact-service-link">View Details &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 5: WHY WORK WITH AERONEST? ================= -->
+    <section class="section-pad" style="background: var(--sky-tint);" id="why-work-with-us">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <div class="section-kicker justify-content-center"><span></span> THE AERONEST ADVANTAGE <span></span></div>
+          <h2 class="section-title">Why World-Class Brands <span>Choose AeroNest.</span></h2>
+          <p class="section-copy mx-auto" style="max-width: 680px;">
+            From certified safety track records to studio-grade color science, here is how our flight operations ensure zero-risk, high-impact results.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Pillar 1 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="why-aeronest-card">
+              <div class="why-aeronest-icon"><i class="bi bi-award"></i></div>
+              <h4>Licensed &amp; Insured Pilots</h4>
+              <p>FAA Part 107 and DGCA certified flight crews with 3,200+ logged hours, compliant with all urban airspace waivers and carrying $5M aviation liability insurance.</p>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="why-aeronest-card">
+              <div class="why-aeronest-icon"><i class="bi bi-cpu"></i></div>
+              <h4>Cinema-Grade Aircraft &amp; Optics</h4>
+              <p>DJI Inspire 3 full-frame 8K cameras, agile custom FPV cinewhoops, dual-operator wireless focus decks, and prime DL cinema lenses.</p>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="why-aeronest-card">
+              <div class="why-aeronest-icon"><i class="bi bi-palette"></i></div>
+              <h4>Studio Color Science</h4>
+              <p>Mastered in DaVinci Resolve Studio with custom 3D LUTs calibrated to match Arri Alexa, RED, and Sony Venice A-cam cinema production profiles.</p>
+            </div>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="col-lg-6 col-md-6">
+            <div class="why-aeronest-card">
+              <div class="why-aeronest-icon"><i class="bi bi-sliders"></i></div>
+              <h4>Tailored Transparent Packages</h4>
+              <p>Clear upfront quotes with no hidden permit surcharges. Flexible half-day, full-day, and multi-location expedition options customized for your exact production scope.</p>
+            </div>
+          </div>
+
+          <!-- Pillar 5 -->
+          <div class="col-lg-6 col-md-12">
+            <div class="why-aeronest-card">
+              <div class="why-aeronest-icon"><i class="bi bi-shield-check"></i></div>
+              <h4>Reliable Delivery &amp; Weather Guarantee</h4>
+              <p>48-hour digital delivery of master grades and full uncompressed RAW backup files. If wind or rain exceeds safety thresholds, we reschedule at zero additional fee.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 6: OUR LOCATION (INTERACTIVE MAP) ================= -->
+    <section class="section-pad" style="background: var(--paper);" id="location-map">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <div class="section-kicker justify-content-center"><span></span> OPERATIONS BASE &amp; HANGAR <span></span></div>
+          <h2 class="section-title">Visit Our <span>Flight Studio.</span></h2>
+          <p class="section-copy mx-auto" style="max-width: 680px;">
+            Conveniently situated along the scenic East Coast Road flight corridor, our facility houses our flight hangar, maintenance deck, and 4K client screening lounge.
+          </p>
+        </div>
+
+        <div class="contact-map-wrapper">
+          <!-- Google Maps Iframe -->
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124443.34211158586!2d80.14088921448835!3d12.91717808798993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525d80b6a782b7%3A0xb35b71dbfe37c22e!2sEast%20Coast%20Rd%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            title="AeroNest Flight Hangar &amp; Operations Studio Map" 
+            loading="lazy" 
+            allowfullscreen 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+
+          <!-- Floating Map Badge -->
+          <div class="contact-map-badge">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="badge bg-primary text-uppercase" style="font-size: 11px;">Flight Base Ops</span>
+              <span class="text-muted small"><i class="bi bi-compass me-1"></i> 12.9172° N, 80.2458° E</span>
+            </div>
+            <h5 class="fw-bold mb-1" style="color: var(--ink); font-size: 17px;">AeroNest Flight Studio</h5>
+            <p class="text-muted small mb-3">42 Ocean Breeze Way, ECR Coastal Corridor, Chennai 600115</p>
+            <a href="https://maps.google.com/?q=12.9172,80.2458" target="_blank" rel="noopener" class="btn btn-sm btn-primary rounded-pill px-3">
+              <i class="bi bi-geo-alt-fill me-1"></i> Open in Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 7: FREQUENTLY ASKED QUESTIONS ================= -->
+    <section class="section-pad" style="background: var(--sky-tint);" id="frequently-asked-questions">
+      <div class="container" style="max-width: 860px;">
+        <div class="section-header text-center mb-5">
+          <div class="section-kicker justify-content-center"><span></span> FREQUENTLY ASKED QUESTIONS <span></span></div>
+          <h2 class="section-title">Common Questions About <span>Our Drone Flights.</span></h2>
+          <p class="section-copy mx-auto">
+            Everything you need to know about airspace clearances, insurance, weather policies, and deliverables.
+          </p>
+        </div>
+
+        <div class="accordion" id="contactFaqAccordion">
+          <!-- Question 1 -->
+          <div class="accordion-item rounded-4 border-0 mb-3 shadow-sm overflow-hidden" style="background: var(--card);">
+            <h2 class="accordion-header" id="faqContact1Head">
+              <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqContact1" aria-expanded="true" aria-controls="faqContact1" style="background: var(--card); color: var(--ink);">
+                How far in advance should I book an aerial shoot?
+              </button>
+            </h2>
+            <div id="faqContact1" class="accordion-collapse collapse show" aria-labelledby="faqContact1Head" data-bs-parent="#contactFaqAccordion">
+              <div class="accordion-body text-muted" style="font-size: 14.5px; line-height: 1.7;">
+                For standard uncontrolled airspace shoots (real estate, private estates, general events), booking 3 to 5 days in advance is typically sufficient. For urban centers, controlled airport approach zones, or night operations requiring specialized digital LAANC or DGCA airspace waivers, we recommend 10 to 14 business days.
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="accordion-item rounded-4 border-0 mb-3 shadow-sm overflow-hidden" style="background: var(--card);">
+            <h2 class="accordion-header" id="faqContact2Head">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqContact2" aria-expanded="false" aria-controls="faqContact2" style="background: var(--card); color: var(--ink);">
+                What are your pricing structures and payment terms?
+              </button>
+            </h2>
+            <div id="faqContact2" class="accordion-collapse collapse" aria-labelledby="faqContact2Head" data-bs-parent="#contactFaqAccordion">
+              <div class="accordion-body text-muted" style="font-size: 14.5px; line-height: 1.7;">
+                Our basic photography packages start at $399, cinema 4K video packages at $899, and full-day commercial productions at $1,699. We require a 30% deposit upon booking confirmation to lock your flight date, with the remaining balance due upon review of draft watermarked deliverables.
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="accordion-item rounded-4 border-0 mb-3 shadow-sm overflow-hidden" style="background: var(--card);">
+            <h2 class="accordion-header" id="faqContact3Head">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqContact3" aria-expanded="false" aria-controls="faqContact3" style="background: var(--card); color: var(--ink);">
+                What happens if weather conditions, rain, or high winds occur?
+              </button>
+            </h2>
+            <div id="faqContact3" class="accordion-collapse collapse" aria-labelledby="faqContact3Head" data-bs-parent="#contactFaqAccordion">
+              <div class="accordion-body text-muted" style="font-size: 14.5px; line-height: 1.7;">
+                We track multi-model meteorological telemetry 72 hours prior to every mission. If sustained winds exceed 35 km/h, heavy fog limits visibility below 3 statute miles, or precipitation occurs, we trigger our Weather Guarantee: your mission is rescheduled to the next available sunny slot with zero rebooking fees.
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div class="accordion-item rounded-4 border-0 mb-3 shadow-sm overflow-hidden" style="background: var(--card);">
+            <h2 class="accordion-header" id="faqContact4Head">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqContact4" aria-expanded="false" aria-controls="faqContact4" style="background: var(--card); color: var(--ink);">
+                Are your pilots certified and insured to fly over private property?
+              </button>
+            </h2>
+            <div id="faqContact4" class="accordion-collapse collapse" aria-labelledby="faqContact4Head" data-bs-parent="#contactFaqAccordion">
+              <div class="accordion-body text-muted" style="font-size: 14.5px; line-height: 1.7;">
+                Yes, 100%. All AeroNest remote pilots hold valid commercial drone certifications (FAA Part 107 and equivalent DGCA authorizations). Every single flight mission is protected by up to $5,000,000 in comprehensive commercial aviation liability coverage, providing complete peace of mind.
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 5 -->
+          <div class="accordion-item rounded-4 border-0 mb-3 shadow-sm overflow-hidden" style="background: var(--card);">
+            <h2 class="accordion-header" id="faqContact5Head">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqContact5" aria-expanded="false" aria-controls="faqContact5" style="background: var(--card); color: var(--ink);">
+                What deliverables will I receive and in what formats?
+              </button>
+            </h2>
+            <div id="faqContact5" class="accordion-collapse collapse" aria-labelledby="faqContact5Head" data-bs-parent="#contactFaqAccordion">
+              <div class="accordion-body text-muted" style="font-size: 14.5px; line-height: 1.7;">
+                Deliverables include color-graded Apple ProRes 422 HQ and web-optimized MP4/H.265 master files, along with 48MP DNG RAW stills and full-resolution JPEGs. For production agencies, we also transfer full unedited RAW cinema footage via secure high-speed cloud drive.
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 6 -->
+          <div class="accordion-item rounded-4 border-0 shadow-sm overflow-hidden" style="background: var(--card);">
+            <h2 class="accordion-header" id="faqContact6Head">
+              <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqContact6" aria-expanded="false" aria-controls="faqContact6" style="background: var(--card); color: var(--ink);">
+                Can AeroNest operate indoors or in confined spaces?
+              </button>
+            </h2>
+            <div id="faqContact6" class="accordion-collapse collapse" aria-labelledby="faqContact6Head" data-bs-parent="#contactFaqAccordion">
+              <div class="accordion-body text-muted" style="font-size: 14.5px; line-height: 1.7;">
+                Yes! We maintain custom lightweight Cinewhoop FPV airframes equipped with 360° ducted propeller guards and non-GPS optical positioning systems, enabling silky smooth continuous transitions from outdoor skies into indoor atriums, auditoriums, and luxury residences.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 8: SOCIAL MEDIA CONNECT ================= -->
+    <section class="section-pad" style="background: var(--paper);" id="social-media-connect">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <div class="section-kicker justify-content-center"><span></span> COMMUNITY &amp; REELS <span></span></div>
+          <h2 class="section-title">Connect With AeroNest on <span>Social Media.</span></h2>
+          <p class="section-copy mx-auto" style="max-width: 680px;">
+            Follow our daily flight logs, viral 4K drone reels, behind-the-scenes cinematography setups, and aerial photography portfolios.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Instagram -->
+          <div class="col-lg-3 col-md-6">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-connect-card">
+              <div class="social-connect-icon"><i class="bi bi-instagram"></i></div>
+              <h4>Instagram</h4>
+              <div class="social-connect-handle">@aeronest.aerials</div>
+              <p>Daily sunset reels, pilot cockpit telemetry, and high-altitude photography series.</p>
+              <span class="social-connect-btn">Follow on Instagram &rarr;</span>
+            </a>
+          </div>
+
+          <!-- YouTube -->
+          <div class="col-lg-3 col-md-6">
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="social-connect-card">
+              <div class="social-connect-icon"><i class="bi bi-youtube"></i></div>
+              <h4>YouTube</h4>
+              <div class="social-connect-handle">AeroNest Cinema 4K</div>
+              <p>Full 4K 60FPS cinema showreels, FPV fly-throughs, and aerial filmmaking tutorials.</p>
+              <span class="social-connect-btn">Subscribe on YouTube &rarr;</span>
+            </a>
+          </div>
+
+          <!-- Facebook -->
+          <div class="col-lg-3 col-md-6">
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-connect-card">
+              <div class="social-connect-icon"><i class="bi bi-facebook"></i></div>
+              <h4>Facebook</h4>
+              <div class="social-connect-handle">AeroNest Drone Studio</div>
+              <p>Client shoot showcases, festival live stream announcements, and customer feedback.</p>
+              <span class="social-connect-btn">Join Community &rarr;</span>
+            </a>
+          </div>
+
+          <!-- LinkedIn -->
+          <div class="col-lg-3 col-md-6">
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-connect-card">
+              <div class="social-connect-icon"><i class="bi bi-linkedin"></i></div>
+              <h4>LinkedIn</h4>
+              <div class="social-connect-handle">AeroNest Commercial Flight Ops</div>
+              <p>Enterprise surveying case studies, infrastructure photogrammetry, and industry news.</p>
+              <span class="social-connect-btn">Connect on LinkedIn &rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 9: FINAL CTA SECTION ================= -->
+    <section class="cta-section" id="final-cta">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <div class="section-kicker text-white-50"><span></span> START YOUR FLIGHT MISSION <span></span></div>
+            <h2>Ready to Elevate Your Project<br><span>From Above?</span></h2>
+            <p>Whether you need a sunrise real estate shoot or a full-scale cinema production, our certified flight crew is ready to discuss coordinates and timeline.</p>
+          </div>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#contact-form-section" class="btn btn-primary rounded-pill btn-lg px-4"><span>Submit Flight Enquiry</span> <i class="bi bi-arrow-up-right-circle ms-2"></i></a>
+            <a href="https://wa.me/919876543210?text=Hello%20AeroNest%2C%20I%20would%20like%20to%20discuss%20a%20drone%20shoot%20quotation." target="_blank" rel="noopener" class="btn btn-outline-light rounded-pill btn-lg px-4"><i class="bi bi-whatsapp me-2"></i><span>WhatsApp Quick Chat</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+            <div class="row g-4 footer-main">
+        <div class="col-lg-3 col-md-6">
+          <a class="brand-container footer-brand" href="index.html" aria-label="AeroNest home">
+            <div class="brand-logo-mark">
+              <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="48" height="48" rx="12" fill="url(#footerBrandGrad)"/>
+                <path d="M15 15L33 33M33 15L15 33" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="14" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="34" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="14" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="34" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="24" cy="24" r="8" fill="#071a31" stroke="white" stroke-width="2"/>
+                <circle cx="24" cy="24" r="4" fill="#38bdf8"/>
+                <defs>
+                  <linearGradient id="footerBrandGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#168df3"/>
+                    <stop offset="1" stop-color="#0284c7"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <div class="brand-title"><span class="brand-aero">Aero</span><span class="brand-nest">Nest</span></div>
+              <div class="brand-subtitle">AERIAL PHOTOGRAPHY &amp; VIDEO</div>
+            </div>
+          </a>
+          <p class="footer-tagline">See the world differently.<br>From high above with certified pilots.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="home2.html">Home 2</a>
+          <a href="about.html">About Us</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="services.html">Services</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Services</h4>
+          <a href="services.html">Aerial Photography</a>
+          <a href="services.html">Cinematic Video</a>
+          <a href="services.html">Real Estate 3D Tours</a>
+          <a href="services.html">Event Live Feeds</a>
+          <a href="services.html">3D Photogrammetry</a>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Support</h4>
+          <a href="contact.html#frequently-asked-questions">FAQs</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms &amp; Policy</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+          <a href="contact.html">Contact Support</a>
+        </div>
+        <div class="col-12 col-lg-3 col-md-6">
+          <h4>Stay in the loop</h4>
+          <p>Get occasional aerial perspectives and flight updates.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" required placeholder="Your email address" aria-label="Your email address">
+            <button type="submit" aria-label="Subscribe"><i class="bi bi-arrow-right"></i></button>
+          </form>
+          <small id="newsletterMessage"></small>
+          <div class="mt-3" style="font-size: 12px; color: #9cb2cb;">
+            <span><i class="bi bi-envelope me-1"></i> hello@aeronest.com</span>
+            <span class="mx-2">&bull;</span>
+            <span><i class="bi bi-telephone me-1"></i> +91 98765 43210</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> AeroNest. All rights reserved. Licensed Part 107 Operations.</span>
+        <div>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of Flight</a>
+          <a href="#top">Back to top &uarr;</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <!-- Interactive Form Handling Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set minimum date picker to today
+      const dateInput = document.getElementById('contactDate');
+      if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+      }
+
+      // Check if URL has service preselected (e.g. ?service=real-estate)
+      const urlParams = new URLSearchParams(window.location.search);
+      const serviceParam = urlParams.get('service');
+      const serviceSelect = document.getElementById('contactService');
+      if (serviceParam && serviceSelect) {
+        for (let i = 0; i < serviceSelect.options.length; i++) {
+          if (serviceSelect.options[i].value.toLowerCase().includes(serviceParam.toLowerCase())) {
+            serviceSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+
+      // Handle Contact Flight Form Submission
+      const form = document.getElementById('contactFlightForm');
+      const feedback = document.getElementById('contactFormFeedback');
+
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+
+          if (!form.checkValidity()) {
+            e.stopPropagation();
+            form.classList.add('was-validated');
+            return;
+          }
+
+          const name = document.getElementById('contactName').value.trim();
+          const email = document.getElementById('contactEmail').value.trim();
+          const phone = document.getElementById('contactPhone').value.trim();
+          const service = document.getElementById('contactService').value;
+          const date = document.getElementById('contactDate').value;
+          const refNumber = 'AN-' + Math.floor(10000 + Math.random() * 90000);
+
+          if (feedback) {
+            feedback.className = 'alert alert-info d-block mb-4 p-4 rounded-4 shadow-sm';
+            feedback.style.background = 'rgba(22, 141, 243, 0.08)';
+            feedback.style.borderColor = 'rgba(22, 141, 243, 0.3)';
+            feedback.style.color = 'var(--ink)';
+            feedback.innerHTML = `
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <i class="bi bi-check-circle-fill text-primary fs-3"></i>
+                <h5 class="fw-bold mb-0" style="color: var(--sky-blue);">Enquiry Received Successfully! (Ref: #${refNumber})</h5>
+              </div>
+              <p class="mb-2" style="font-size: 14px;">
+                Thank you, <strong>${name}</strong>! Your flight booking request for <strong>${service}</strong> on <strong>${date}</strong> has been logged with our flight dispatch desk.
+              </p>
+              <p class="text-muted small mb-3">
+                Our Chief Remote Pilot will evaluate airspace classifications and contact you at <strong>${phone}</strong> or <strong>${email}</strong> within 24 hours.
+              </p>
+              <a href="https://wa.me/919876543210?text=Hello%20AeroNest%2C%20I%20just%20submitted%20booking%20enquiry%20Ref%20%23${refNumber}%20for%20${encodeURIComponent(service)}." target="_blank" rel="noopener" class="btn btn-sm btn-primary rounded-pill px-3">
+                <i class="bi bi-whatsapp me-1"></i> Send Instant Confirmation on WhatsApp
+              </a>
+            `;
+            feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+
+          form.reset();
+          form.classList.remove('was-validated');
+        });
+      }
+    });
+  </script>
+
+  <!-- Terms & Policy Modal -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content" style="border-radius: 18px; border: 1px solid rgba(22, 141, 243, 0.2); overflow: hidden;">
+        <div class="modal-header" style="background: linear-gradient(135deg, #071a31 0%, #0c2d53 100%); color: white; border-bottom: none; padding: 20px 24px;">
+          <div>
+            <span class="badge" style="background: rgba(22, 141, 243, 0.3); color: #38bdf8; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 5px 12px; border-radius: 30px; margin-bottom: 6px; display: inline-block;">AERONEST POLICIES</span>
+            <h5 class="modal-title fw-bold m-0" id="termsModalLabel">Terms &amp; Flight Policy</h5>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4" style="color: #475569; font-size: 14px; line-height: 1.7; max-height: 60vh; overflow-y: auto;">
+          <h6 class="fw-bold text-dark">1. Part 107 Commercial Flight Compliance</h6>
+          <p>All AeroNest operations comply strictly with FAA Part 107 (and DGCA / national civil aviation authorities). Our pilots hold commercial drone licenses and full airspace risk authorizations.</p>
+          <h6 class="fw-bold text-dark mt-3">2. Weather &amp; Safety Ground Rules</h6>
+          <p>Safety is non-negotiable. Flights will be rescheduled at zero cost to the client in the event of rain, sustained winds exceeding 20 knots, restricted temporary flight limits (TFRs), or severe geomagnetic interference.</p>
+          <h6 class="fw-bold text-dark mt-3">3. Commercial Licensing &amp; Usage Rights</h6>
+          <p>Clients receive full commercial usage rights for delivered media as specified in the service package. Unedited RAW files and proprietary flight telemetry logs remain the property of AeroNest unless licensed separately.</p>
+          <h6 class="fw-bold text-dark mt-3">4. Turnaround &amp; Revisions</h6>
+          <p>Standard delivery timelines are 24-48 hours for photography and 3-5 business days for edited cinema reels. Two rounds of color grade/edit adjustments are included in all packages.</p>
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid #e2e8f0; padding: 16px 24px;">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" style="border-radius: 10px; font-size: 13px; font-weight: 600;">Close</button>
+          <a href="contact.html" class="btn btn-brand btn-modal-action">Contact Support &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content" style="border-radius: 18px; border: 1px solid rgba(22, 141, 243, 0.2); overflow: hidden;">
+        <div class="modal-header" style="background: linear-gradient(135deg, #071a31 0%, #0c2d53 100%); color: white; border-bottom: none; padding: 20px 24px;">
+          <div>
+            <span class="badge" style="background: rgba(22, 141, 243, 0.3); color: #38bdf8; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 5px 12px; border-radius: 30px; margin-bottom: 6px; display: inline-block;">PRIVACY &amp; DATA SECURITY</span>
+            <h5 class="modal-title fw-bold m-0" id="privacyModalLabel">Privacy Policy</h5>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4" style="color: #475569; font-size: 14px; line-height: 1.7; max-height: 60vh; overflow-y: auto;">
+          <h6 class="fw-bold text-dark">1. Information We Collect</h6>
+          <p>We collect project details, contact information, GPS flight coordinates, and shoot requirements submitted via our inquiry forms to coordinate flight plans and deliver high-resolution assets.</p>
+          <h6 class="fw-bold text-dark mt-3">2. Airspace &amp; Property Privacy Safeguards</h6>
+          <p>AeroNest respects private property and personal privacy. During aerial capture, sensors are angled to focus strictly on the commissioned subject, avoiding adjacent residential interiors and restricted neighbor premises.</p>
+          <h6 class="fw-bold text-dark mt-3">3. Cloud Storage &amp; Asset Delivery</h6>
+          <p>Deliverables are securely hosted on encrypted cloud vaults for 90 days following project completion. We do not sell or share your contact data with third-party advertisers.</p>
+          <h6 class="fw-bold text-dark mt-3">4. Cookies &amp; Newsletter</h6>
+          <p>We use lightweight local storage to remember your theme and language preferences. You may unsubscribe from our monthly flight digest at any time with one click.</p>
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid #e2e8f0; padding: 16px 24px;">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" style="border-radius: 10px; font-size: 13px; font-weight: 600;">Close</button>
+          <a href="contact.html" class="btn btn-brand btn-modal-action">Contact Support &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

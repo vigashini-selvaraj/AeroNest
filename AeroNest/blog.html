@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AeroNest Blog — Professional drone photography insights, aerial filmmaking masterclasses, real estate trends, and FAA Part 107 flight stories.">
+  <title>Stories, Insights &amp; Perspectives from Above | AeroNest Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function(){
+      try {
+        var d = localStorage.getItem('aeronest-direction');
+        if (d === 'rtl') document.documentElement.setAttribute('dir', 'rtl');
+        var t = localStorage.getItem('aeronest-theme');
+        if (t === 'dark') {
+          document.documentElement.classList.add('dark-mode');
+        } else {
+          document.documentElement.classList.remove('dark-mode');
+        }
+      } catch(e){}
+    })();
+  </script>
+</head>
+<body>
+  <!-- ================= STICKY NAVBAR ================= -->
+  <nav class="navbar navbar-expand-xl fixed-top site-nav" id="top">
+    <div class="container">
+      <a class="navbar-brand brand-container" href="index.html" aria-label="AeroNest home">
+        <div class="brand-logo-mark">
+          <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="12" fill="url(#navBrandGradBlogFinal)"/>
+            <path d="M15 15L33 33M33 15L15 33" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="14" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="34" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="14" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="34" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="14" cy="14" r="1.8" fill="white"/>
+            <circle cx="34" cy="14" r="1.8" fill="white"/>
+            <circle cx="14" cy="34" r="1.8" fill="white"/>
+            <circle cx="34" cy="34" r="1.8" fill="white"/>
+            <circle cx="24" cy="24" r="8" fill="#071a31" stroke="white" stroke-width="2"/>
+            <circle cx="24" cy="24" r="4" fill="#38bdf8"/>
+            <defs>
+              <linearGradient id="navBrandGradBlogFinal" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#168df3"/>
+                <stop offset="1" stop-color="#0284c7"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title"><span class="brand-aero">Aero</span><span class="brand-nest">Nest</span></div>
+          <div class="brand-subtitle">AERIAL PHOTOGRAPHY &amp; VIDEO</div>
+        </div>
+      </a>
+            <!-- Mobile Quick Actions: RTL & Color Theme right next to hamburger -->
+      <div class="nav-mobile-actions d-xl-none ms-auto me-2">
+        <button class="nav-btn-mobile" id="mobileDirectionToggle" aria-label="Switch text direction" title="Switch LTR / RTL">
+          <span class="direction-text">LTR</span>
+          <i class="bi bi-arrow-left-right"></i>
+        </button>
+        <button class="nav-btn-mobile nav-btn-icon" id="mobileThemeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <i class="bi bi-sun mobileThemeIcon"></i>
+        </button>
+      </div>
+      <button class="navbar-toggler nav-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto align-items-xl-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="home2.html">Home 2</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions d-flex align-items-center">
+          <button class="nav-btn-ltr d-none d-xl-inline-flex" id="directionToggle" aria-label="Switch text direction" title="Switch LTR / RTL">
+            <span class="direction-text">LTR</span>
+            <i class="bi bi-arrow-left-right"></i>
+          </button>
+          <button class="nav-btn-icon d-none d-xl-inline-flex" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+            <i class="bi bi-sun" id="themeIcon"></i>
+          </button>
+          <a class="nav-btn-book" href="contact.html">
+            <span>Book a Shoot</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ================= 1. BLOG HERO SECTION (Exact Services Style with Sun & Blue Theme) ================= -->
+    <section class="hero-section" id="blogHero">
+      <div class="blog-hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow light-eyebrow"><span></span><span>AeroNest Stories &amp; Flight Log</span></p>
+          <h1>Stories, Insights &amp;<br><em>Perspectives from Above.</em></h1>
+          <p class="hero-description">
+            Explore professional drone photography insights, aerial filmmaking masterclasses, real estate marketing breakthroughs, and flight safety guides from our FAA Part 107 certified crew.
+          </p>
+          <div class="hero-buttons">
+            <a href="blog-details.html?id=luxury-real-estate-aerial-speed" class="btn btn-primary btn-lg rounded-pill" id="heroFeaturedBtn">
+              <span>Read Featured Story</span> <i class="bi bi-arrow-up-right-circle ms-1"></i>
+            </a>
+            <a href="#blogLatest" class="btn btn-outline-light btn-lg rounded-pill">
+              <span>Explore Articles</span> <i class="bi bi-arrow-down-circle ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-wave"></div>
+    </section>
+
+    <!-- ================= 2. FEATURED ARTICLE ================= -->
+    <section class="section-pad" id="blogFeatured" style="background: var(--paper); padding-top: 90px;">
+      <div class="container">
+        <div class="section-header text-center mb-5" style="margin-top: 15px;">
+          <div class="section-kicker justify-content-center"><span></span> EDITOR'S HIGHLIGHT <span></span></div>
+          <h2 class="section-title">Featured <span>Article.</span></h2>
+        </div>
+        <div class="blog-featured-card p-4 p-md-5 mb-5" id="featuredArticleContainer">
+          <!-- Dynamically populated from AERONEST_BLOGS[0] -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 3. BLOG CATEGORIES & SEARCH ================= -->
+    <section class="py-5" id="blogCategories" style="background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+      <div class="container">
+        <!-- Search Input Bar with Neutral Card Background -->
+        <div class="blog-search-wrap mb-4">
+          <div class="input-group">
+            <input type="text" id="blogSearchInput" class="form-control form-control-lg rounded-pill ps-4 pe-5" placeholder="Search by topic, keyword, or drone technique..." aria-label="Search articles" style="height: 54px; background: var(--paper); border: 1.5px solid var(--line); color: var(--ink);">
+            <button type="button" id="blogSearchClear" class="blog-search-clear" aria-label="Clear search"><i class="bi bi-x-circle-fill"></i></button>
+          </div>
+          <div id="searchFeedback" class="text-muted small mt-2 text-center" style="display: none;"></div>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="blog-cat-nav" id="categoryPillsContainer">
+          <button class="blog-cat-pill active" data-category="all">
+            <i class="bi bi-grid-fill"></i> All Articles <span class="badge" id="catCountAll">12</span>
+          </button>
+          <button class="blog-cat-pill" data-category="Drone Photography">
+            <i class="bi bi-camera"></i> Drone Photography <span class="badge" id="catCountPhoto">2</span>
+          </button>
+          <button class="blog-cat-pill" data-category="Aerial Videography">
+            <i class="bi bi-camera-reels"></i> Aerial Videography <span class="badge" id="catCountVideo">2</span>
+          </button>
+          <button class="blog-cat-pill" data-category="Real Estate Photography">
+            <i class="bi bi-buildings"></i> Real Estate Photography <span class="badge" id="catCountRE">2</span>
+          </button>
+          <button class="blog-cat-pill" data-category="Drone Technology">
+            <i class="bi bi-cpu"></i> Drone Technology <span class="badge" id="catCountTech">3</span>
+          </button>
+          <button class="blog-cat-pill" data-category="Events & Cinematic Stories">
+            <i class="bi bi-film"></i> Events &amp; Cinematic Stories <span class="badge" id="catCountEvents">2</span>
+          </button>
+          <button class="blog-cat-pill" data-category="Tips & Tutorials">
+            <i class="bi bi-lightbulb"></i> Tips &amp; Tutorials <span class="badge" id="catCountTips">3</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 4. LATEST ARTICLES ================= -->
+    <section class="section-pad" id="blogLatest" style="background: var(--paper);">
+      <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-end mb-4">
+          <div>
+            <div class="section-kicker"><span></span> CURATED FLIGHT ARCHIVE</div>
+            <h2 class="section-title mb-0" id="latestHeading">Latest <span>Articles.</span></h2>
+          </div>
+          <span class="text-muted small mt-2 mt-md-0" id="articleResultsCount">Showing 12 articles</span>
+        </div>
+
+        <!-- Latest Articles Grid -->
+        <div class="row g-4" id="latestArticlesGrid">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Empty Search State -->
+        <div id="noResultsState" class="text-center py-5" style="display: none;">
+          <div class="mb-3 text-muted" style="font-size: 48px;"><i class="bi bi-journal-x"></i></div>
+          <h4 class="fw-bold" style="color: var(--ink);">No Articles Found</h4>
+          <p class="text-muted small">No articles matched your search query. Try searching for "FPV", "Golden Hour", "Real Estate", or "LiDAR".</p>
+          <button class="btn btn-primary rounded-pill px-4 mt-2 fw-bold" id="resetSearchBtn">Reset Search &amp; Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 5. POPULAR ARTICLES ================= -->
+    <section class="section-pad" id="blogPopular" style="background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+      <div class="container">
+        <div class="text-center mb-5">
+          <div class="section-kicker justify-content-center"><span></span> COMMUNITY FAVORITES</div>
+          <h2 class="section-title">Popular <span>Articles.</span></h2>
+          <p class="section-copy mx-auto" style="max-width: 620px;">
+            Our most-read field stories, technical guides, and cinematic drone breakdowns ranked by reader engagement.
+          </p>
+        </div>
+        <div class="row g-4" id="popularArticlesGrid">
+          <!-- Dynamically populated with rank badges (#01, #02, etc.) -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 6. EDITOR'S PICKS ================= -->
+    <section class="section-pad" id="blogEditorsPicks" style="background: var(--paper);">
+      <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-end mb-5">
+          <div>
+            <div class="section-kicker"><span></span> FLIGHT DIRECTOR RECOMMENDED</div>
+            <h2 class="section-title mb-0">Editor's <span>Picks.</span></h2>
+          </div>
+          <span class="text-muted small mt-2 mt-md-0">Handpicked for creative inspiration</span>
+        </div>
+        <div class="row g-4" id="editorsPicksGrid">
+          <!-- Dynamically populated with 3 curated cards -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 7. DRONE PHOTOGRAPHY INSIGHTS ================= -->
+    <section class="section-pad" id="blogInsights" style="background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+      <div class="container">
+        <div class="text-center mb-5">
+          <div class="section-kicker justify-content-center"><span></span> MASTERCLASS KNOWLEDGE</div>
+          <h2 class="section-title">Drone Photography <span>Insights.</span></h2>
+          <p class="section-copy mx-auto" style="max-width: 660px;">
+            Deep-dive technical methodologies covering sensor physics, gimbal mechanics, atmospheric lighting, and high-altitude flight safety.
+          </p>
+        </div>
+        <div class="row g-4" id="insightsGrid">
+          <!-- Dynamically populated educational feature cards -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CALL-TO-ACTION SECTION ================= -->
+    <section class="cta-section" id="blogCta">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <div class="section-kicker text-white-50"><span></span> WORK TOGETHER</div>
+            <h2>Have a story to tell<br><span>from the sky?</span></h2>
+            <p>Our FAA Part 107 certified flight crew and cinema directors are ready to bring your vision to life.</p>
+          </div>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="services.html" class="btn btn-outline-light rounded-pill btn-lg px-4">Explore Services</a>
+            <a href="contact.html" class="btn btn-primary rounded-pill btn-lg px-4 fw-bold">Plan Your Shoot <i class="bi bi-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+            <div class="row g-4 footer-main">
+        <div class="col-lg-3 col-md-6">
+          <a class="brand-container footer-brand" href="index.html" aria-label="AeroNest home">
+            <div class="brand-logo-mark">
+              <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="48" height="48" rx="12" fill="url(#footerBrandGrad)"/>
+                <path d="M15 15L33 33M33 15L15 33" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="14" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="34" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="14" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="34" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="24" cy="24" r="8" fill="#071a31" stroke="white" stroke-width="2"/>
+                <circle cx="24" cy="24" r="4" fill="#38bdf8"/>
+                <defs>
+                  <linearGradient id="footerBrandGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#168df3"/>
+                    <stop offset="1" stop-color="#0284c7"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <div class="brand-title"><span class="brand-aero">Aero</span><span class="brand-nest">Nest</span></div>
+              <div class="brand-subtitle">AERIAL PHOTOGRAPHY &amp; VIDEO</div>
+            </div>
+          </a>
+          <p class="footer-tagline">See the world differently.<br>From high above with certified pilots.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="home2.html">Home 2</a>
+          <a href="about.html">About Us</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="services.html">Services</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Services</h4>
+          <a href="services.html">Aerial Photography</a>
+          <a href="services.html">Cinematic Video</a>
+          <a href="services.html">Real Estate 3D Tours</a>
+          <a href="services.html">Event Live Feeds</a>
+          <a href="services.html">3D Photogrammetry</a>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Support</h4>
+          <a href="contact.html#frequently-asked-questions">FAQs</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms &amp; Policy</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+          <a href="contact.html">Contact Support</a>
+        </div>
+        <div class="col-12 col-lg-3 col-md-6">
+          <h4>Stay in the loop</h4>
+          <p>Get occasional aerial perspectives and flight updates.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" required placeholder="Your email address" aria-label="Your email address">
+            <button type="submit" aria-label="Subscribe"><i class="bi bi-arrow-right"></i></button>
+          </form>
+          <small id="newsletterMessage"></small>
+          <div class="mt-3" style="font-size: 12px; color: #9cb2cb;">
+            <span><i class="bi bi-envelope me-1"></i> hello@aeronest.com</span>
+            <span class="mx-2">&bull;</span>
+            <span><i class="bi bi-telephone me-1"></i> +91 98765 43210</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> AeroNest. All rights reserved. Licensed Part 107 Operations.</span>
+        <div>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of Flight</a>
+          <a href="#top">Back to top &uarr;</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/blog-data.js"></script>
+
+  <!-- ================= BLOG INTERACTIVE ENGINE ================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof AERONEST_BLOGS === 'undefined') return;
+
+      let currentCategory = 'all';
+      let searchQuery = '';
+
+      // 1. Render Featured Post
+      const featured = getFeaturedBlog();
+      const featuredContainer = document.getElementById('featuredArticleContainer');
+      if (featuredContainer && featured) {
+        const detailUrl = getBlogDetailUrl(featured);
+        featuredContainer.innerHTML = `
+          <div class="row align-items-center g-4">
+            <div class="col-lg-6">
+              <span class="badge px-3 py-2 text-uppercase mb-3" style="background: rgba(7, 26, 49, 0.88); border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; font-size: 11px; letter-spacing: 0.5px;">
+                <i class="bi bi-star-fill text-warning me-1"></i> Featured Article &bull; ${featured.category}
+              </span>
+              <h3 class="fw-bold mb-3" style="letter-spacing: -0.8px; line-height: 1.25; font-size: clamp(22px, 2.5vw, 32px); color: var(--ink);">
+                <a href="${detailUrl}" class="text-decoration-none" style="color: var(--ink);">${featured.title}</a>
+              </h3>
+              <p class="text-muted mb-4" style="font-size: 15px; line-height: 1.75;">${featured.desc}</p>
+              <div class="d-flex align-items-center gap-3">
+                <img src="${featured.authorImg}" class="rounded-circle shadow-sm" style="width: 44px; height: 44px; object-fit: cover;" alt="${featured.author}">
+                <div>
+                  <h6 class="mb-0 fw-bold" style="color: var(--ink);">${featured.author}</h6>
+                  <small class="text-muted">${featured.date} &bull; ${featured.readTime} &bull; <i class="bi bi-eye ms-1"></i> ${featured.views}</small>
+                </div>
+              </div>
+              <div class="mt-4">
+                <a href="${detailUrl}" class="btn btn-primary rounded-pill px-4 py-2 fw-bold shadow-sm">
+                  <span>View Details</span> <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <a href="${detailUrl}" class="d-block overflow-hidden rounded-4 blog-featured-thumb-wrap">
+                <img src="${featured.image}" alt="${featured.title}" class="img-fluid w-100 rounded-4">
+              </a>
+            </div>
+          </div>
+        `;
+      }
+
+      // Helper: Render single article card with Blue View Details Button
+      function renderBlogCard(b) {
+        const detailUrl = getBlogDetailUrl(b);
+        return `
+          <div class="col-md-6 col-lg-4 blog-item-col" data-cat="${b.category}">
+            <article class="blog-card">
+              <div class="blog-thumb">
+                <a href="${detailUrl}">
+                  <img src="${b.image}" alt="${b.title}" loading="lazy">
+                </a>
+                <span class="blog-tag">${b.category}</span>
+              </div>
+              <div class="blog-body">
+                <div class="blog-meta">
+                  <span><i class="bi bi-calendar3"></i> ${b.date}</span>
+                  <span>&bull;</span>
+                  <span><i class="bi bi-clock"></i> ${b.readTime}</span>
+                </div>
+                <h3><a href="${detailUrl}" style="color: var(--ink); text-decoration: none;">${b.title}</a></h3>
+                <p>${b.desc}</p>
+                <div class="d-flex align-items-center justify-content-between mt-auto pt-3 border-top border-light border-opacity-25">
+                  <div class="d-flex align-items-center gap-2">
+                    <img src="${b.authorImg}" class="rounded-circle" style="width: 28px; height: 28px; object-fit: cover;" alt="${b.author}">
+                    <small class="text-muted fw-semibold" style="font-size: 12px;">${b.author}</small>
+                  </div>
+                  <a href="${detailUrl}" class="btn btn-primary btn-sm rounded-pill px-3 fw-bold">
+                    View Details <i class="bi bi-arrow-right ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        `;
+      }
+
+      // 2. Render Latest Articles with Filtering & Search
+      const latestGrid = document.getElementById('latestArticlesGrid');
+      const resultsCountEl = document.getElementById('articleResultsCount');
+      const noResultsState = document.getElementById('noResultsState');
+      const searchFeedback = document.getElementById('searchFeedback');
+
+      function filterAndRenderArticles() {
+        let list = AERONEST_BLOGS;
+
+        if (currentCategory !== 'all') {
+          list = list.filter(b => b.category.toLowerCase() === currentCategory.toLowerCase());
+        }
+
+        if (searchQuery.trim() !== '') {
+          const q = searchQuery.toLowerCase().trim();
+          list = list.filter(b =>
+            b.title.toLowerCase().includes(q) ||
+            b.desc.toLowerCase().includes(q) ||
+            b.category.toLowerCase().includes(q) ||
+            b.author.toLowerCase().includes(q)
+          );
+        }
+
+        if (list.length === 0) {
+          latestGrid.innerHTML = '';
+          noResultsState.style.display = 'block';
+          resultsCountEl.textContent = '0 articles found';
+        } else {
+          noResultsState.style.display = 'none';
+          latestGrid.innerHTML = list.map(renderBlogCard).join('');
+          resultsCountEl.textContent = `Showing ${list.length} article${list.length === 1 ? '' : 's'}`;
+        }
+
+        if (searchQuery.trim() !== '') {
+          searchFeedback.style.display = 'block';
+          searchFeedback.textContent = `Filtered by search "${searchQuery}" (${list.length} results)`;
+        } else {
+          searchFeedback.style.display = 'none';
+        }
+      }
+
+      filterAndRenderArticles();
+
+      // 3. Category Filter Buttons
+      const catPills = document.querySelectorAll('.blog-cat-pill');
+      catPills.forEach(pill => {
+        pill.addEventListener('click', function(e) {
+          e.preventDefault();
+          catPills.forEach(p => p.classList.remove('active'));
+          this.classList.add('active');
+          currentCategory = this.getAttribute('data-category');
+          filterAndRenderArticles();
+        });
+      });
+
+      // 4. Search Input Handler
+      const searchInput = document.getElementById('blogSearchInput');
+      const searchClear = document.getElementById('blogSearchClear');
+      const resetSearchBtn = document.getElementById('resetSearchBtn');
+
+      if (searchInput) {
+        searchInput.addEventListener('input', function() {
+          searchQuery = this.value;
+          if (searchQuery.length > 0) {
+            searchClear.classList.add('show');
+          } else {
+            searchClear.classList.remove('show');
+          }
+          filterAndRenderArticles();
+        });
+      }
+
+      if (searchClear) {
+        searchClear.addEventListener('click', function() {
+          searchInput.value = '';
+          searchQuery = '';
+          searchClear.classList.remove('show');
+          filterAndRenderArticles();
+          searchInput.focus();
+        });
+      }
+
+      if (resetSearchBtn) {
+        resetSearchBtn.addEventListener('click', function() {
+          searchInput.value = '';
+          searchQuery = '';
+          searchClear.classList.remove('show');
+          currentCategory = 'all';
+          catPills.forEach(p => {
+            if (p.getAttribute('data-category') === 'all') p.classList.add('active');
+            else p.classList.remove('active');
+          });
+          filterAndRenderArticles();
+        });
+      }
+
+      // 5. Popular Articles Section with Blue View Details Button
+      const popularGrid = document.getElementById('popularArticlesGrid');
+      if (popularGrid) {
+        const popularList = getPopularBlogs().slice(0, 4);
+        popularGrid.innerHTML = popularList.map((b, idx) => {
+          const detailUrl = getBlogDetailUrl(b);
+          return `
+            <div class="col-lg-6">
+              <div class="blog-popular-card">
+                <div class="blog-popular-rank">#0${idx + 1}</div>
+                <div class="blog-popular-thumb">
+                  <a href="${detailUrl}"><img src="${b.image}" alt="${b.title}" loading="lazy"></a>
+                </div>
+                <div class="blog-popular-body">
+                  <span class="badge mb-1" style="background: rgba(7, 26, 49, 0.88); border: 1px solid rgba(255, 255, 255, 0.18); color: #ffffff; font-size: 10px;">${b.category}</span>
+                  <h4><a href="${detailUrl}" class="text-decoration-none" style="color: var(--ink);">${b.title}</a></h4>
+                  <div class="blog-popular-meta">
+                    <span><i class="bi bi-clock"></i> ${b.readTime}</span>
+                    <span>&bull;</span>
+                    <span><i class="bi bi-eye"></i> ${b.views}</span>
+                    <a href="${detailUrl}" class="btn btn-primary btn-sm rounded-pill px-3 fw-bold ms-auto py-1" style="font-size: 11.5px;">
+                      View Details &rarr;
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // 6. Editor's Picks Section with Blue View Details Button
+      const editorsGrid = document.getElementById('editorsPicksGrid');
+      if (editorsGrid) {
+        const editorsList = getEditorsPickBlogs().slice(0, 3);
+        editorsGrid.innerHTML = editorsList.map(renderBlogCard).join('');
+      }
+
+      // 7. Drone Photography Insights Section with Blue Action Button
+      const insightsGrid = document.getElementById('insightsGrid');
+      if (insightsGrid) {
+        const insightTopics = [
+          {
+            icon: 'bi-aspect-ratio',
+            title: 'Sensor Apertures & Hyperfocal Distance',
+            desc: 'Avoid diffraction softening by capping drone apertures at f/5.6. Use hyperfocal distance calculations to keep both foreground waves and background mountains tack-sharp.',
+            linkId: 'mastering-aerial-still-photography'
+          },
+          {
+            icon: 'bi-grid-3x3',
+            title: 'Rule of Thirds vs. Centered Nadir Symmetry',
+            desc: 'When shooting straight down orthogonal perspectives, centered geometric symmetry captivates viewers; for horizon sweeps, lock the horizon line on the upper-third guideline.',
+            linkId: 'drone-cinematography-golden-hour'
+          },
+          {
+            icon: 'bi-speedometer',
+            title: 'The 180-Degree Cinema Shutter Rule',
+            desc: 'Maintain natural motion blur in 4K aerial video by locking your shutter speed at exactly double your frame rate (1/120s for 60fps) using high-grade optical ND filters.',
+            linkId: 'nd-filters-and-shutter-speed-rules'
+          },
+          {
+            icon: 'bi-palette',
+            title: 'Grading 10-Bit D-Log in DaVinci Resolve',
+            desc: 'Apply camera manufacturer color space transforms (CST) before grading nodes. This preserves 14 stops of exposure latitude and prevents sky banding.',
+            linkId: 'd-log-color-grading-masterclass'
+          }
+        ];
+
+        insightsGrid.innerHTML = insightTopics.map(item => {
+          const detailUrl = `blog-details.html?id=${item.linkId}`;
+          return `
+            <div class="col-lg-3 col-md-6">
+              <div class="blog-insight-card">
+                <div class="blog-insight-icon"><i class="bi ${item.icon}"></i></div>
+                <h4 class="blog-insight-title">${item.title}</h4>
+                <p class="blog-insight-desc">${item.desc}</p>
+                <div class="mt-auto pt-3 border-top border-light border-opacity-25">
+                  <a href="${detailUrl}" class="btn btn-primary btn-sm rounded-pill px-3 fw-bold w-100">
+                    Read Masterclass &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // 8. Newsletter Submission Handler
+      const nlForm = document.getElementById('blogNewsletterForm');
+      if (nlForm) {
+        nlForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const emailInput = document.getElementById('blogSubEmail');
+          const feedback = document.getElementById('blogSubFeedback');
+          if (emailInput && emailInput.value) {
+            feedback.textContent = 'Welcome aboard! You are now subscribed to the AeroNest monthly dispatch.';
+            emailInput.value = '';
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- Terms & Policy Modal -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content" style="border-radius: 18px; border: 1px solid rgba(22, 141, 243, 0.2); overflow: hidden;">
+        <div class="modal-header" style="background: linear-gradient(135deg, #071a31 0%, #0c2d53 100%); color: white; border-bottom: none; padding: 20px 24px;">
+          <div>
+            <span class="badge" style="background: rgba(22, 141, 243, 0.3); color: #38bdf8; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 5px 12px; border-radius: 30px; margin-bottom: 6px; display: inline-block;">AERONEST POLICIES</span>
+            <h5 class="modal-title fw-bold m-0" id="termsModalLabel">Terms &amp; Flight Policy</h5>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4" style="color: #475569; font-size: 14px; line-height: 1.7; max-height: 60vh; overflow-y: auto;">
+          <h6 class="fw-bold text-dark">1. Part 107 Commercial Flight Compliance</h6>
+          <p>All AeroNest operations comply strictly with FAA Part 107 (and DGCA / national civil aviation authorities). Our pilots hold commercial drone licenses and full airspace risk authorizations.</p>
+          <h6 class="fw-bold text-dark mt-3">2. Weather &amp; Safety Ground Rules</h6>
+          <p>Safety is non-negotiable. Flights will be rescheduled at zero cost to the client in the event of rain, sustained winds exceeding 20 knots, restricted temporary flight limits (TFRs), or severe geomagnetic interference.</p>
+          <h6 class="fw-bold text-dark mt-3">3. Commercial Licensing &amp; Usage Rights</h6>
+          <p>Clients receive full commercial usage rights for delivered media as specified in the service package. Unedited RAW files and proprietary flight telemetry logs remain the property of AeroNest unless licensed separately.</p>
+          <h6 class="fw-bold text-dark mt-3">4. Turnaround &amp; Revisions</h6>
+          <p>Standard delivery timelines are 24-48 hours for photography and 3-5 business days for edited cinema reels. Two rounds of color grade/edit adjustments are included in all packages.</p>
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid #e2e8f0; padding: 16px 24px;">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" style="border-radius: 10px; font-size: 13px; font-weight: 600;">Close</button>
+          <a href="contact.html" class="btn btn-brand btn-modal-action">Contact Support &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content" style="border-radius: 18px; border: 1px solid rgba(22, 141, 243, 0.2); overflow: hidden;">
+        <div class="modal-header" style="background: linear-gradient(135deg, #071a31 0%, #0c2d53 100%); color: white; border-bottom: none; padding: 20px 24px;">
+          <div>
+            <span class="badge" style="background: rgba(22, 141, 243, 0.3); color: #38bdf8; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 5px 12px; border-radius: 30px; margin-bottom: 6px; display: inline-block;">PRIVACY &amp; DATA SECURITY</span>
+            <h5 class="modal-title fw-bold m-0" id="privacyModalLabel">Privacy Policy</h5>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4" style="color: #475569; font-size: 14px; line-height: 1.7; max-height: 60vh; overflow-y: auto;">
+          <h6 class="fw-bold text-dark">1. Information We Collect</h6>
+          <p>We collect project details, contact information, GPS flight coordinates, and shoot requirements submitted via our inquiry forms to coordinate flight plans and deliver high-resolution assets.</p>
+          <h6 class="fw-bold text-dark mt-3">2. Airspace &amp; Property Privacy Safeguards</h6>
+          <p>AeroNest respects private property and personal privacy. During aerial capture, sensors are angled to focus strictly on the commissioned subject, avoiding adjacent residential interiors and restricted neighbor premises.</p>
+          <h6 class="fw-bold text-dark mt-3">3. Cloud Storage &amp; Asset Delivery</h6>
+          <p>Deliverables are securely hosted on encrypted cloud vaults for 90 days following project completion. We do not sell or share your contact data with third-party advertisers.</p>
+          <h6 class="fw-bold text-dark mt-3">4. Cookies &amp; Newsletter</h6>
+          <p>We use lightweight local storage to remember your theme and language preferences. You may unsubscribe from our monthly flight digest at any time with one click.</p>
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid #e2e8f0; padding: 16px 24px;">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" style="border-radius: 10px; font-size: 13px; font-weight: 600;">Close</button>
+          <a href="contact.html" class="btn btn-brand btn-modal-action">Contact Support &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

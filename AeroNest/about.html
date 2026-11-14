@@ -1,0 +1,1307 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="About AeroNest — Professional drone photography, aerial videography, certified remote pilots and state-of-the-art camera drones.">
+  <title>About Us | AeroNest Drone Photography &amp; Aerial Videography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function(){
+      try {
+        var d = localStorage.getItem('aeronest-direction');
+        if (d === 'rtl') document.documentElement.setAttribute('dir', 'rtl');
+        var t = localStorage.getItem('aeronest-theme');
+        if (t === 'dark') {
+          document.documentElement.classList.add('dark-mode');
+        } else {
+          document.documentElement.classList.remove('dark-mode');
+        }
+      } catch(e){}
+    })();
+  </script>
+
+  <!-- ================= ABOUT PAGE SPECIFIC STYLES ================= -->
+  <style>
+    /* Section 1: About Hero with Blue & Golden-Yellow Sunrise Theme */
+    .about-hero-bg {
+      position: absolute;
+      inset: -6%;
+      width: 112%;
+      height: 112%;
+      background: url('assets/about-hero-sunrise.jpg') center 40% / cover no-repeat;
+      animation: heroCinematicZoom 24s ease-in-out infinite alternate;
+      z-index: 1;
+      will-change: transform;
+    }
+
+    /* Section 1: About Hero */
+    .about-hero-section {
+      min-height: 740px;
+      height: 100vh;
+      max-height: 980px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      color: #ffffff;
+      overflow: hidden;
+      background-color: #071a31;
+    }
+    .about-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(7, 26, 49, 0.90) 0%, rgba(9, 31, 58, 0.62) 48%, rgba(11, 38, 70, 0.18) 100%),
+                  linear-gradient(0deg, rgba(7, 26, 49, 0.85) 0%, transparent 45%);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .about-hero-content {
+      position: relative;
+      z-index: 3;
+      padding-top: 85px;
+    }
+    .about-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(22, 141, 243, 0.16);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: var(--sky-light);
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      backdrop-filter: blur(10px);
+    }
+    .about-hero-title {
+      font-size: clamp(38px, 4.8vw, 62px);
+      font-weight: 800;
+      letter-spacing: -2.2px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .about-hero-title span {
+      color: var(--sky-light);
+    }
+    .about-hero-desc {
+      font-size: 17.5px;
+      color: #e2eaf5;
+      line-height: 1.7;
+      margin-bottom: 34px;
+      max-width: 680px;
+    }
+
+    /* Section 2: Story Split Layout */
+    .story-visual-wrap {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .story-visual-wrap img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .story-visual-wrap:hover img {
+      transform: scale(1.05);
+    }
+    .story-float-card {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      background: rgba(7, 26, 49, 0.88);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 16px;
+      padding: 18px 22px;
+      backdrop-filter: blur(12px);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .story-float-card i {
+      font-size: 32px;
+      color: var(--sky-light);
+      flex-shrink: 0;
+    }
+
+    /* Section 3: Mission & Vision Cards */
+    .mission-vision-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 44px 36px;
+      height: 100%;
+      box-shadow: var(--shadow);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .mission-vision-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--sky-blue);
+    }
+    .mission-icon-box {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: var(--sky-tint);
+      color: var(--sky-blue);
+      display: grid;
+      place-items: center;
+      font-size: 30px;
+      margin-bottom: 26px;
+      transition: all 0.3s ease;
+    }
+    .mission-vision-card:hover .mission-icon-box {
+      background: var(--sky-blue);
+      color: #ffffff;
+      transform: scale(1.08);
+    }
+    .mission-vision-card h3 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .mission-vision-card p {
+      font-size: 14.5px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* Section 4: Why Choose AeroNest (5 items) */
+    .why-item-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 30px 26px;
+      height: 100%;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .why-item-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--sky-blue);
+    }
+    .why-item-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--sky-tint);
+      color: var(--sky-blue);
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    .why-item-card:hover .why-item-icon {
+      background: var(--sky-blue);
+      color: #ffffff;
+    }
+    .why-item-card h4 {
+      font-size: 17.5px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+    .why-item-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Section 5: Our Expertise (5 cards) */
+    .expertise-card-about {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.35s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .expertise-card-about:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--sky-blue);
+    }
+    .expertise-card-thumb {
+      height: 190px;
+      overflow: hidden;
+      position: relative;
+    }
+    .expertise-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .expertise-card-about:hover .expertise-card-thumb img {
+      transform: scale(1.08);
+    }
+    .expertise-badge-pill {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(7, 26, 49, 0.85);
+      color: var(--sky-light);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 30px;
+      padding: 4px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      backdrop-filter: blur(8px);
+    }
+    .expertise-card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .expertise-card-body h4 {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+    .expertise-card-body p {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    /* Section 6: Working Process (4 steps) */
+    .process-step-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 34px 26px;
+      height: 100%;
+      position: relative;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+    .process-step-box:hover {
+      transform: translateY(-6px);
+      border-color: var(--sky-blue);
+      box-shadow: var(--shadow-lg);
+    }
+    .step-seq-num {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      font-size: 34px;
+      font-weight: 800;
+      color: rgba(22, 141, 243, 0.16);
+      line-height: 1;
+    }
+    .step-icon-round {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: var(--sky-tint);
+      color: var(--sky-blue);
+      display: grid;
+      place-items: center;
+      font-size: 26px;
+      margin-bottom: 22px;
+      transition: all 0.3s ease;
+    }
+    .process-step-box:hover .step-icon-round {
+      background: var(--sky-blue);
+      color: #ffffff;
+      transform: scale(1.06);
+    }
+    .process-step-box h4 {
+      font-size: 17.5px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .process-step-box p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    /* Section 7: Final CTA */
+    .about-final-cta-section {
+      position: relative;
+      padding: 110px 0;
+      color: #ffffff;
+      overflow: hidden;
+      background: var(--navy-deep) url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=88') center 40% / cover no-repeat;
+    }
+    .about-final-cta-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(7, 26, 49, 0.94) 0%, rgba(22, 141, 243, 0.88) 100%);
+      z-index: 1;
+    }
+    .about-final-cta-content {
+      position: relative;
+      z-index: 2;
+      max-width: 740px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .about-final-cta-content h2 {
+      font-size: clamp(32px, 4.2vw, 50px);
+      font-weight: 800;
+      letter-spacing: -2px;
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+    .about-final-cta-content h2 span {
+      color: var(--sky-light);
+    }
+    .about-final-cta-content p {
+      font-size: 16.5px;
+      color: #e2eaf5;
+      line-height: 1.75;
+      margin-bottom: 34px;
+    }
+
+    /* ================= NEW SECTION: CINEMA FLEET & TECHNOLOGY ================= */
+    .about-fleet-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .about-fleet-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--sky-blue);
+      box-shadow: var(--shadow-lg);
+    }
+    .about-fleet-thumb {
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-fleet-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .about-fleet-card:hover .about-fleet-thumb img {
+      transform: scale(1.08);
+    }
+    .about-fleet-tag {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(7, 26, 49, 0.82);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+      text-transform: uppercase;
+    }
+    .about-fleet-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .about-fleet-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(22, 141, 243, 0.14);
+      color: var(--sky-blue);
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    .about-fleet-body h4 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .about-fleet-body p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+    .about-fleet-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+    .about-fleet-specs span {
+      background: var(--sky-tint);
+      color: var(--sky-blue);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .about-tech-ribbon {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px 28px;
+      margin-top: 40px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+    }
+    .about-tech-ribbon-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .about-tech-ribbon-item i {
+      font-size: 20px;
+      color: var(--sky-blue);
+    }
+
+    /* ================= NEW SECTION: AVIATION SAFETY & ECO ================= */
+    .about-safety-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 30px 24px;
+      box-shadow: var(--shadow);
+      transition: all 0.35s ease;
+      height: 100%;
+    }
+    .about-safety-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--sky-blue);
+      box-shadow: var(--shadow-lg);
+    }
+    .about-safety-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      background: rgba(22, 141, 243, 0.15);
+      color: var(--sky-blue);
+      display: grid;
+      place-items: center;
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+    .about-safety-card h4 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .about-safety-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+    .about-trust-banner {
+      background: linear-gradient(135deg, #071a31 0%, #0b2548 100%);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 22px;
+      padding: 36px 32px;
+      margin-top: 48px;
+      color: #ffffff;
+      box-shadow: 0 16px 40px rgba(0, 15, 33, 0.4);
+    }
+    .about-trust-stat strong {
+      font-size: 36px;
+      font-weight: 800;
+      color: #38bdf8;
+      display: block;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .about-trust-stat small {
+      font-size: 12px;
+      color: #cbd5e1;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Dark mode overrides for new sections */
+    body.dark-mode .about-fleet-card,
+    body.dark-mode .about-safety-card,
+    body.dark-mode .about-tech-ribbon {
+      background: #0d223c;
+      border-color: rgba(56, 189, 248, 0.18);
+    }
+    body.dark-mode .about-fleet-specs span {
+      background: rgba(22, 141, 243, 0.2);
+      color: #38bdf8;
+    }
+    body.dark-mode .about-tech-ribbon-item {
+      color: #f0f7ff;
+    }
+    body.dark-mode .about-fleet-body h4,
+    body.dark-mode .about-safety-card h4 {
+      color: #f0f7ff;
+    }
+    body.dark-mode .about-fleet-body p,
+    body.dark-mode .about-safety-card p {
+      color: #cbd5e1;
+    }
+
+    /* RTL adaptations */
+    html[dir="rtl"] .about-fleet-tag {
+      right: auto;
+      left: 14px;
+    }
+    html[dir="rtl"] .about-fleet-specs span {
+      text-align: right;
+    }
+    html[dir="rtl"] .about-tech-ribbon-item {
+      flex-direction: row-reverse;
+    }
+    html[dir="rtl"] .story-float-card {
+      left: auto;
+      right: 24px;
+    }
+    html[dir="rtl"] .step-seq-num {
+      right: auto;
+      left: 22px;
+    }
+    html[dir="rtl"] .expertise-badge-pill {
+      right: auto;
+      left: 14px;
+    }
+  </style>
+</head>
+<body>
+  <!-- ================= STICKY NAVBAR ================= -->
+  <nav class="navbar navbar-expand-xl fixed-top site-nav" id="top">
+    <div class="container">
+      <a class="navbar-brand brand-container" href="index.html" aria-label="AeroNest home">
+        <div class="brand-logo-mark">
+          <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="12" fill="url(#navBrandGradAboutPage)"/>
+            <path d="M15 15L33 33M33 15L15 33" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="14" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="34" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="14" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="34" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="14" cy="14" r="1.8" fill="white"/>
+            <circle cx="34" cy="14" r="1.8" fill="white"/>
+            <circle cx="14" cy="34" r="1.8" fill="white"/>
+            <circle cx="34" cy="34" r="1.8" fill="white"/>
+            <circle cx="24" cy="24" r="8" fill="#071a31" stroke="white" stroke-width="2"/>
+            <circle cx="24" cy="24" r="4" fill="#38bdf8"/>
+            <defs>
+              <linearGradient id="navBrandGradAboutPage" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#168df3"/>
+                <stop offset="1" stop-color="#0284c7"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title"><span class="brand-aero">Aero</span><span class="brand-nest">Nest</span></div>
+          <div class="brand-subtitle">AERIAL PHOTOGRAPHY &amp; VIDEO</div>
+        </div>
+      </a>
+            <!-- Mobile Quick Actions: RTL & Color Theme right next to hamburger -->
+      <div class="nav-mobile-actions d-xl-none ms-auto me-2">
+        <button class="nav-btn-mobile" id="mobileDirectionToggle" aria-label="Switch text direction" title="Switch LTR / RTL">
+          <span class="direction-text">LTR</span>
+          <i class="bi bi-arrow-left-right"></i>
+        </button>
+        <button class="nav-btn-mobile nav-btn-icon" id="mobileThemeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <i class="bi bi-sun mobileThemeIcon"></i>
+        </button>
+      </div>
+      <button class="navbar-toggler nav-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto align-items-xl-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="home2.html">Home 2</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions d-flex align-items-center">
+          <button class="nav-btn-ltr d-none d-xl-inline-flex" id="directionToggle" aria-label="Switch text direction" title="Switch LTR / RTL">
+            <span class="direction-text">LTR</span>
+            <i class="bi bi-arrow-left-right"></i>
+          </button>
+          <button class="nav-btn-icon d-none d-xl-inline-flex" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+            <i class="bi bi-sun" id="themeIcon"></i>
+          </button>
+          <a class="nav-btn-book" href="contact.html">
+            <span>Book a Shoot</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ================= SECTION 1: ABOUT HERO ================= -->
+    <section class="hero-section" id="about-hero">
+      <!-- Animated Background Zoom with about-hero-sunrise.jpg (Blue & Golden-Yellow Sun Combo) -->
+      <div class="about-hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow light-eyebrow"><span></span><span>About AeroNest Aerial Studio</span></p>
+          <h1>Capturing Perspectives<br><em>Beyond Limits.</em></h1>
+          <p class="hero-description">
+            AeroNest is an elite team of certified remote pilots, aerospace visual technicians, and aerial directors dedicated to transforming how businesses, real estate developers, and filmmakers showcase the world from above.
+          </p>
+          <div class="hero-buttons">
+            <a href="services.html" class="btn btn-primary btn-lg rounded-pill">Explore Our Services <i class="bi bi-arrow-up-right-circle"></i></a>
+            <a href="gallery.html" class="btn btn-outline-light btn-lg rounded-pill"><span>View Our Work</span> <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-wave"></div>
+    </section>
+
+    <!-- ================= SECTION 2: OUR STORY ================= -->
+    <section class="section-pad" style="background: var(--paper);" id="our-story">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <div class="section-kicker"><span></span> OUR STORY &amp; ORIGIN</div>
+            <h2 class="section-title">Bringing a fresh vantage to <span>every frame.</span></h2>
+            <p class="section-copy mb-3">
+              Founded by passionate aviators and commercial cinematographers, AeroNest was born from a simple belief: the most powerful stories exist when you elevate your vantage point. Standard ground-level footage can only reveal so much; the sky provides true scale, architecture, and emotional atmosphere.
+            </p>
+            <p class="section-copy mb-4">
+              Over the past five years, we have flown through mountain passes, navigated intricate urban skylines, and completed hundreds of coastal property tours. Every flight combines rigorous aerospace safety with award-winning creative direction, delivering high-impact 48MP raw photography and 5.4K HDR video that sets our partners apart.
+            </p>
+            <div class="stats-row">
+              <div><strong>250+</strong><small>Completed Shoots</small></div>
+              <div><strong>3,000+</strong><small>Flight Hours</small></div>
+              <div><strong>100%</strong><small>Safety Record</small></div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="story-visual-wrap">
+              <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=1200&q=85" alt="AeroNest Flight Pilot on Location">
+              <div class="story-float-card">
+                <i class="bi bi-shield-check"></i>
+                <div>
+                  <h6 class="mb-1 fw-bold text-white">FAA Part 107 Certified Aviators</h6>
+                  <small class="text-white-50">Fully compliant with international airspace and safety standards</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 3: MISSION & VISION ================= -->
+    <section class="section-pad" style="background: var(--sky-tint);" id="mission-vision">
+      <div class="container">
+        <div class="section-heading text-center">
+          <div class="section-kicker justify-content-center"><span></span> GUIDING PRINCIPLES <span></span></div>
+          <h2 class="section-title">Our Mission &amp; <span>Vision.</span></h2>
+          <p class="section-copy mx-auto">The driving purpose behind every flight path, camera angle, and color-graded deliverable we produce.</p>
+        </div>
+        <div class="row g-4">
+          <!-- Card 1: Mission -->
+          <div class="col-lg-6">
+            <div class="mission-vision-card">
+              <div class="mission-icon-box">
+                <i class="bi bi-bullseye"></i>
+              </div>
+              <h3>Our Mission</h3>
+              <p>
+                To provide commercial developers, marketing agencies, event organizers, and property owners with world-class aerial imaging solutions that combine absolute flight safety, cutting-edge multi-rotor drone technology, and breathtaking cinematic artistry. We strive to make premium aerial video and high-resolution drone photography accessible, reliable, and exceptionally smooth.
+              </p>
+            </div>
+          </div>
+          <!-- Card 2: Vision -->
+          <div class="col-lg-6">
+            <div class="mission-vision-card">
+              <div class="mission-icon-box">
+                <i class="bi bi-eye"></i>
+              </div>
+              <h3>Our Long-Term Vision</h3>
+              <p>
+                To be the foremost premier aerial cinematography studio recognized globally for pushing the boundaries of autonomous flight mapping, acrobatic one-take FPV tours, and environmentally conscious drone operations. We envision a world where visual storytelling from the sky empowers communities, celebrates architecture, and connects audiences with natural wonders.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 4: WHY CHOOSE AERONEST ================= -->
+    <section class="section-pad" style="background: var(--paper);" id="why-choose">
+      <div class="container">
+        <div class="section-heading text-center">
+          <div class="section-kicker justify-content-center"><span></span> THE AERONEST STANDARD <span></span></div>
+          <h2 class="section-title">Why Choose <span>AeroNest.</span></h2>
+          <p class="section-copy mx-auto">Five solid pillars that ensure your aerial project is delivered with safety, speed, and peerless visual quality.</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+          <!-- Point 1: Professional drone technology -->
+          <div class="col-md-6 col-lg-4">
+            <div class="why-item-card">
+              <div class="why-item-icon"><i class="bi bi-cpu"></i></div>
+              <h4>Professional Drone Technology</h4>
+              <p>We deploy industry-standard multi-rotors equipped with large 4/3 Hasselblad sensors, mechanical shutters, and custom FPV cinewhoops capable of 5.4K HDR capture.</p>
+            </div>
+          </div>
+          <!-- Point 2: Creative aerial perspectives -->
+          <div class="col-md-6 col-lg-4">
+            <div class="why-item-card">
+              <div class="why-item-icon"><i class="bi bi-compass"></i></div>
+              <h4>Creative Aerial Perspectives</h4>
+              <p>Our pilots are visual storytellers who choreograph orbital sweeps, dynamic vertical ascents, and high-velocity chase sequences that command immediate viewer attention.</p>
+            </div>
+          </div>
+          <!-- Point 3: High-quality photography & videography -->
+          <div class="col-md-6 col-lg-4">
+            <div class="why-item-card">
+              <div class="why-item-icon"><i class="bi bi-camera-reels"></i></div>
+              <h4>High-Quality Imaging</h4>
+              <p>48MP uncompressed RAW still captures paired with 10-bit D-Log video graded in DaVinci Resolve, ensuring ultra-rich dynamic range and zero gradient banding.</p>
+            </div>
+          </div>
+          <!-- Point 4: Reliable and safe operations -->
+          <div class="col-md-6 col-lg-4">
+            <div class="why-item-card">
+              <div class="why-item-icon"><i class="bi bi-shield-lock"></i></div>
+              <h4>Reliable &amp; Safe Operations</h4>
+              <p>100% FAA Part 107 certified flight missions, automated LAANC airspace authorizations, strict pre-flight checklists, and $5M commercial liability coverage.</p>
+            </div>
+          </div>
+          <!-- Point 5: Customized client solutions -->
+          <div class="col-md-6 col-lg-4">
+            <div class="why-item-card">
+              <div class="why-item-icon"><i class="bi bi-sliders"></i></div>
+              <h4>Customized Client Solutions</h4>
+              <p>Flexible packages tailored for single-day real estate shoots or multi-week commercial productions, complete with 48-hour digital delivery and full raw file access.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 5: OUR EXPERTISE ================= -->
+    <section class="section-pad" style="background: var(--sky-tint);" id="expertise">
+      <div class="container">
+        <div class="section-heading text-center">
+          <div class="section-kicker justify-content-center"><span></span> SPECIALIZED CAPABILITIES <span></span></div>
+          <h2 class="section-title">Our Core <span>Aerial Expertise.</span></h2>
+          <p class="section-copy mx-auto">Discover five distinct domains where our licensed pilots and cinema optics deliver exceptional results.</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+          <!-- 1. Aerial Photography -->
+          <div class="col-md-6 col-lg-4">
+            <div class="expertise-card-about">
+              <div class="expertise-card-thumb">
+                <img src="https://images.unsplash.com/photo-1506947411487-a56738267384?auto=format&fit=crop&w=700&q=80" alt="Aerial Photography">
+                <span class="expertise-badge-pill">48MP RAW</span>
+              </div>
+              <div class="expertise-card-body">
+                <h4>Aerial Photography</h4>
+                <p>High-resolution still captures showcasing scale, landscape topography, and architectural balance with rich color fidelity.</p>
+                <a href="services.html" class="blog-link">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- 2. Cinematic Videography -->
+          <div class="col-md-6 col-lg-4">
+            <div class="expertise-card-about">
+              <div class="expertise-card-thumb">
+                <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=700&q=80" alt="Cinematic Videography">
+                <span class="expertise-badge-pill">5.4K HDR</span>
+              </div>
+              <div class="expertise-card-body">
+                <h4>Cinematic Videography</h4>
+                <p>Carefully timed multi-axis flight sequences with fluid motion blur, dramatic lighting, and broadcast-grade color grading.</p>
+                <a href="services.html" class="blog-link">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- 3. Real Estate Photography -->
+          <div class="col-md-6 col-lg-4">
+            <div class="expertise-card-about">
+              <div class="expertise-card-thumb">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=700&q=80" alt="Real Estate Photography">
+                <span class="expertise-badge-pill">3D Tours</span>
+              </div>
+              <div class="expertise-card-body">
+                <h4>Real Estate Photography</h4>
+                <p>Luxury villa tours, property acreage boundary markers, and twilight overviews designed to accelerate buyer conversions.</p>
+                <a href="services.html" class="blog-link">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- 4. Event Coverage -->
+          <div class="col-md-6 col-lg-4">
+            <div class="expertise-card-about">
+              <div class="expertise-card-thumb">
+                <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=700&q=80" alt="Event Coverage">
+                <span class="expertise-badge-pill">Live Downlink</span>
+              </div>
+              <div class="expertise-card-body">
+                <h4>Event Coverage</h4>
+                <p>Elevated perspective for outdoor celebrations, sailing regattas, music festivals, and sports events with zero crowd disturbance.</p>
+                <a href="services.html" class="blog-link">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- 5. Commercial Drone Shoots -->
+          <div class="col-md-6 col-lg-4">
+            <div class="expertise-card-about">
+              <div class="expertise-card-thumb">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=700&q=80" alt="Commercial Drone Shoots">
+                <span class="expertise-badge-pill">Enterprise</span>
+              </div>
+              <div class="expertise-card-body">
+                <h4>Commercial Drone Shoots</h4>
+                <p>High-precision 3D mapping, industrial progress inspection, corporate campus sweeps, and national commercial ad campaigns.</p>
+                <a href="services.html" class="blog-link">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 6: OUR CINEMA FLEET & TECHNOLOGY ================= -->
+    <section class="section-pad" style="background: var(--paper);" id="fleet">
+      <div class="container">
+        <div class="section-heading text-center">
+          <div class="section-kicker justify-content-center"><span></span> AIRCRAFT &amp; CINEMA SENSORS <span></span></div>
+          <h2 class="section-title">Cinema-Grade Optics &amp; <span>Our Fleet.</span></h2>
+          <p class="section-copy mx-auto">Every flight mission is powered by aerospace-grade redundancies, full-frame cinema sensors, and dual-operator controls calibrated for commercial ads, feature films, and land surveys.</p>
+        </div>
+        <div class="row g-4">
+          <!-- Aircraft 1 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="about-fleet-card">
+              <div class="about-fleet-thumb">
+                <img src="assets/gallery-cinematic-1.jpg" alt="DJI Inspire 3 Cinema System">
+                <span class="about-fleet-tag">8K RAW Flagship</span>
+              </div>
+              <div class="about-fleet-body">
+                <div class="about-fleet-icon"><i class="bi bi-camera-reels"></i></div>
+                <h4>DJI Inspire 3 Flagship</h4>
+                <p>Full-frame 8K/75fps ProRes RAW &amp; CinemaDNG capture with dual native ISO 800/4000 and 14+ stops of dynamic range.</p>
+                <div class="about-fleet-specs">
+                  <span>8K ProRes RAW</span>
+                  <span>Centimeter RTK</span>
+                  <span>DL Mount Primes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Aircraft 2 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="about-fleet-card">
+              <div class="about-fleet-thumb">
+                <img src="assets/hero-aerial.jpg" alt="High-Speed FPV Cinelifter">
+                <span class="about-fleet-tag">95 MPH Dynamic</span>
+              </div>
+              <div class="about-fleet-body">
+                <div class="about-fleet-icon"><i class="bi bi-lightning-charge"></i></div>
+                <h4>High-Speed FPV Chase</h4>
+                <p>Custom acrobatic cinelifters carrying RED V-Raptor and Blackmagic 6K payloads for proximity chasing and high-G maneuvers.</p>
+                <div class="about-fleet-specs">
+                  <span>95 mph Top Speed</span>
+                  <span>Zero Propeller View</span>
+                  <span>6K 120fps Flow</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Aircraft 3 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="about-fleet-card">
+              <div class="about-fleet-thumb">
+                <img src="assets/gallery-commercial-1.jpg" alt="Heavy-Lift Commercial Gimbal">
+                <span class="about-fleet-tag">Hollywood Cinema</span>
+              </div>
+              <div class="about-fleet-body">
+                <div class="about-fleet-icon"><i class="bi bi-box-seam"></i></div>
+                <h4>Heavy-Lift Cinelifter</h4>
+                <p>Industrial multi-rotor platform flying ARRI Alexa Mini LF and Cooke anamorphic lenses with wireless follow-focus control.</p>
+                <div class="about-fleet-specs">
+                  <span>ARRI / RED Ready</span>
+                  <span>Wireless Focus</span>
+                  <span>Dual Battery Backup</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Aircraft 4 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="about-fleet-card">
+              <div class="about-fleet-thumb">
+                <img src="assets/gallery-realestate-1.jpg" alt="LiDAR & Photogrammetry Survey Drone">
+                <span class="about-fleet-tag">Precision Survey</span>
+              </div>
+              <div class="about-fleet-body">
+                <div class="about-fleet-icon"><i class="bi bi-layers"></i></div>
+                <h4>LiDAR &amp; RTK Mapping</h4>
+                <p>High-density LiDAR and 45MP mechanical-shutter sensors generating sub-centimeter digital twins, point clouds, and thermal maps.</p>
+                <div class="about-fleet-specs">
+                  <span>Sub-cm Accuracy</span>
+                  <span>Radiometric Thermal</span>
+                  <span>3D Point Clouds</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tech Specifications Ribbon -->
+        <div class="about-tech-ribbon">
+          <div class="about-tech-ribbon-item"><i class="bi bi-broadcast"></i> 10-bit HDR Wireless Director Feeds</div>
+          <div class="about-tech-ribbon-item"><i class="bi bi-controller"></i> Dual-Pilot Master/Slave Remote Links</div>
+          <div class="about-tech-ribbon-item"><i class="bi bi-shield-lock"></i> AES-256 Encrypted Telemetry</div>
+          <div class="about-tech-ribbon-item"><i class="bi bi-battery-charging"></i> Rapid Hot-Swap Deployment</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 7: OUR WORKING PROCESS ================= -->
+    <section class="section-pad" style="background: var(--sky-tint);" id="process">
+      <div class="container">
+        <div class="section-heading text-center">
+          <div class="section-kicker justify-content-center"><span></span> PROVEN METHODOLOGY <span></span></div>
+          <h2 class="section-title">Our Working <span>Process.</span></h2>
+          <p class="section-copy mx-auto">Four deliberate steps that transform your initial concept into breathtaking aerial media.</p>
+        </div>
+        <div class="row g-4">
+          <!-- Step 1 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="process-step-box">
+              <span class="step-seq-num">01</span>
+              <div class="step-icon-round"><i class="bi bi-lightbulb"></i></div>
+              <h4>Understand Your Needs</h4>
+              <p>We consult on your visual goals, shot lists, lighting preferences, location constraints, and exact deliverable formats.</p>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="process-step-box">
+              <span class="step-seq-num">02</span>
+              <div class="step-icon-round"><i class="bi bi-map"></i></div>
+              <h4>Plan the Shoot</h4>
+              <p>We review satellite terrain data, secure LAANC airspace authorizations, coordinate with local safety teams, and schedule weather windows.</p>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="process-step-box">
+              <span class="step-seq-num">03</span>
+              <div class="step-icon-round"><i class="bi bi-camera"></i></div>
+              <h4>Capture the Moments</h4>
+              <p>Our licensed flight crew executes precise maneuvers on site, monitoring live feeds to ensure every desired angle is framed to perfection.</p>
+            </div>
+          </div>
+          <!-- Step 4 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="process-step-box">
+              <span class="step-seq-num">04</span>
+              <div class="step-icon-round"><i class="bi bi-trophy"></i></div>
+              <h4>Deliver the Results</h4>
+              <p>Our post-production team color-grades and edits assets to cinema standards, delivering high-res files within 48 hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 8: AVIATION SAFETY & ECO STEWARDSHIP ================= -->
+    <section class="section-pad" style="background: var(--paper);" id="safety-compliance">
+      <div class="container">
+        <div class="section-heading text-center">
+          <div class="section-kicker justify-content-center"><span></span> ZERO-INCIDENT PROTOCOLS <span></span></div>
+          <h2 class="section-title">Aviation Standards &amp; <span>Eco Stewardship.</span></h2>
+          <p class="section-copy mx-auto">Operating in complex airspaces demands uncompromising safety discipline, multi-million dollar coverage, and deep respect for wildlife habitats.</p>
+        </div>
+        <div class="row g-4">
+          <!-- Pillar 1 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="about-safety-card">
+              <div class="about-safety-icon"><i class="bi bi-shield-check"></i></div>
+              <h4>FAA Part 107 &amp; Clearances</h4>
+              <p>Certified commercial remote pilots holding active Night Operations waivers, Flights Over People authorizations, and automated LAANC air traffic approvals.</p>
+            </div>
+          </div>
+          <!-- Pillar 2 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="about-safety-card">
+              <div class="about-safety-icon"><i class="bi bi-patch-check-fill"></i></div>
+              <h4>$10M Aviation Liability</h4>
+              <p>Comprehensive multi-million dollar third-party liability, property protection, and commercial indemnification policies covering every flight mission.</p>
+            </div>
+          </div>
+          <!-- Pillar 3 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="about-safety-card">
+              <div class="about-safety-icon"><i class="bi bi-cpu"></i></div>
+              <h4>Triple Aerospace Redundancy</h4>
+              <p>Dual IMUs, redundant barometers, 360-degree obstacle perception arrays, automated return-to-home algorithms, and ballistic parachute fail-safes.</p>
+            </div>
+          </div>
+          <!-- Pillar 4 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="about-safety-card">
+              <div class="about-safety-icon"><i class="bi bi-tree"></i></div>
+              <h4>Eco-Quiet Habitat Flights</h4>
+              <p>Ultra-low acoustic carbon-fiber rotor geometry reducing noise by 60%, strict wildlife buffer distances, and 100% zero-emission electric battery lifecycles.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust Statistics Banner -->
+        <div class="about-trust-banner">
+          <div class="row g-4 text-center">
+            <div class="col-6 col-lg-3">
+              <div class="about-trust-stat">
+                <strong>10,000+</strong>
+                <small>Safe Flight Hours</small>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="about-trust-stat">
+                <strong>100%</strong>
+                <small>Zero-Incident Record</small>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="about-trust-stat">
+                <strong>14+</strong>
+                <small>Global Countries Flown</small>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="about-trust-stat">
+                <strong>&lt; 15 min</strong>
+                <small>Airspace Clear Time</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 9: FINAL CTA ================= -->
+    <section class="about-final-cta-section" id="book-experience">
+      <div class="about-final-cta-overlay"></div>
+      <div class="container about-final-cta-content">
+        <div class="section-kicker justify-content-center text-white-50">
+          <span></span> ELEVATE YOUR PERSPECTIVE <span></span>
+        </div>
+        <h2>Ready to See Your World<br><span>Differently?</span></h2>
+        <p>
+          Whether you have an upcoming luxury development, commercial film production, or private estate to capture, our certified pilots are ready for takeoff.
+        </p>
+        <div class="d-flex justify-content-center flex-wrap gap-3">
+          <a href="contact.html" class="btn btn-primary rounded-pill btn-lg px-5 py-3">
+            Book Your Aerial Experience <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+            <div class="row g-4 footer-main">
+        <div class="col-lg-3 col-md-6">
+          <a class="brand-container footer-brand" href="index.html" aria-label="AeroNest home">
+            <div class="brand-logo-mark">
+              <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="48" height="48" rx="12" fill="url(#footerBrandGrad)"/>
+                <path d="M15 15L33 33M33 15L15 33" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="14" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="34" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="14" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="34" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="24" cy="24" r="8" fill="#071a31" stroke="white" stroke-width="2"/>
+                <circle cx="24" cy="24" r="4" fill="#38bdf8"/>
+                <defs>
+                  <linearGradient id="footerBrandGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#168df3"/>
+                    <stop offset="1" stop-color="#0284c7"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <div class="brand-title"><span class="brand-aero">Aero</span><span class="brand-nest">Nest</span></div>
+              <div class="brand-subtitle">AERIAL PHOTOGRAPHY &amp; VIDEO</div>
+            </div>
+          </a>
+          <p class="footer-tagline">See the world differently.<br>From high above with certified pilots.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="home2.html">Home 2</a>
+          <a href="about.html">About Us</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="services.html">Services</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Services</h4>
+          <a href="services.html">Aerial Photography</a>
+          <a href="services.html">Cinematic Video</a>
+          <a href="services.html">Real Estate 3D Tours</a>
+          <a href="services.html">Event Live Feeds</a>
+          <a href="services.html">3D Photogrammetry</a>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Support</h4>
+          <a href="contact.html#frequently-asked-questions">FAQs</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms &amp; Policy</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+          <a href="contact.html">Contact Support</a>
+        </div>
+        <div class="col-12 col-lg-3 col-md-6">
+          <h4>Stay in the loop</h4>
+          <p>Get occasional aerial perspectives and flight updates.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" required placeholder="Your email address" aria-label="Your email address">
+            <button type="submit" aria-label="Subscribe"><i class="bi bi-arrow-right"></i></button>
+          </form>
+          <small id="newsletterMessage"></small>
+          <div class="mt-3" style="font-size: 12px; color: #9cb2cb;">
+            <span><i class="bi bi-envelope me-1"></i> hello@aeronest.com</span>
+            <span class="mx-2">&bull;</span>
+            <span><i class="bi bi-telephone me-1"></i> +91 98765 43210</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> AeroNest. All rights reserved. Licensed Part 107 Operations.</span>
+        <div>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of Flight</a>
+          <a href="#top">Back to top &uarr;</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- Terms & Policy Modal -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content" style="border-radius: 18px; border: 1px solid rgba(22, 141, 243, 0.2); overflow: hidden;">
+        <div class="modal-header" style="background: linear-gradient(135deg, #071a31 0%, #0c2d53 100%); color: white; border-bottom: none; padding: 20px 24px;">
+          <div>
+            <span class="badge" style="background: rgba(22, 141, 243, 0.3); color: #38bdf8; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 5px 12px; border-radius: 30px; margin-bottom: 6px; display: inline-block;">AERONEST POLICIES</span>
+            <h5 class="modal-title fw-bold m-0" id="termsModalLabel">Terms &amp; Flight Policy</h5>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4" style="color: #475569; font-size: 14px; line-height: 1.7; max-height: 60vh; overflow-y: auto;">
+          <h6 class="fw-bold text-dark">1. Part 107 Commercial Flight Compliance</h6>
+          <p>All AeroNest operations comply strictly with FAA Part 107 (and DGCA / national civil aviation authorities). Our pilots hold commercial drone licenses and full airspace risk authorizations.</p>
+          <h6 class="fw-bold text-dark mt-3">2. Weather &amp; Safety Ground Rules</h6>
+          <p>Safety is non-negotiable. Flights will be rescheduled at zero cost to the client in the event of rain, sustained winds exceeding 20 knots, restricted temporary flight limits (TFRs), or severe geomagnetic interference.</p>
+          <h6 class="fw-bold text-dark mt-3">3. Commercial Licensing &amp; Usage Rights</h6>
+          <p>Clients receive full commercial usage rights for delivered media as specified in the service package. Unedited RAW files and proprietary flight telemetry logs remain the property of AeroNest unless licensed separately.</p>
+          <h6 class="fw-bold text-dark mt-3">4. Turnaround &amp; Revisions</h6>
+          <p>Standard delivery timelines are 24-48 hours for photography and 3-5 business days for edited cinema reels. Two rounds of color grade/edit adjustments are included in all packages.</p>
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid #e2e8f0; padding: 16px 24px;">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" style="border-radius: 10px; font-size: 13px; font-weight: 600;">Close</button>
+          <a href="contact.html" class="btn btn-brand btn-modal-action">Contact Support &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content" style="border-radius: 18px; border: 1px solid rgba(22, 141, 243, 0.2); overflow: hidden;">
+        <div class="modal-header" style="background: linear-gradient(135deg, #071a31 0%, #0c2d53 100%); color: white; border-bottom: none; padding: 20px 24px;">
+          <div>
+            <span class="badge" style="background: rgba(22, 141, 243, 0.3); color: #38bdf8; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 5px 12px; border-radius: 30px; margin-bottom: 6px; display: inline-block;">PRIVACY &amp; DATA SECURITY</span>
+            <h5 class="modal-title fw-bold m-0" id="privacyModalLabel">Privacy Policy</h5>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4" style="color: #475569; font-size: 14px; line-height: 1.7; max-height: 60vh; overflow-y: auto;">
+          <h6 class="fw-bold text-dark">1. Information We Collect</h6>
+          <p>We collect project details, contact information, GPS flight coordinates, and shoot requirements submitted via our inquiry forms to coordinate flight plans and deliver high-resolution assets.</p>
+          <h6 class="fw-bold text-dark mt-3">2. Airspace &amp; Property Privacy Safeguards</h6>
+          <p>AeroNest respects private property and personal privacy. During aerial capture, sensors are angled to focus strictly on the commissioned subject, avoiding adjacent residential interiors and restricted neighbor premises.</p>
+          <h6 class="fw-bold text-dark mt-3">3. Cloud Storage &amp; Asset Delivery</h6>
+          <p>Deliverables are securely hosted on encrypted cloud vaults for 90 days following project completion. We do not sell or share your contact data with third-party advertisers.</p>
+          <h6 class="fw-bold text-dark mt-3">4. Cookies &amp; Newsletter</h6>
+          <p>We use lightweight local storage to remember your theme and language preferences. You may unsubscribe from our monthly flight digest at any time with one click.</p>
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid #e2e8f0; padding: 16px 24px;">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" style="border-radius: 10px; font-size: 13px; font-weight: 600;">Close</button>
+          <a href="contact.html" class="btn btn-brand btn-modal-action">Contact Support &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

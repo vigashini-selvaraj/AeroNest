@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How Aerial Perspectives Accelerate Luxury Real Estate Sales — Read our comprehensive 2026 flight report and marketing analysis.">
+  <title>How Aerial Perspectives Accelerate Real Estate Sales | AeroNest Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function(){
+      try {
+        var d = localStorage.getItem('aeronest-direction');
+        if (d === 'rtl') document.documentElement.setAttribute('dir', 'rtl');
+        var t = localStorage.getItem('aeronest-theme');
+        if (t === 'dark') {
+          document.documentElement.classList.add('dark-mode');
+        } else {
+          document.documentElement.classList.remove('dark-mode');
+        }
+      } catch(e){}
+    })();
+  </script>
+</head>
+<body>
+  <!-- ================= STICKY NAVBAR ================= -->
+  <nav class="navbar navbar-expand-xl fixed-top site-nav" id="top">
+    <div class="container">
+      <a class="navbar-brand brand-container" href="index.html" aria-label="AeroNest home">
+        <div class="brand-logo-mark">
+          <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="12" fill="url(#navBrandGradBlogDet)"/>
+            <path d="M15 15L33 33M33 15L15 33" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="14" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="34" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="14" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="34" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="14" cy="14" r="1.8" fill="white"/>
+            <circle cx="34" cy="14" r="1.8" fill="white"/>
+            <circle cx="14" cy="34" r="1.8" fill="white"/>
+            <circle cx="34" cy="34" r="1.8" fill="white"/>
+            <circle cx="24" cy="24" r="8" fill="#071a31" stroke="white" stroke-width="2"/>
+            <circle cx="24" cy="24" r="4" fill="#38bdf8"/>
+            <defs>
+              <linearGradient id="navBrandGradBlogDet" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#168df3"/>
+                <stop offset="1" stop-color="#0284c7"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title"><span class="brand-aero">Aero</span><span class="brand-nest">Nest</span></div>
+          <div class="brand-subtitle">AERIAL PHOTOGRAPHY &amp; VIDEO</div>
+        </div>
+      </a>
+            <!-- Mobile Quick Actions: RTL & Color Theme right next to hamburger -->
+      <div class="nav-mobile-actions d-xl-none ms-auto me-2">
+        <button class="nav-btn-mobile" id="mobileDirectionToggle" aria-label="Switch text direction" title="Switch LTR / RTL">
+          <span class="direction-text">LTR</span>
+          <i class="bi bi-arrow-left-right"></i>
+        </button>
+        <button class="nav-btn-mobile nav-btn-icon" id="mobileThemeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <i class="bi bi-sun mobileThemeIcon"></i>
+        </button>
+      </div>
+      <button class="navbar-toggler nav-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto align-items-xl-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="home2.html">Home 2</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions d-flex align-items-center">
+          <button class="nav-btn-ltr d-none d-xl-inline-flex" id="directionToggle" aria-label="Switch text direction" title="Switch LTR / RTL">
+            <span class="direction-text">LTR</span>
+            <i class="bi bi-arrow-left-right"></i>
+          </button>
+          <button class="nav-btn-icon d-none d-xl-inline-flex" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+            <i class="bi bi-sun" id="themeIcon"></i>
+          </button>
+          <a class="nav-btn-book" href="contact.html">
+            <span>Book a Shoot</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Article Header -->
+    <article class="section-pad" style="background: var(--paper); padding-top: 130px;">
+      <div class="container">
+        <div class="article-header">
+          <div class="mb-3">
+            <a href="blog.html" class="text-link"><i class="bi bi-arrow-left"></i> Back to All Articles</a>
+          </div>
+          <span class="badge bg-primary px-3 py-2 text-uppercase mb-3" style="font-size: 11px; letter-spacing: 0.5px;">Real Estate Marketing</span>
+          <h1 class="page-hero-title mb-3">How Aerial Perspectives Accelerate Luxury Real Estate Sales: A 2026 Deep Dive</h1>
+          <div class="d-flex align-items-center justify-content-center gap-3 text-muted" style="font-size: 13.5px;">
+            <span><i class="bi bi-person-circle text-primary"></i> Priya Sharma</span>
+            <span>&bull;</span>
+            <span><i class="bi bi-calendar3"></i> Nov 10, 2026</span>
+            <span>&bull;</span>
+            <span><i class="bi bi-clock"></i> 6 min read</span>
+          </div>
+        </div>
+
+        <!-- Featured Media -->
+        <div class="text-center">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=85" alt="Luxury Villa Aerial View" class="article-featured-img img-fluid">
+        </div>
+
+        <!-- Content Body -->
+        <div class="article-content">
+          <p class="lead fw-semibold text-dark" style="font-size: 19px; line-height: 1.7;">
+            In today's ultra-competitive real estate landscape, prospective buyers spend less than 8 seconds evaluating an online property listing before deciding whether to schedule an in-person viewing or keep scrolling.
+          </p>
+
+          <p>
+            Ground-level photography, no matter how professionally shot with ultra-wide lenses, cannot convey what high-net-worth buyers care about most: <strong>context, orientation, privacy boundaries, and proximity to scenic landscapes.</strong> This is where modern drone cinematography creates an undeniable psychological advantage.
+          </p>
+
+          <div class="article-callout">
+            <h5 class="fw-bold mb-2"><i class="bi bi-graph-up-arrow me-2 text-primary"></i> Key Research Finding</h5>
+            <p class="mb-0">According to the National Association of Realtors (NAR) 2026 report, properties showcasing cinematic 4K drone video tours receive <strong>68% more qualified inquiries</strong> and close an average of <strong>21 days faster</strong> than listings relying solely on conventional photography.</p>
+          </div>
+
+          <h2>1. Establishing Instant Emotional Scale</h2>
+          <p>
+            When a buyer views an orbital drone sweep rising smoothly above tree lines to reveal an architect-designed home surrounded by mountain vistas or coastal water, the brain processes the residence not merely as physical square footage, but as an <em>exclusive lifestyle domain</em>.
+          </p>
+          <p>
+            Key aerial angles our flight team recommends for premium estates:
+          </p>
+          <ul>
+            <li><strong>The Hero Pull-Back:</strong> Starting close to the front entrance or infinity pool and pulling smoothly upward and backward to reveal the total parcel footprint.</li>
+            <li><strong>The 360-Degree Horizon Orbit:</strong> Flying at 120 feet altitude with a 45-degree camera gimbal depression, tracking 360 degrees around the roofline.</li>
+            <li><strong>The Top-Down Architectural Orthomosaic:</strong> Perfect 90-degree straight-down view capturing pool geometry, landscaping layout, and outdoor living areas.</li>
+          </ul>
+
+          <div class="row g-3 my-4">
+            <div class="col-md-6">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80" alt="Infinity Pool Aerial" class="img-fluid rounded-4 shadow-sm w-100">
+            </div>
+            <div class="col-md-6">
+              <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=700&q=80" alt="Estate Land Boundaries" class="img-fluid rounded-4 shadow-sm w-100">
+            </div>
+          </div>
+
+          <h2>2. Revealing Surrounding Location Amenities</h2>
+          <p>
+            Buyers don't just buy a house; they buy the neighborhood, the sunset orientation, and access to water, golf clubs, or nature reserves. Drones are the only visual medium capable of demonstrating that a home is a 4-minute walk to the shoreline or positioned with an unblockable mountain sunset view.
+          </p>
+
+          <h2>3. FPV Drone Tours: The Game Changer</h2>
+          <p>
+            The fastest-growing trend in luxury property marketing is <strong>continuous one-take FPV (First-Person View) tours</strong>. Our acrobatic cinewhoop pilots fly from high in the sky, dive smoothly down to the front lawn, glide effortlessly through open double French doors, tour the master suite, and exit onto the patio in a single uninterrupted motion.
+          </p>
+
+          <!-- Author Box -->
+          <div class="author-box">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Priya Sharma" class="author-avatar">
+            <div>
+              <h5 class="fw-bold mb-1">Written by Priya Sharma</h5>
+              <small class="text-primary fw-bold text-uppercase d-block mb-2">Chief Flight Director &bull; AeroNest</small>
+              <p class="text-muted small mb-0">Priya is a licensed FAA remote pilot and commercial filmmaker with over 7 years of specialized aerial real estate experience across India, UAE, and Southeast Asia.</p>
+            </div>
+          </div>
+
+          <!-- Share buttons -->
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mt-5 pt-4 border-top">
+            <span class="fw-bold">Share this flight insight:</span>
+            <div class="d-flex gap-2">
+              <a href="#" class="btn btn-outline-sky rounded-pill btn-sm"><i class="bi bi-twitter-x"></i> Share</a>
+              <a href="#" class="btn btn-outline-sky rounded-pill btn-sm"><i class="bi bi-linkedin"></i> LinkedIn</a>
+              <a href="#" class="btn btn-outline-sky rounded-pill btn-sm"><i class="bi bi-envelope"></i> Email</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related Articles -->
+        <div class="mt-5 pt-5 border-top">
+          <div class="section-kicker"><span></span> CONTINUE READING</div>
+          <h3 class="fw-bold mb-4">Related Aerial Stories</h3>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <article class="blog-card">
+                <div class="blog-thumb">
+                  <a href="blog-detail.html"><img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=800&q=80" alt="Golden hour drone"></a>
+                  <span class="blog-tag">Cinematography</span>
+                </div>
+                <div class="blog-body">
+                  <h4><a href="blog-detail.html" class="text-dark">Cinematic Lighting for Golden Hour Drone Cinematography</a></h4>
+                  <a href="blog-detail.html" class="blog-link">Read Story <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="blog-card">
+                <div class="blog-thumb">
+                  <a href="blog-detail.html"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="3D Drone survey"></a>
+                  <span class="blog-tag">Commercial</span>
+                </div>
+                <div class="blog-body">
+                  <h4><a href="blog-detail.html" class="text-dark">Urban Drone Mapping: Precision 3D Surveys for Architects</a></h4>
+                  <a href="blog-detail.html" class="blog-link">Read Story <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="blog-card">
+                <div class="blog-thumb">
+                  <a href="blog-detail.html"><img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80" alt="Coastal wind flight"></a>
+                  <span class="blog-tag">Aviation Safety</span>
+                </div>
+                <div class="blog-body">
+                  <h4><a href="blog-detail.html" class="text-dark">Navigating Coastal Winds &amp; Marine Drone Flight Protocols</a></h4>
+                  <a href="blog-detail.html" class="blog-link">Read Story <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <div class="section-kicker text-white-50"><span></span> ELEVATE YOUR LISTING</div>
+            <h2>Ready to showcase your<br><span>property from the air?</span></h2>
+            <p>Our licensed pilots can be on site within 48 hours. Receive high-impact 4K marketing assets.</p>
+          </div>
+          <a href="contact.html" class="btn btn-light rounded-pill btn-lg">Book Property Shoot <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+            <div class="row g-4 footer-main">
+        <div class="col-lg-3 col-md-6">
+          <a class="brand-container footer-brand" href="index.html" aria-label="AeroNest home">
+            <div class="brand-logo-mark">
+              <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="48" height="48" rx="12" fill="url(#footerBrandGrad)"/>
+                <path d="M15 15L33 33M33 15L15 33" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="14" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="34" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="14" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="34" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="24" cy="24" r="8" fill="#071a31" stroke="white" stroke-width="2"/>
+                <circle cx="24" cy="24" r="4" fill="#38bdf8"/>
+                <defs>
+                  <linearGradient id="footerBrandGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#168df3"/>
+                    <stop offset="1" stop-color="#0284c7"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <div class="brand-title"><span class="brand-aero">Aero</span><span class="brand-nest">Nest</span></div>
+              <div class="brand-subtitle">AERIAL PHOTOGRAPHY &amp; VIDEO</div>
+            </div>
+          </a>
+          <p class="footer-tagline">See the world differently.<br>From high above with certified pilots.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="home2.html">Home 2</a>
+          <a href="about.html">About Us</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="services.html">Services</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Services</h4>
+          <a href="services.html">Aerial Photography</a>
+          <a href="services.html">Cinematic Video</a>
+          <a href="services.html">Real Estate 3D Tours</a>
+          <a href="services.html">Event Live Feeds</a>
+          <a href="services.html">3D Photogrammetry</a>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Support</h4>
+          <a href="contact.html#frequently-asked-questions">FAQs</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms &amp; Policy</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+          <a href="contact.html">Contact Support</a>
+        </div>
+        <div class="col-12 col-lg-3 col-md-6">
+          <h4>Stay in the loop</h4>
+          <p>Get occasional aerial perspectives and flight updates.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" required placeholder="Your email address" aria-label="Your email address">
+            <button type="submit" aria-label="Subscribe"><i class="bi bi-arrow-right"></i></button>
+          </form>
+          <small id="newsletterMessage"></small>
+          <div class="mt-3" style="font-size: 12px; color: #9cb2cb;">
+            <span><i class="bi bi-envelope me-1"></i> hello@aeronest.com</span>
+            <span class="mx-2">&bull;</span>
+            <span><i class="bi bi-telephone me-1"></i> +91 98765 43210</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> AeroNest. All rights reserved. Licensed Part 107 Operations.</span>
+        <div>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of Flight</a>
+          <a href="#top">Back to top &uarr;</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- Terms & Policy Modal -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content" style="border-radius: 18px; border: 1px solid rgba(22, 141, 243, 0.2); overflow: hidden;">
+        <div class="modal-header" style="background: linear-gradient(135deg, #071a31 0%, #0c2d53 100%); color: white; border-bottom: none; padding: 20px 24px;">
+          <div>
+            <span class="badge" style="background: rgba(22, 141, 243, 0.3); color: #38bdf8; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 5px 12px; border-radius: 30px; margin-bottom: 6px; display: inline-block;">AERONEST POLICIES</span>
+            <h5 class="modal-title fw-bold m-0" id="termsModalLabel">Terms &amp; Flight Policy</h5>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4" style="color: #475569; font-size: 14px; line-height: 1.7; max-height: 60vh; overflow-y: auto;">
+          <h6 class="fw-bold text-dark">1. Part 107 Commercial Flight Compliance</h6>
+          <p>All AeroNest operations comply strictly with FAA Part 107 (and DGCA / national civil aviation authorities). Our pilots hold commercial drone licenses and full airspace risk authorizations.</p>
+          <h6 class="fw-bold text-dark mt-3">2. Weather &amp; Safety Ground Rules</h6>
+          <p>Safety is non-negotiable. Flights will be rescheduled at zero cost to the client in the event of rain, sustained winds exceeding 20 knots, restricted temporary flight limits (TFRs), or severe geomagnetic interference.</p>
+          <h6 class="fw-bold text-dark mt-3">3. Commercial Licensing &amp; Usage Rights</h6>
+          <p>Clients receive full commercial usage rights for delivered media as specified in the service package. Unedited RAW files and proprietary flight telemetry logs remain the property of AeroNest unless licensed separately.</p>
+          <h6 class="fw-bold text-dark mt-3">4. Turnaround &amp; Revisions</h6>
+          <p>Standard delivery timelines are 24-48 hours for photography and 3-5 business days for edited cinema reels. Two rounds of color grade/edit adjustments are included in all packages.</p>
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid #e2e8f0; padding: 16px 24px;">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" style="border-radius: 10px; font-size: 13px; font-weight: 600;">Close</button>
+          <a href="contact.html" class="btn btn-brand btn-modal-action">Contact Support &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content" style="border-radius: 18px; border: 1px solid rgba(22, 141, 243, 0.2); overflow: hidden;">
+        <div class="modal-header" style="background: linear-gradient(135deg, #071a31 0%, #0c2d53 100%); color: white; border-bottom: none; padding: 20px 24px;">
+          <div>
+            <span class="badge" style="background: rgba(22, 141, 243, 0.3); color: #38bdf8; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 5px 12px; border-radius: 30px; margin-bottom: 6px; display: inline-block;">PRIVACY &amp; DATA SECURITY</span>
+            <h5 class="modal-title fw-bold m-0" id="privacyModalLabel">Privacy Policy</h5>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4" style="color: #475569; font-size: 14px; line-height: 1.7; max-height: 60vh; overflow-y: auto;">
+          <h6 class="fw-bold text-dark">1. Information We Collect</h6>
+          <p>We collect project details, contact information, GPS flight coordinates, and shoot requirements submitted via our inquiry forms to coordinate flight plans and deliver high-resolution assets.</p>
+          <h6 class="fw-bold text-dark mt-3">2. Airspace &amp; Property Privacy Safeguards</h6>
+          <p>AeroNest respects private property and personal privacy. During aerial capture, sensors are angled to focus strictly on the commissioned subject, avoiding adjacent residential interiors and restricted neighbor premises.</p>
+          <h6 class="fw-bold text-dark mt-3">3. Cloud Storage &amp; Asset Delivery</h6>
+          <p>Deliverables are securely hosted on encrypted cloud vaults for 90 days following project completion. We do not sell or share your contact data with third-party advertisers.</p>
+          <h6 class="fw-bold text-dark mt-3">4. Cookies &amp; Newsletter</h6>
+          <p>We use lightweight local storage to remember your theme and language preferences. You may unsubscribe from our monthly flight digest at any time with one click.</p>
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid #e2e8f0; padding: 16px 24px;">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" style="border-radius: 10px; font-size: 13px; font-weight: 600;">Close</button>
+          <a href="contact.html" class="btn btn-brand btn-modal-action">Contact Support &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

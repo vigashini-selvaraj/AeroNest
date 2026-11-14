@@ -1,0 +1,752 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AeroNest — professional drone photography, aerial videography, real estate shoots and cinematic event coverage.">
+  <title>AeroNest | Drone Photography &amp; Aerial Videography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function(){
+      try {
+        var d = localStorage.getItem('aeronest-direction');
+        if (d === 'rtl') document.documentElement.setAttribute('dir', 'rtl');
+        var t = localStorage.getItem('aeronest-theme');
+        if (t === 'dark') {
+          document.documentElement.classList.add('dark-mode');
+        } else {
+          document.documentElement.classList.remove('dark-mode');
+        }
+      } catch(e){}
+    })();
+  </script>
+</head>
+<body>
+  <!-- ================= STICKY NAVBAR ================= -->
+  <nav class="navbar navbar-expand-xl fixed-top site-nav" id="top">
+    <div class="container">
+      <a class="navbar-brand brand-container" href="index.html" aria-label="AeroNest home">
+        <div class="brand-logo-mark">
+          <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="12" fill="url(#navBrandGrad)"/>
+            <path d="M15 15L33 33M33 15L15 33" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="14" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="34" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="14" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="34" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="14" cy="14" r="1.8" fill="white"/>
+            <circle cx="34" cy="14" r="1.8" fill="white"/>
+            <circle cx="14" cy="34" r="1.8" fill="white"/>
+            <circle cx="34" cy="34" r="1.8" fill="white"/>
+            <circle cx="24" cy="24" r="8" fill="#071a31" stroke="white" stroke-width="2"/>
+            <circle cx="24" cy="24" r="4" fill="#38bdf8"/>
+            <defs>
+              <linearGradient id="navBrandGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#168df3"/>
+                <stop offset="1" stop-color="#0284c7"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title"><span class="brand-aero">Aero</span><span class="brand-nest">Nest</span></div>
+          <div class="brand-subtitle">AERIAL PHOTOGRAPHY &amp; VIDEO</div>
+        </div>
+      </a>
+            <!-- Mobile Quick Actions: RTL & Color Theme right next to hamburger -->
+      <div class="nav-mobile-actions d-xl-none ms-auto me-2">
+        <button class="nav-btn-mobile" id="mobileDirectionToggle" aria-label="Switch text direction" title="Switch LTR / RTL">
+          <span class="direction-text">LTR</span>
+          <i class="bi bi-arrow-left-right"></i>
+        </button>
+        <button class="nav-btn-mobile nav-btn-icon" id="mobileThemeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <i class="bi bi-sun mobileThemeIcon"></i>
+        </button>
+      </div>
+      <button class="navbar-toggler nav-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto align-items-xl-center">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="home2.html">Home 2</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions d-flex align-items-center">
+          <button class="nav-btn-ltr d-none d-xl-inline-flex" id="directionToggle" aria-label="Switch text direction" title="Switch LTR / RTL">
+            <span class="direction-text">LTR</span>
+            <i class="bi bi-arrow-left-right"></i>
+          </button>
+          <button class="nav-btn-icon d-none d-xl-inline-flex" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+            <i class="bi bi-sun" id="themeIcon"></i>
+          </button>
+          <a class="nav-btn-book" href="contact.html">
+            <span>Book a Shoot</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero-section" id="home">
+      <!-- Animated Background Zoom with Drone Over Misty Mountain River.png -->
+      <div class="hero-bg-animator"></div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow light-eyebrow"><span></span><span>Explore the World from Above</span></p>
+          <h1>Drone Photography<br>&amp; Aerial <em>Videography</em></h1>
+          <p class="hero-description">Capture breathtaking perspectives with our licensed drone pilots and cinema-grade cameras. From luxury real estate to cinematic productions, we bring your vision to life from the sky.</p>
+          <div class="hero-buttons">
+            <a href="services.html" class="btn btn-primary btn-lg rounded-pill">Explore Services <i class="bi bi-arrow-up-right-circle"></i></a>
+            <button class="btn btn-outline-light btn-lg rounded-pill" id="watchDemo"><span>Watch Reel</span> <i class="bi bi-play"></i></button>
+          </div>
+        </div>
+        <div class="feature-strip">
+          <div class="feature-item"><i class="bi bi-camera-reels"></i><div><h3>Aerial Photography</h3><p>Stunning 48MP raw aerial views from high angles.</p></div></div>
+          <div class="feature-item"><i class="bi bi-camera-video"></i><div><h3>Cinematic Videography</h3><p>Silky 4K &amp; 5.4K footage graded to perfection.</p></div></div>
+          <div class="feature-item"><i class="bi bi-buildings"></i><div><h3>Real Estate Shoots</h3><p>Showcase architecture, land &amp; developments.</p></div></div>
+          <div class="feature-item"><i class="bi bi-calendar2-week"></i><div><h3>Event Coverage</h3><p>Live sky feeds for festivals, regattas &amp; sports.</p></div></div>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#about-preview"><span><i class="bi bi-chevron-down"></i></span><small>Scroll Down</small></a>
+      <div class="hero-wave"></div>
+    </section>
+
+    <!-- ================= ABOUT PREVIEW ================= -->
+    <section class="section-pad about-section" id="about-preview">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-5">
+            <div class="about-image">
+              <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1100&q=85" alt="Mountain landscape at golden hour">
+              <div class="image-note">
+                <i class="bi bi-camera-video"></i>
+                <span>Every angle tells a story</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="section-kicker"><span></span> WHO WE ARE</div>
+            <h2 class="section-title">Sky-high creativity<br>in <span>every frame.</span></h2>
+            <p class="section-copy">We are an experienced team of FAA Part 107 licensed pilots, aerial cinematographers, and visual storytellers. Using top-tier multi-rotor drones equipped with Hasselblad sensors and 360-degree gimbals, we deliver breathtaking perspectives that inspire clients and accelerate business.</p>
+            <a href="about.html" class="text-link">Discover our full story &amp; team <i class="bi bi-arrow-right"></i></a>
+            <div class="stats-row">
+              <div><strong>250<span>+</span></strong><small>Projects completed</small></div>
+              <div><strong>100<span>+</span></strong><small>Happy clients</small></div>
+              <div><strong>3K<span>+</span></strong><small>Hours of flight time</small></div>
+              <div><strong>5.0</strong><small>Average client rating</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVICES PREVIEW ================= -->
+    <section class="section-pad services-section" id="services-preview">
+      <div class="container">
+        <div class="section-heading text-center">
+          <div class="section-kicker justify-content-center"><span></span> WHAT WE DO <span></span></div>
+          <h2 class="section-title">Aerial services, <span>without limits.</span></h2>
+          <p class="section-copy mx-auto">From a single high-resolution panoramic photograph to complete multi-camera cinematic commercial productions.</p>
+        </div>
+        <div class="row g-4 service-grid">
+          <div class="col-md-6 col-xl-3">
+            <article class="service-card">
+              <div class="service-icon"><i class="bi bi-camera"></i></div>
+              <h3>Aerial Photography</h3>
+              <p>Ultra high-resolution RAW captures revealing scale, texture, and elegance from unprecedented angles.</p>
+              <a href="services.html">Explore service <i class="bi bi-arrow-right"></i></a>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <article class="service-card">
+              <div class="service-icon"><i class="bi bi-film"></i></div>
+              <h3>Cinematic Videography</h3>
+              <p>Fluid, precisely choreographed 4K/60fps aerial sweeps edited into compelling narrative reels.</p>
+              <a href="services.html">Explore service <i class="bi bi-arrow-right"></i></a>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <article class="service-card">
+              <div class="service-icon"><i class="bi bi-buildings"></i></div>
+              <h3>Real Estate Shoots</h3>
+              <p>Highlight architectural grandeur, lot boundaries, and neighborhood appeal to drive buyer action.</p>
+              <a href="services.html">Explore service <i class="bi bi-arrow-right"></i></a>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <article class="service-card">
+              <div class="service-icon"><i class="bi bi-calendar-event"></i></div>
+              <h3>Event &amp; Sports Coverage</h3>
+              <p>Immersive vantage points for festivals, sailing regattas, and live broadcasts with full airspace safety.</p>
+              <a href="services.html">Explore service <i class="bi bi-arrow-right"></i></a>
+            </article>
+          </div>
+        </div>
+        <div class="text-center mt-5">
+          <a href="services.html" class="btn btn-outline-sky">View All Services &amp; Packages <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HOME 2 SHOWCASE BANNER ================= -->
+    <section class="section-pad" style="background: var(--paper);">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <div class="section-kicker"><span></span> EXPLORE HOME 2</div>
+            <h2 class="section-title">Theme B: Sky &amp; Horizon<br><span>Minimalist Drone Showcase.</span></h2>
+            <p class="section-copy">Check out our alternate Home 2 experience inspired by Theme B — featuring airy sky-blue aesthetics, project highlights, live mapping demos, and dedicated aerial portfolios.</p>
+            <div class="home-dual-btns">
+              <a href="home2.html" class="btn btn-primary"><span>Open Home 2 Page</span> <i class="bi bi-arrow-right ms-2"></i></a>
+              <a href="gallery.html" class="btn btn-outline-sky"><span>View Gallery</span></a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="home2-hero-img-wrap">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=85" alt="Luxury Villa Estate">
+              <div class="home2-float-badge">
+                <i class="bi bi-compass-fill"></i>
+                <div>
+                  <h5 class="mb-0 fw-bold">Theme B • Sky Drone</h5>
+                  <small class="text-muted">Airy, Clean &amp; Horizon View</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= GALLERY PREVIEW ================= -->
+    <section class="section-pad gallery-section" id="gallery-preview">
+      <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+          <div>
+            <div class="section-kicker"><span></span> OUR CAPTIVATING WORK</div>
+            <h2 class="section-title mb-0">Elevate your perspective with<br><span>our aerial gallery.</span></h2>
+          </div>
+          <a class="btn btn-outline-sky rounded-pill px-4 fw-bold" href="gallery.html">Explore Full Gallery <i class="bi bi-arrow-right ms-2"></i></a>
+        </div>
+        <div class="gallery-grid">
+          <a class="gallery-tile tile-large" href="gallery.html">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=90" alt="Mountain peaks">
+            <span>Misty Mountain Peaks</span>
+          </a>
+          <a class="gallery-tile" href="gallery.html">
+            <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=90" alt="City skyline">
+            <span>Metropolis Twilight</span>
+          </a>
+          <a class="gallery-tile" href="gallery.html">
+            <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=90" alt="Ocean coastline">
+            <span>Turquoise Coastlines</span>
+          </a>
+          <a class="gallery-tile" href="gallery.html">
+            <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1200&q=90" alt="Cabin in nature">
+            <span>Luxury Estate Overviews</span>
+          </a>
+          <a class="gallery-tile" href="gallery.html">
+            <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1200&q=90" alt="Live event">
+            <span>Sailing Regatta 2026</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROCESS / HOW IT WORKS ================= -->
+    <section class="section-pad process-section" id="process">
+      <div class="container">
+        <div class="section-heading text-center">
+          <div class="section-kicker justify-content-center"><span></span> HOW IT WORKS <span></span></div>
+          <h2 class="section-title">From first idea to <span>final frame.</span></h2>
+          <p class="section-copy mx-auto">Our streamlined flight planning ensures maximum creative results with zero friction.</p>
+        </div>
+        <div class="row g-4 process-row">
+          <div class="col-md-4">
+            <div class="process-card">
+              <span>01</span>
+              <i class="bi bi-chat-square-text"></i>
+              <h3>Tell us your vision</h3>
+              <p>Share your target location, project goals, preferred visual style and exact key deliverables.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="process-card">
+              <span>02</span>
+              <i class="bi bi-compass"></i>
+              <h3>We plan the flight</h3>
+              <p>We review airspace authorization, coordinate safety protocols, evaluate lighting and execute flight maneuvers.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="process-card">
+              <span>03</span>
+              <i class="bi bi-stars"></i>
+              <h3>Receive the magic</h3>
+              <p>Our editing suite color-grades, edits, and delivers ready-to-publish 4K visual assets within 48 hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TESTIMONIALS ================= -->
+    <section class="section-pad testimonial-section">
+      <div class="container">
+        <div class="section-heading text-center">
+          <div class="section-kicker justify-content-center"><span></span> CLIENT EXPERIENCES <span></span></div>
+          <h2 class="section-title">Trusted by brands. <span>Praised by clients.</span></h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="quote-card">
+              <div class="stars">★★★★★</div>
+              <p>“The aerial photos gave our luxury property listing a completely different presence. Buyer inquiries doubled in the first week.”</p>
+              <div class="quote-person">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Priya Sharma">
+                <div><b>Priya Sharma</b><small>Luxury Real Estate Consultant</small></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="quote-card">
+              <div class="stars">★★★★★</div>
+              <p>“Cinematic 5.4K shots with zero jitter. The AeroNest team handled airspace clearances and delivered on time without any issues.”</p>
+              <div class="quote-person">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Arjun Mehta">
+                <div><b>Arjun Mehta</b><small>Commercial Film Director</small></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="quote-card">
+              <div class="stars">★★★★★</div>
+              <p>“Professional, creative and fully insured pilots. The final coastal video captured the emotional atmosphere of our resort beautifully.”</p>
+              <div class="quote-person">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Sneha Reddy">
+                <div><b>Sneha Reddy</b><small>Resort Brand Manager</small></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LATEST FROM BLOG ================= -->
+    <section class="section-pad blog-section" id="blog-preview">
+      <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+          <div>
+            <div class="section-kicker"><span></span> ARTICLES &amp; INSIGHTS</div>
+            <h2 class="section-title mb-0">Latest from <span>our flight log.</span></h2>
+          </div>
+          <a class="btn btn-outline-sky rounded-pill px-4" href="blog.html">View All Articles <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="blog-card">
+              <div class="blog-thumb">
+                <a href="blog-details.html?id=luxury-real-estate-aerial-speed&amp;title=How%20Aerial%20Perspectives%20Accelerate%20Luxury%20Real%20Estate%20Sales&amp;image=assets/gallery-realestate-1.jpg&amp;category=Real%20Estate%20Photography">
+                  <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80" alt="Drone Flying over Coast">
+                </a>
+                <span class="blog-tag">Real Estate</span>
+              </div>
+              <div class="blog-body">
+                <div class="blog-meta"><i class="bi bi-calendar3"></i> Nov 10, 2026 • 6 min read</div>
+                <h3><a href="blog-details.html?id=luxury-real-estate-aerial-speed&amp;title=How%20Aerial%20Perspectives%20Accelerate%20Luxury%20Real%20Estate%20Sales&amp;image=assets/gallery-realestate-1.jpg&amp;category=Real%20Estate%20Photography" class="text-ink text-decoration-none">How Aerial Perspectives Accelerate Luxury Real Estate Sales</a></h3>
+                <p>Properties showcasing drone footage receive up to 68% more qualified enquiries. Learn how top agencies utilize aerial angles.</p>
+                <a href="blog-details.html?id=luxury-real-estate-aerial-speed&amp;title=How%20Aerial%20Perspectives%20Accelerate%20Luxury%20Real%20Estate%20Sales&amp;image=assets/gallery-realestate-1.jpg&amp;category=Real%20Estate%20Photography" class="blog-link">View Details <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="blog-card">
+              <div class="blog-thumb">
+                <a href="blog-details.html?id=drone-cinematography-golden-hour&amp;title=Cinematic%20Lighting%20for%20Golden%20Hour%20Drone%20Cinematography&amp;image=assets/gallery-cinematic-1.jpg&amp;category=Aerial%20Videography">
+                  <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=800&q=80" alt="Drone Controller Pilot">
+                </a>
+                <span class="blog-tag">Cinematography</span>
+              </div>
+              <div class="blog-body">
+                <div class="blog-meta"><i class="bi bi-calendar3"></i> Nov 04, 2026 • 5 min read</div>
+                <h3><a href="blog-details.html?id=drone-cinematography-golden-hour&amp;title=Cinematic%20Lighting%20for%20Golden%20Hour%20Drone%20Cinematography&amp;image=assets/gallery-cinematic-1.jpg&amp;category=Aerial%20Videography" class="text-ink text-decoration-none">Cinematic Lighting for Golden Hour Drone Cinematography</a></h3>
+                <p>Mastering low-angle sun flare, circular polarizers, and dynamic range to turn landscape video into high-value cinema.</p>
+                <a href="blog-details.html?id=drone-cinematography-golden-hour&amp;title=Cinematic%20Lighting%20for%20Golden%20Hour%20Drone%20Cinematography&amp;image=assets/gallery-cinematic-1.jpg&amp;category=Aerial%20Videography" class="blog-link">View Details <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="blog-card">
+              <div class="blog-thumb">
+                <a href="blog-details.html?id=drone-lidar-3d-mapping-architects&amp;title=Urban%20Drone%20Mapping%3A%20Precision%203D%20Surveys%20for%20Architects&amp;image=assets/gallery-commercial-1.jpg&amp;category=Drone%20Technology">
+                  <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Commercial Building">
+                </a>
+                <span class="blog-tag">Technology</span>
+              </div>
+              <div class="blog-body">
+                <div class="blog-meta"><i class="bi bi-calendar3"></i> Oct 28, 2026 • 4 min read</div>
+                <h3><a href="blog-details.html?id=drone-lidar-3d-mapping-architects&amp;title=Urban%20Drone%20Mapping%3A%20Precision%203D%20Surveys%20for%20Architects&amp;image=assets/gallery-commercial-1.jpg&amp;category=Drone%20Technology" class="text-ink text-decoration-none">Urban Drone Mapping: Precision 3D Surveys for Architects</a></h3>
+                <p>How lidar and high-resolution photogrammetry streamline site inspection and civil engineering milestones.</p>
+                <a href="blog-details.html?id=drone-lidar-3d-mapping-architects&amp;title=Urban%20Drone%20Mapping%3A%20Precision%203D%20Surveys%20for%20Architects&amp;image=assets/gallery-commercial-1.jpg&amp;category=Drone%20Technology" class="blog-link">View Details <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA PANEL ================= -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <div class="section-kicker text-white-50"><span></span> YOUR NEXT PERSPECTIVE</div>
+            <h2>Ready to capture<br><span>the extraordinary?</span></h2>
+            <p>Tell us what you have in mind. Let our licensed pilots take your vision into the sky.</p>
+          </div>
+          <a href="contact.html" class="btn btn-light rounded-pill btn-lg">Book Your Shoot <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BOOKING FORM SECTION ================= -->
+    <section class="section-pad booking-section" id="booking-form">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-5">
+            <div class="section-kicker"><span></span> GET STARTED TODAY</div>
+            <h2 class="section-title">Your flight<br>starts <span>right here.</span></h2>
+            <p class="section-copy">Send us a few details and our flight coordinator will get back to you to discuss availability, airspace permits, and shot lists.</p>
+            <div class="contact-detail"><i class="bi bi-envelope"></i><span>hello@aeronest.com</span></div>
+            <div class="contact-detail"><i class="bi bi-telephone"></i><span>+91 98765 43210</span></div>
+            <div class="contact-detail"><i class="bi bi-geo-alt"></i><span>Chennai &amp; Coastal Flight Operations, India</span></div>
+          </div>
+          <div class="col-lg-7">
+            <form class="booking-form" id="shootForm">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="name">Your name</label>
+                  <input id="name" name="name" class="form-control" required placeholder="Full name">
+                </div>
+                <div class="col-md-6">
+                  <label for="email">Email address</label>
+                  <input id="email" name="email" type="email" class="form-control" required placeholder="you@example.com">
+                </div>
+                <div class="col-md-6">
+                  <label for="service">Service required</label>
+                  <select id="service" name="service" class="form-select" required>
+                    <option value="">Choose a service</option>
+                    <option>Aerial Photography</option>
+                    <option>Cinematic Videography</option>
+                    <option>Real Estate 3D Tours</option>
+                    <option>Event Coverage</option>
+                    <option>Commercial Mapping</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="date">Preferred shoot date</label>
+                  <input id="date" name="date" type="date" class="form-control">
+                </div>
+                <div class="col-12">
+                  <label for="message">Tell us about your project</label>
+                  <textarea id="message" name="message" rows="4" class="form-control" placeholder="Target location, occasion, key ideas..."></textarea>
+                </div>
+                <div class="col-12 d-flex flex-wrap align-items-center gap-3">
+                  <button class="btn btn-primary rounded-pill px-4" type="submit">Submit Flight Enquiry <i class="bi bi-arrow-right"></i></button>
+                  <small id="formMessage" role="status">We usually respond within 24 hours.</small>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+            <div class="row g-4 footer-main">
+        <div class="col-lg-3 col-md-6">
+          <a class="brand-container footer-brand" href="index.html" aria-label="AeroNest home">
+            <div class="brand-logo-mark">
+              <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="48" height="48" rx="12" fill="url(#footerBrandGrad)"/>
+                <path d="M15 15L33 33M33 15L15 33" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="14" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="34" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="14" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="34" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="24" cy="24" r="8" fill="#071a31" stroke="white" stroke-width="2"/>
+                <circle cx="24" cy="24" r="4" fill="#38bdf8"/>
+                <defs>
+                  <linearGradient id="footerBrandGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#168df3"/>
+                    <stop offset="1" stop-color="#0284c7"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <div class="brand-title"><span class="brand-aero">Aero</span><span class="brand-nest">Nest</span></div>
+              <div class="brand-subtitle">AERIAL PHOTOGRAPHY &amp; VIDEO</div>
+            </div>
+          </a>
+          <p class="footer-tagline">See the world differently.<br>From high above with certified pilots.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="home2.html">Home 2</a>
+          <a href="about.html">About Us</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="services.html">Services</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Services</h4>
+          <a href="services.html">Aerial Photography</a>
+          <a href="services.html">Cinematic Video</a>
+          <a href="services.html">Real Estate 3D Tours</a>
+          <a href="services.html">Event Live Feeds</a>
+          <a href="services.html">3D Photogrammetry</a>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Support</h4>
+          <a href="contact.html#frequently-asked-questions">FAQs</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms &amp; Policy</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+          <a href="contact.html">Contact Support</a>
+        </div>
+        <div class="col-12 col-lg-3 col-md-6">
+          <h4>Stay in the loop</h4>
+          <p>Get occasional aerial perspectives and flight updates.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" required placeholder="Your email address" aria-label="Your email address">
+            <button type="submit" aria-label="Subscribe"><i class="bi bi-arrow-right"></i></button>
+          </form>
+          <small id="newsletterMessage"></small>
+          <div class="mt-3" style="font-size: 12px; color: #9cb2cb;">
+            <span><i class="bi bi-envelope me-1"></i> hello@aeronest.com</span>
+            <span class="mx-2">&bull;</span>
+            <span><i class="bi bi-telephone me-1"></i> +91 98765 43210</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> AeroNest. All rights reserved. Licensed Part 107 Operations.</span>
+        <div>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of Flight</a>
+          <a href="#top">Back to top &uarr;</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Demo Reel Modal (Cinematic Mountain Drone Flight Simulation) -->
+  <div class="demo-modal" id="demoModal" aria-hidden="true">
+    <div class="demo-dialog demo-reel-player" id="demoDialog">
+      <button class="demo-close" id="closeDemo" aria-label="Close demo"><i class="bi bi-x-lg"></i></button>
+      
+      <div class="demo-player-viewport" id="reelViewport">
+        <!-- Mountain Drone Flight Picture Layers (Ken Burns Flight Animation) -->
+        <div class="drone-flight-canvas">
+          <div class="drone-flight-bg" id="droneFlightBg"></div>
+          <div class="drone-flight-mist"></div>
+          <div class="drone-flight-vignette"></div>
+        </div>
+
+        <!-- Center Click-to-Play/Pause Overlay Badge -->
+        <button class="reel-center-play" id="reelCenterPlay" aria-label="Play or Pause Flight">
+          <i class="bi bi-play-fill" id="centerPlayIcon"></i>
+        </button>
+
+        <!-- Drone Flight HUD Overlay -->
+        <div class="drone-hud-overlay">
+          <!-- Top Telemetry Header -->
+          <div class="drone-hud-top">
+            <div class="drone-hud-badge rec-indicator">
+              <span class="rec-dot"></span>
+              <strong>REC</strong>
+              <span class="hud-mono" id="reelHudTime">00:00</span>
+            </div>
+            <div class="drone-hud-specs d-none d-sm-flex">
+              <span class="hud-spec-pill">4K D-LOG M</span>
+              <span class="hud-spec-pill">60 FPS</span>
+              <span class="hud-spec-pill">ISO 100</span>
+              <span class="hud-spec-pill">1/120s</span>
+            </div>
+            <div class="drone-hud-status">
+              <span><i class="bi bi-broadcast"></i> GPS 24</span>
+              <span><i class="bi bi-battery-charging text-info"></i> 84%</span>
+            </div>
+          </div>
+
+          <!-- Center Crosshairs & Viewfinder Frame -->
+          <div class="drone-hud-center">
+            <div class="drone-crosshair">
+              <div class="ch-line-h"></div>
+              <div class="ch-line-v"></div>
+              <div class="ch-reticle"></div>
+              <div class="ch-pitch-scale">
+                <span>+10</span>
+                <span class="pitch-mid">—</span>
+                <span>-10</span>
+              </div>
+            </div>
+            <div class="viewfinder-brackets">
+              <span class="vf-corner vf-tl"></span>
+              <span class="vf-corner vf-tr"></span>
+              <span class="vf-corner vf-bl"></span>
+              <span class="vf-corner vf-br"></span>
+            </div>
+          </div>
+
+          <!-- Bottom Telemetry Stats Bar -->
+          <div class="drone-hud-bottom">
+            <div class="telemetry-item">
+              <small>ALTITUDE</small>
+              <strong id="hudAlt">412 FT</strong>
+            </div>
+            <div class="telemetry-item">
+              <small>FLIGHT SPEED</small>
+              <strong id="hudSpeed">34.2 MPH</strong>
+            </div>
+            <div class="telemetry-item d-none d-sm-block">
+              <small>GIMBAL TILT</small>
+              <strong id="hudGimbal">-18.5°</strong>
+            </div>
+            <div class="telemetry-item d-none d-md-block">
+              <small>LOCATION</small>
+              <strong id="hudLocation">ALPINE RIVER CANYON</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cinema Video Controls Bar -->
+        <div class="reel-controls-bar">
+          <!-- Interactive Scrub Timeline -->
+          <div class="reel-progress-container" id="reelProgressContainer" title="Click to seek">
+            <div class="reel-progress-track">
+              <div class="reel-progress-fill" id="reelProgressFill"></div>
+              <div class="reel-progress-handle" id="reelProgressHandle"></div>
+            </div>
+          </div>
+
+          <div class="reel-controls-row">
+            <div class="reel-controls-left">
+              <button class="reel-ctrl-btn" id="reelPlayPauseBtn" aria-label="Play or Pause Flight" title="Play / Pause">
+                <i class="bi bi-play-fill" id="reelPlayIcon"></i>
+              </button>
+              <div class="reel-time-display">
+                <span id="reelCurrentTime">00:00</span>
+                <span class="time-sep">/</span>
+                <span>00:30</span>
+              </div>
+              <span class="reel-badge d-none d-md-inline-block"><i class="bi bi-camera-reels me-1"></i> 30s MOUNTAIN FLIGHT REEL</span>
+            </div>
+            <div class="reel-controls-right">
+              <div class="reel-scene-switchers d-none d-sm-flex">
+                <button class="reel-scene-btn active" data-scene="misty" id="sceneBtn1" title="Misty Mountain River">
+                  <i class="bi bi-water"></i> River Canyon
+                </button>
+                <button class="reel-scene-btn" data-scene="alpine" id="sceneBtn2" title="Alpine Peaks">
+                  <i class="bi bi-image"></i> Alpine Peaks
+                </button>
+              </div>
+              <button class="reel-ctrl-btn" id="reelAudioToggle" aria-label="Toggle Flight Ambience" title="Ambient Wind/Rotor Sound">
+                <i class="bi bi-volume-mute" id="reelAudioIcon"></i>
+              </button>
+              <button class="reel-ctrl-btn" id="reelExpandBtn" aria-label="Toggle Theater Width" title="Expand Player">
+                <i class="bi bi-arrows-angle-expand" id="reelExpandIcon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- Terms & Policy Modal -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content" style="border-radius: 18px; border: 1px solid rgba(22, 141, 243, 0.2); overflow: hidden;">
+        <div class="modal-header" style="background: linear-gradient(135deg, #071a31 0%, #0c2d53 100%); color: white; border-bottom: none; padding: 20px 24px;">
+          <div>
+            <span class="badge" style="background: rgba(22, 141, 243, 0.3); color: #38bdf8; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 5px 12px; border-radius: 30px; margin-bottom: 6px; display: inline-block;">AERONEST POLICIES</span>
+            <h5 class="modal-title fw-bold m-0" id="termsModalLabel">Terms &amp; Flight Policy</h5>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4" style="color: #475569; font-size: 14px; line-height: 1.7; max-height: 60vh; overflow-y: auto;">
+          <h6 class="fw-bold text-dark">1. Part 107 Commercial Flight Compliance</h6>
+          <p>All AeroNest operations comply strictly with FAA Part 107 (and DGCA / national civil aviation authorities). Our pilots hold commercial drone licenses and full airspace risk authorizations.</p>
+          <h6 class="fw-bold text-dark mt-3">2. Weather &amp; Safety Ground Rules</h6>
+          <p>Safety is non-negotiable. Flights will be rescheduled at zero cost to the client in the event of rain, sustained winds exceeding 20 knots, restricted temporary flight limits (TFRs), or severe geomagnetic interference.</p>
+          <h6 class="fw-bold text-dark mt-3">3. Commercial Licensing &amp; Usage Rights</h6>
+          <p>Clients receive full commercial usage rights for delivered media as specified in the service package. Unedited RAW files and proprietary flight telemetry logs remain the property of AeroNest unless licensed separately.</p>
+          <h6 class="fw-bold text-dark mt-3">4. Turnaround &amp; Revisions</h6>
+          <p>Standard delivery timelines are 24-48 hours for photography and 3-5 business days for edited cinema reels. Two rounds of color grade/edit adjustments are included in all packages.</p>
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid #e2e8f0; padding: 16px 24px;">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" style="border-radius: 10px; font-size: 13px; font-weight: 600;">Close</button>
+          <a href="contact.html" class="btn btn-brand btn-modal-action">Contact Support &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content" style="border-radius: 18px; border: 1px solid rgba(22, 141, 243, 0.2); overflow: hidden;">
+        <div class="modal-header" style="background: linear-gradient(135deg, #071a31 0%, #0c2d53 100%); color: white; border-bottom: none; padding: 20px 24px;">
+          <div>
+            <span class="badge" style="background: rgba(22, 141, 243, 0.3); color: #38bdf8; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 5px 12px; border-radius: 30px; margin-bottom: 6px; display: inline-block;">PRIVACY &amp; DATA SECURITY</span>
+            <h5 class="modal-title fw-bold m-0" id="privacyModalLabel">Privacy Policy</h5>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4" style="color: #475569; font-size: 14px; line-height: 1.7; max-height: 60vh; overflow-y: auto;">
+          <h6 class="fw-bold text-dark">1. Information We Collect</h6>
+          <p>We collect project details, contact information, GPS flight coordinates, and shoot requirements submitted via our inquiry forms to coordinate flight plans and deliver high-resolution assets.</p>
+          <h6 class="fw-bold text-dark mt-3">2. Airspace &amp; Property Privacy Safeguards</h6>
+          <p>AeroNest respects private property and personal privacy. During aerial capture, sensors are angled to focus strictly on the commissioned subject, avoiding adjacent residential interiors and restricted neighbor premises.</p>
+          <h6 class="fw-bold text-dark mt-3">3. Cloud Storage &amp; Asset Delivery</h6>
+          <p>Deliverables are securely hosted on encrypted cloud vaults for 90 days following project completion. We do not sell or share your contact data with third-party advertisers.</p>
+          <h6 class="fw-bold text-dark mt-3">4. Cookies &amp; Newsletter</h6>
+          <p>We use lightweight local storage to remember your theme and language preferences. You may unsubscribe from our monthly flight digest at any time with one click.</p>
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid #e2e8f0; padding: 16px 24px;">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" style="border-radius: 10px; font-size: 13px; font-weight: 600;">Close</button>
+          <a href="contact.html" class="btn btn-brand btn-modal-action">Contact Support &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

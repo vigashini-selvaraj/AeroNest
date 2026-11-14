@@ -1,0 +1,2099 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AeroNest Aerial Gallery — High-resolution 4K drone photography, landscape perspectives, luxury real estate and cinematic aerial portfolios.">
+  <title>Gallery | AeroNest Drone Photography &amp; Aerial Videography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function(){
+      try {
+        var d = localStorage.getItem('aeronest-direction');
+        if (d === 'rtl') document.documentElement.setAttribute('dir', 'rtl');
+        var t = localStorage.getItem('aeronest-theme');
+        if (t === 'dark') {
+          document.documentElement.classList.add('dark-mode');
+        } else {
+          document.documentElement.classList.remove('dark-mode');
+        }
+      } catch(e){}
+    })();
+  </script>
+
+  <!-- ================= GALLERY SPECIFIC STYLES ================= -->
+  <style>
+    /* Section 1: Hero Section (Blue & Golden-Yellow Sunrise Theme) */
+    .gallery-hero-bg {
+      position: absolute;
+      inset: -6%;
+      width: 112%;
+      height: 112%;
+      background: url('assets/gallery-hero-sunrise.jpg') center 42% / cover no-repeat;
+      animation: heroCinematicZoom 24s ease-in-out infinite alternate;
+      z-index: 1;
+      will-change: transform;
+    }
+
+    /* Section 2: Featured Projects Spotlight */
+    .featured-spotlight-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      height: 100%;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+    .featured-spotlight-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--sky-blue);
+      box-shadow: 0 20px 40px rgba(0, 119, 255, 0.18);
+    }
+    .featured-spotlight-thumb {
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      background: #07172c;
+    }
+    .featured-spotlight-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .featured-spotlight-card:hover .featured-spotlight-thumb img {
+      transform: scale(1.08);
+    }
+    .featured-spotlight-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(7, 26, 49, 0.88);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      color: #38bdf8;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 5px 14px;
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .featured-spotlight-body {
+      padding: 22px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .featured-spotlight-body h4 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+    .featured-spotlight-body p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+    .featured-spotlight-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .featured-spotlight-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Section 3: Filterable Gallery Categories (Strict Uniform Card Sizing) */
+    .gallery-filter-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .gallery-filter-pill {
+      border: 1.5px solid var(--line);
+      background: var(--card);
+      color: var(--muted);
+      border-radius: 30px;
+      padding: 10px 22px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .gallery-filter-pill:hover {
+      border-color: var(--sky-blue);
+      color: var(--sky-blue);
+      background: rgba(56, 189, 248, 0.08);
+    }
+    .gallery-filter-pill.active {
+      background: linear-gradient(135deg, #168df3 0%, #0284c7 100%) !important;
+      color: #ffffff !important;
+      border-color: transparent !important;
+      box-shadow: 0 8px 24px rgba(22, 141, 243, 0.45);
+    }
+    .gallery-grid-card-wrap {
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .gallery-grid-card-wrap.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* STRICT UNIFORM PHOTO CARD SIZING - All images identical height */
+    .gallery-photo-card {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      background: var(--card);
+      cursor: pointer;
+      position: relative;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gallery-photo-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--sky-blue);
+      box-shadow: 0 18px 36px rgba(0, 119, 255, 0.2);
+    }
+    .gallery-photo-card-inner {
+      position: relative;
+      height: 285px; /* STRICT UNIFORM HEIGHT ACROSS ENTIRE GALLERY */
+      width: 100%;
+      overflow: hidden;
+      background: #07172c;
+    }
+    .gallery-photo-card-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gallery-photo-card:hover .gallery-photo-card-inner img {
+      transform: scale(1.08);
+    }
+    .gallery-photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(4, 13, 26, 0.94) 0%, rgba(4, 13, 26, 0.5) 45%, rgba(4, 13, 26, 0.1) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+      transition: opacity 0.3s ease;
+    }
+    .gallery-photo-tag {
+      background: rgba(56, 189, 248, 0.22);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #7dd3fc;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 12px;
+      align-self: flex-start;
+      margin-bottom: 8px;
+      backdrop-filter: blur(6px);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .gallery-photo-overlay h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .gallery-photo-overlay p {
+      font-size: 12px;
+      color: #cbd5e1;
+      margin-bottom: 0;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .gallery-photo-zoom-icon {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(7, 26, 49, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+    .gallery-photo-card:hover .gallery-photo-zoom-icon {
+      background: #0284c7;
+      color: #ffffff;
+      transform: scale(1.1);
+    }
+
+    /* Section 4: Signature Projects Showcase */
+    .signature-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.35s ease;
+      margin-bottom: 32px;
+    }
+    .signature-card:hover {
+      border-color: var(--sky-blue);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+    .signature-thumb {
+      height: 100%;
+      min-height: 320px;
+      position: relative;
+      overflow: hidden;
+      background: #07172c;
+    }
+    .signature-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .signature-card:hover .signature-thumb img {
+      transform: scale(1.05);
+    }
+    .signature-body {
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .signature-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--sky-blue);
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 5px 14px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      width: fit-content;
+      margin-bottom: 14px;
+    }
+    .signature-body h3 {
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .signature-body p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .signature-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding: 16px;
+      background: var(--sky-tint);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      margin-bottom: 24px;
+    }
+    .signature-spec-item {
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+    .signature-spec-item strong {
+      display: block;
+      color: var(--ink);
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    /* Section 5: Video Showcase */
+    .video-hero-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      height: 440px;
+      background: #040d1a;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-lg);
+    }
+    .video-hero-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.72;
+      transition: transform 0.6s ease;
+    }
+    .video-hero-card:hover img {
+      transform: scale(1.04);
+    }
+    .video-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(4, 13, 26, 0.95) 0%, rgba(4, 13, 26, 0.4) 50%, rgba(4, 13, 26, 0.2) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 40px;
+    }
+    .video-play-btn {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #168df3 0%, #0284c7 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 12px 30px rgba(0, 119, 255, 0.45);
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      margin-bottom: 24px;
+    }
+    .video-play-btn:hover {
+      transform: scale(1.12);
+      box-shadow: 0 16px 40px rgba(0, 119, 255, 0.6);
+    }
+    .sub-video-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.35s ease;
+      height: 100%;
+      cursor: pointer;
+    }
+    .sub-video-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--sky-blue);
+      box-shadow: var(--shadow-lg);
+    }
+    .sub-video-thumb {
+      height: 170px;
+      position: relative;
+      overflow: hidden;
+      background: #07172c;
+    }
+    .sub-video-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .sub-video-card:hover .sub-video-thumb img {
+      transform: scale(1.08);
+    }
+    .sub-video-duration {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(4, 13, 26, 0.88);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .sub-video-body {
+      padding: 18px;
+    }
+    .sub-video-body h5 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .sub-video-body p {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    /* Section 6: Behind the Lens */
+    .behind-lens-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: all 0.35s ease;
+      height: 100%;
+    }
+    .behind-lens-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--sky-blue);
+      box-shadow: var(--shadow-lg);
+    }
+    .behind-lens-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--sky-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .behind-lens-card h4 {
+      font-size: 17.5px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .behind-lens-card p {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 0;
+    }
+
+    /* Section 7: Our Work in Numbers */
+    .gallery-stat-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 32px 20px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    .gallery-stat-box:hover {
+      transform: translateY(-5px);
+      border-color: var(--sky-blue);
+      box-shadow: 0 16px 32px rgba(0, 119, 255, 0.15);
+    }
+    .gallery-stat-number {
+      font-size: clamp(34px, 3.5vw, 44px);
+      font-weight: 800;
+      color: var(--sky-blue);
+      line-height: 1;
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+    }
+    .gallery-stat-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .gallery-stat-desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    /* Section 8: Client Feedback */
+    .gallery-feedback-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: all 0.35s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-feedback-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--sky-blue);
+      box-shadow: var(--shadow-lg);
+    }
+    .gallery-feedback-stars {
+      color: #f59e0b;
+      font-size: 14px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 3px;
+    }
+    .gallery-feedback-quote {
+      font-size: 14px;
+      color: var(--ink);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      flex-grow: 1;
+      font-style: italic;
+    }
+    .gallery-feedback-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+    .feedback-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--sky-tint);
+      border: 2px solid var(--sky-blue);
+      color: var(--sky-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(22, 141, 243, 0.2);
+    }
+    .feedback-avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .feedback-info h5 {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .feedback-info span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Section 9: CTA Section */
+    .gallery-cta-section {
+      background: var(--paper);
+    }
+
+    /* ================= COMPACT ON-SCREEN LIGHTBOX MODAL WITH DRONE DETAILS ================= */
+    .gallery-lightbox-modal .modal-dialog {
+      max-width: 860px; /* Compact width - fits comfortably on screen */
+      margin: 1.5rem auto;
+    }
+    .gallery-lightbox-modal .modal-content {
+      background: #07172c;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 20px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+    }
+    .lightbox-wrapper {
+      padding: 24px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      z-index: 10;
+      opacity: 0.85;
+      transition: opacity 0.2s ease;
+    }
+    .lightbox-close:hover {
+      opacity: 1;
+    }
+    .lightbox-img-frame {
+      max-height: 46vh; /* Strictly controlled height so modal never overflows viewport */
+      min-height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #030b15;
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .lightbox-img-frame img {
+      max-height: 46vh;
+      max-width: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+    .lightbox-details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+      padding: 12px 16px;
+      background: rgba(14, 38, 68, 0.75);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 12px;
+    }
+    .lightbox-detail-item {
+      font-size: 12px;
+    }
+    .lightbox-detail-label {
+      color: #94a3b8;
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .lightbox-detail-value {
+      color: #f1f5f9;
+      font-weight: 600;
+      font-size: 12.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .lightbox-detail-value i {
+      color: #38bdf8;
+      font-size: 13px;
+    }
+    .lightbox-nav-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+    }
+    .lightbox-nav-btn:hover {
+      background: var(--sky-blue);
+      border-color: var(--sky-blue);
+      color: #fff;
+    }
+
+    /* RTL adaptations */
+    html[dir="rtl"] .gallery-photo-tag {
+      align-self: flex-end;
+    }
+    html[dir="rtl"] .gallery-photo-zoom-icon {
+      right: auto;
+      left: 14px;
+    }
+    html[dir="rtl"] .lightbox-close {
+      right: auto;
+      left: 18px;
+    }
+    html[dir="rtl"] .sub-video-duration {
+      right: auto;
+      left: 10px;
+    }
+    /* Mirror hero background & overlay in RTL mode */
+    html[dir="rtl"] .gallery-hero-bg {
+      transform: scaleX(-1);
+      animation-name: heroCinematicZoomRTL;
+    }
+    html[dir="rtl"] .hero-overlay {
+      background: linear-gradient(270deg, rgba(7, 26, 49, 0.90) 0%, rgba(9, 31, 58, 0.62) 48%, rgba(11, 38, 70, 0.18) 100%),
+                  linear-gradient(0deg, rgba(7, 26, 49, 0.85) 0%, transparent 45%);
+    }
+  
+    /* Cinema 30s Video Showcase Modal */
+    .video-showcase-modal .modal-dialog {
+      max-width: 880px;
+      margin: 1.5rem auto;
+    }
+    .video-showcase-modal .modal-content {
+      background: #07172c;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 20px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+      overflow: hidden;
+    }
+    .video-modal-wrapper {
+      padding: 24px;
+    }
+    .video-modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      z-index: 10;
+      opacity: 0.85;
+      transition: opacity 0.2s ease;
+    }
+    .video-modal-close:hover {
+      opacity: 1;
+    }
+    .video-player-container {
+      position: relative;
+      width: 100%;
+      height: 48vh;
+      min-height: 260px;
+      max-height: 480px;
+      background: #020813;
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.7);
+    }
+    .video-player-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+    .video-live-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(7, 26, 49, 0.88);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      color: #38bdf8;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+      letter-spacing: 0.6px;
+      z-index: 5;
+      pointer-events: none;
+    }
+    html[dir="rtl"] .video-live-badge {
+      left: auto;
+      right: 14px;
+    }
+    html[dir="rtl"] .video-modal-close {
+      right: auto;
+      left: 18px;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- ================= STICKY NAVBAR ================= -->
+  <nav class="navbar navbar-expand-xl fixed-top site-nav" id="top">
+    <div class="container">
+      <a class="navbar-brand brand-container" href="index.html" aria-label="AeroNest home">
+        <div class="brand-logo-mark">
+          <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="12" fill="url(#navBrandGradGalleryFinal)"/>
+            <path d="M15 15L33 33M33 15L15 33" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="14" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="34" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="14" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="34" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="14" cy="14" r="1.8" fill="white"/>
+            <circle cx="34" cy="14" r="1.8" fill="white"/>
+            <circle cx="14" cy="34" r="1.8" fill="white"/>
+            <circle cx="34" cy="34" r="1.8" fill="white"/>
+            <circle cx="24" cy="24" r="8" fill="#071a31" stroke="white" stroke-width="2"/>
+            <circle cx="24" cy="24" r="4" fill="#38bdf8"/>
+            <defs>
+              <linearGradient id="navBrandGradGalleryFinal" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#168df3"/>
+                <stop offset="1" stop-color="#0284c7"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title"><span class="brand-aero">Aero</span><span class="brand-nest">Nest</span></div>
+          <div class="brand-subtitle">AERIAL PHOTOGRAPHY &amp; VIDEO</div>
+        </div>
+      </a>
+            <!-- Mobile Quick Actions: RTL & Color Theme right next to hamburger -->
+      <div class="nav-mobile-actions d-xl-none ms-auto me-2">
+        <button class="nav-btn-mobile" id="mobileDirectionToggle" aria-label="Switch text direction" title="Switch LTR / RTL">
+          <span class="direction-text">LTR</span>
+          <i class="bi bi-arrow-left-right"></i>
+        </button>
+        <button class="nav-btn-mobile nav-btn-icon" id="mobileThemeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <i class="bi bi-sun mobileThemeIcon"></i>
+        </button>
+      </div>
+      <button class="navbar-toggler nav-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto align-items-xl-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="home2.html">Home 2</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions d-flex align-items-center">
+          <button class="nav-btn-ltr d-none d-xl-inline-flex" id="directionToggle" aria-label="Switch text direction" title="Switch LTR / RTL">
+            <span class="direction-text">LTR</span>
+            <i class="bi bi-arrow-left-right"></i>
+          </button>
+          <button class="nav-btn-icon d-none d-xl-inline-flex" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+            <i class="bi bi-sun" id="themeIcon"></i>
+          </button>
+          <a class="nav-btn-book" href="contact.html">
+            <span>Book a Shoot</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ================= SECTION 1: GALLERY HERO ================= -->
+    <section class="hero-section" id="gallery-hero">
+      <!-- Animated Background Zoom with gallery-hero-sunrise.jpg (Blue & Golden-Yellow Sun Combo) -->
+      <div class="gallery-hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow light-eyebrow"><span></span><span>AeroNest Portfolio &amp; Archive</span></p>
+          <h1>A Different Perspective,<br><em>Captured from Above.</em></h1>
+          <p class="hero-description">
+            Immerse yourself in high-resolution aerial cinematography, 48MP raw architecture stills, and sweeping natural wonders captured by FAA Part 107 certified remote pilots.
+          </p>
+          <div class="hero-buttons">
+            <a href="#gallery-categories" class="btn btn-primary btn-lg rounded-pill">Explore Portfolio <i class="bi bi-arrow-up-right-circle"></i></a>
+            <a href="#video-showcase" class="btn btn-outline-light btn-lg rounded-pill"><span>Watch Showreel</span> <i class="bi bi-play"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-wave"></div>
+    </section>
+
+    <!-- ================= SECTION 2: FEATURED PROJECTS ================= -->
+    <section class="section-pad" style="background: var(--paper);" id="featured-projects">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <div class="section-kicker justify-content-center"><span></span> PORTFOLIO HIGHLIGHTS <span></span></div>
+          <h2 class="section-title">Featured Aerial <span>Showcases.</span></h2>
+          <p class="section-copy mx-auto" style="max-width: 680px;">
+            A curated selection of our finest multi-rotor and cinema drone assignments, capturing architectural excellence and raw natural power.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Featured 1 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="featured-spotlight-card" data-gallery-index="4">
+              <div class="featured-spotlight-thumb">
+                <img src="assets/gallery-commercial-1.jpg" alt="Marina Bay Commercial Resort Showcase">
+                <span class="featured-spotlight-tag">Commercial &bull; 48MP</span>
+              </div>
+              <div class="featured-spotlight-body">
+                <h4>Marina Bay Waterfront Resort</h4>
+                <p>High-precision dawn-to-dusk drone surveys over an 80-acre coastal marina complex anchoring global investor campaigns.</p>
+                <div class="featured-spotlight-meta">
+                  <span><i class="bi bi-geo-alt text-primary"></i> Dubai Marina, UAE</span>
+                  <span><i class="bi bi-airplane text-primary"></i> DJI Matrice 350 RTK</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured 2 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="featured-spotlight-card" data-gallery-index="1">
+              <div class="featured-spotlight-thumb">
+                <img src="assets/gallery-realestate-1.jpg" alt="Cliffside Sunset Luxury Villa">
+                <span class="featured-spotlight-tag">Real Estate &bull; Twilight</span>
+              </div>
+              <div class="featured-spotlight-body">
+                <h4>Cliffside Sunset Villa &amp; Pool</h4>
+                <p>Architectural twilight flight sweeps capturing illuminated infinity pools and coastal horizon reflections for Sotheby's.</p>
+                <div class="featured-spotlight-meta">
+                  <span><i class="bi bi-geo-alt text-primary"></i> Amalfi Coast, Italy</span>
+                  <span><i class="bi bi-airplane text-primary"></i> DJI Mavic 3 Cine</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured 3 -->
+          <div class="col-lg-4 col-md-12">
+            <div class="featured-spotlight-card" data-gallery-index="5">
+              <div class="featured-spotlight-thumb">
+                <img src="assets/gallery-cinematic-1.jpg" alt="Sunrise Over Rugged Alpine Peaks">
+                <span class="featured-spotlight-tag">Cinematic &bull; 8K RAW</span>
+              </div>
+              <div class="featured-spotlight-body">
+                <h4>Sunrise Over Alpine Summits</h4>
+                <p>Extreme high-altitude flight through mountain passes at dawn with Hasselblad cinema glass piercing dramatic cloud inversions.</p>
+                <div class="featured-spotlight-meta">
+                  <span><i class="bi bi-geo-alt text-primary"></i> Swiss Alps, Valais</span>
+                  <span><i class="bi bi-airplane text-primary"></i> DJI Inspire 3</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 3: GALLERY CATEGORIES (STRICT UNIFORM CARD SIZING) ================= -->
+    <section class="section-pad" style="background: var(--sky-tint);" id="gallery-categories">
+      <div class="container">
+        <div class="section-header text-center mb-4">
+          <div class="section-kicker justify-content-center"><span></span> ARCHIVE BROWSER <span></span></div>
+          <h2 class="section-title">Explore by <span>Category.</span></h2>
+          <p class="section-copy mx-auto" style="max-width: 680px;">
+            Filter our aerial portfolio by sector and discipline. Every frame is logged with flight telemetry, aircraft type, and sensor optics.
+          </p>
+        </div>
+
+        <!-- Interactive Category Filters -->
+        <div class="gallery-filter-wrap">
+          <button class="gallery-filter-pill active" data-filter="all">
+            <i class="bi bi-grid-fill"></i> All Projects
+          </button>
+          <button class="gallery-filter-pill" data-filter="aerial-photography">
+            <i class="bi bi-camera"></i> Aerial Photography
+          </button>
+          <button class="gallery-filter-pill" data-filter="cinematic-videography">
+            <i class="bi bi-camera-reels"></i> Cinematic Videography
+          </button>
+          <button class="gallery-filter-pill" data-filter="real-estate">
+            <i class="bi bi-buildings"></i> Real Estate &amp; Architecture
+          </button>
+          <button class="gallery-filter-pill" data-filter="weddings-events">
+            <i class="bi bi-calendar-event"></i> Weddings &amp; Events
+          </button>
+          <button class="gallery-filter-pill" data-filter="landscapes-nature">
+            <i class="bi bi-tree"></i> Landscapes &amp; Nature
+          </button>
+          <button class="gallery-filter-pill" data-filter="commercial-projects">
+            <i class="bi bi-briefcase"></i> Commercial Projects
+          </button>
+        </div>
+
+        <!-- STRICT UNIFORM 3-COLUMN GRID: ALL ITEMS HAVE THE SAME SIZE (285px height) -->
+        <div class="row g-4" id="galleryContainer">
+
+          <!-- Item 1: Landscapes & Nature -->
+          <div class="col-lg-4 col-md-6 gallery-grid-card-wrap visible" data-category="landscapes-nature"
+               data-full-src="assets/gallery-nature-1.jpg"
+               data-title="Azure Sea Cliffs &amp; Coastal Pines"
+               data-category-label="Landscapes &amp; Nature"
+               data-desc="Top-down aerial view of turquoise ocean waves crashing against jagged sea cliffs and dense pine forests with morning sea mist."
+               data-location="Big Sur, California"
+               data-drone="DJI Inspire 3 Cine"
+               data-camera="Zenmuse X9-8K Air / DL 35mm F2.8"
+               data-altitude="340 ft AGL"
+               data-resolution="48MP DNG RAW • ISO 100">
+            <div class="gallery-photo-card">
+              <div class="gallery-photo-card-inner">
+                <img src="assets/gallery-nature-1.jpg" alt="Azure Sea Cliffs and Coastal Pines">
+                <div class="gallery-photo-overlay">
+                  <span class="gallery-photo-tag">Nature &bull; 48MP RAW</span>
+                  <h4>Azure Sea Cliffs &amp; Coastal Pines</h4>
+                  <p>Top-down view of turquoise ocean waves crashing against jagged sea cliffs.</p>
+                </div>
+                <div class="gallery-photo-zoom-icon"><i class="bi bi-arrows-fullscreen"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Real Estate & Architecture -->
+          <div class="col-lg-4 col-md-6 gallery-grid-card-wrap visible" data-category="real-estate"
+               data-full-src="assets/gallery-realestate-1.jpg"
+               data-title="Cliffside Sunset Villa &amp; Infinity Pool"
+               data-category-label="Real Estate &amp; Architecture"
+               data-desc="Sleek contemporary luxury villa perched over the sea with illuminated infinity pools and warm golden hour ambient lighting."
+               data-location="Amalfi Coast, Italy"
+               data-drone="DJI Mavic 3 Cine"
+               data-camera="Hasselblad L2D-20c 4/3 CMOS"
+               data-altitude="180 ft AGL"
+               data-resolution="5.1K Apple ProRes 422 HQ">
+            <div class="gallery-photo-card">
+              <div class="gallery-photo-card-inner">
+                <img src="assets/gallery-realestate-1.jpg" alt="Cliffside Sunset Villa and Infinity Pool">
+                <div class="gallery-photo-overlay">
+                  <span class="gallery-photo-tag">Real Estate &bull; Architectural</span>
+                  <h4>Cliffside Sunset Villa &amp; Pool</h4>
+                  <p>Contemporary villa with illuminated infinity pool and warm sunset lighting.</p>
+                </div>
+                <div class="gallery-photo-zoom-icon"><i class="bi bi-arrows-fullscreen"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: Cinematic Videography -->
+          <div class="col-lg-4 col-md-6 gallery-grid-card-wrap visible" data-category="cinematic-videography"
+               data-full-src="assets/gallery-travel-1.jpg"
+               data-title="Serpentine Coastal Highway &amp; Ocean Pass"
+               data-category-label="Cinematic Videography"
+               data-desc="Dramatic serpentine coastal highway carved into towering sea cliffs overlooking the vast deep blue ocean at golden hour."
+               data-location="Pacific Coast Highway, CA"
+               data-drone="DJI Inspire 3 Cine"
+               data-camera="Zenmuse X9-8K Air / DL 50mm F2.8"
+               data-altitude="420 ft AGL"
+               data-resolution="8K CinemaDNG 60FPS">
+            <div class="gallery-photo-card">
+              <div class="gallery-photo-card-inner">
+                <img src="assets/gallery-travel-1.jpg" alt="Winding Coastal Highway and Ocean Pass">
+                <div class="gallery-photo-overlay">
+                  <span class="gallery-photo-tag">Cinematic &bull; 8K RAW</span>
+                  <h4>Coastal Highway &amp; Ocean Pass</h4>
+                  <p>Dramatic serpentine highway carved into towering cliffs overlooking the Pacific.</p>
+                </div>
+                <div class="gallery-photo-zoom-icon"><i class="bi bi-arrows-fullscreen"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4: Weddings & Events -->
+          <div class="col-lg-4 col-md-6 gallery-grid-card-wrap visible" data-category="weddings-events"
+               data-full-src="assets/gallery-events-1.jpg"
+               data-title="Twilight Coastal Wedding Celebration"
+               data-category-label="Weddings &amp; Events"
+               data-desc="High aerial vantage view of a luxury outdoor evening coastal wedding celebration with glowing fairy lights and elegant circular seating."
+               data-location="Santorini, Greece"
+               data-drone="DJI Mavic 3 Cine (Low-Noise Props)"
+               data-camera="Hasselblad 24mm F2.8"
+               data-altitude="120 ft AGL"
+               data-resolution="4K 10-Bit D-Log M">
+            <div class="gallery-photo-card">
+              <div class="gallery-photo-card-inner">
+                <img src="assets/gallery-events-1.jpg" alt="Twilight Coastal Wedding Celebration">
+                <div class="gallery-photo-overlay">
+                  <span class="gallery-photo-tag">Events &bull; Live Gathering</span>
+                  <h4>Twilight Coastal Wedding</h4>
+                  <p>Luxury outdoor evening coastal celebration with glowing fairy lights.</p>
+                </div>
+                <div class="gallery-photo-zoom-icon"><i class="bi bi-arrows-fullscreen"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5: Commercial Projects -->
+          <div class="col-lg-4 col-md-6 gallery-grid-card-wrap visible" data-category="commercial-projects"
+               data-full-src="assets/gallery-commercial-1.jpg"
+               data-title="Marina Bay Resort &amp; Yacht Harbors"
+               data-category-label="Commercial Projects"
+               data-desc="Crisp aerial drone perspective of a modern waterfront commercial marina resort with yacht berths and glass architectural towers."
+               data-location="Dubai Marina, UAE"
+               data-drone="DJI Matrice 350 RTK"
+               data-camera="Zenmuse P1 Full-Frame 45MP"
+               data-altitude="380 ft AGL"
+               data-resolution="48MP Photogrammetry Survey">
+            <div class="gallery-photo-card">
+              <div class="gallery-photo-card-inner">
+                <img src="assets/gallery-commercial-1.jpg" alt="Marina Bay Resort and Yacht Harbors">
+                <div class="gallery-photo-overlay">
+                  <span class="gallery-photo-tag">Commercial &bull; Marina Survey</span>
+                  <h4>Marina Bay Resort &amp; Harbors</h4>
+                  <p>Modern waterfront commercial marina resort with yacht berths and glass towers.</p>
+                </div>
+                <div class="gallery-photo-zoom-icon"><i class="bi bi-arrows-fullscreen"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6: Aerial Photography -->
+          <div class="col-lg-4 col-md-6 gallery-grid-card-wrap visible" data-category="aerial-photography"
+               data-full-src="assets/gallery-cinematic-1.jpg"
+               data-title="Sunrise Over Rugged Alpine Peaks"
+               data-category-label="Aerial Photography"
+               data-desc="High-altitude cinematic drone view of rugged alpine peaks with morning sunbeams piercing dramatic clouds and misty valleys."
+               data-location="Swiss Alps, Valais"
+               data-drone="DJI Inspire 3 Cine"
+               data-camera="Zenmuse X9-8K Air / DL 24mm F2.8"
+               data-altitude="11,400 ft MSL (300 ft AGL)"
+               data-resolution="8K Full-Frame HDR">
+            <div class="gallery-photo-card">
+              <div class="gallery-photo-card-inner">
+                <img src="assets/gallery-cinematic-1.jpg" alt="Sunrise Over Rugged Alpine Peaks">
+                <div class="gallery-photo-overlay">
+                  <span class="gallery-photo-tag">Aerial &bull; 8K Cinema</span>
+                  <h4>Alpine Peaks Sunrise</h4>
+                  <p>Rugged alpine peaks with morning sunbeams piercing dramatic clouds.</p>
+                </div>
+                <div class="gallery-photo-zoom-icon"><i class="bi bi-arrows-fullscreen"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 7: Real Estate & Architecture -->
+          <div class="col-lg-4 col-md-6 gallery-grid-card-wrap visible" data-category="real-estate"
+               data-full-src="assets/gallery-realestate-2.jpg"
+               data-title="Geometric Architecture &amp; Reflection Pools"
+               data-category-label="Real Estate &amp; Architecture"
+               data-desc="Bird's-eye architectural drone photograph of an ultra-luxury geometric mansion featuring central courtyards and infinity reflection pools."
+               data-location="Palm Springs, California"
+               data-drone="DJI Mavic 3 Cine"
+               data-camera="Hasselblad 4/3 CMOS 24mm"
+               data-altitude="210 ft AGL"
+               data-resolution="48MP RAW Stills">
+            <div class="gallery-photo-card">
+              <div class="gallery-photo-card-inner">
+                <img src="assets/gallery-realestate-2.jpg" alt="Geometric Architecture and Reflection Pools">
+                <div class="gallery-photo-overlay">
+                  <span class="gallery-photo-tag">Real Estate &bull; Geometric 3D</span>
+                  <h4>Geometric Architecture Mansion</h4>
+                  <p>Bird's-eye architectural view of a geometric mansion with central courtyards.</p>
+                </div>
+                <div class="gallery-photo-zoom-icon"><i class="bi bi-arrows-fullscreen"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 8: Landscapes & Nature -->
+          <div class="col-lg-4 col-md-6 gallery-grid-card-wrap visible" data-category="landscapes-nature"
+               data-full-src="assets/gallery-nature-2.jpg"
+               data-title="Cascading Pine Canyon Waterfalls"
+               data-category-label="Landscapes &amp; Nature"
+               data-desc="Aerial drone view of a powerful forest river and roaring multi-tiered waterfall cascading through a pine canyon with morning mist."
+               data-location="Pacific Northwest, Oregon"
+               data-drone="DJI Mavic 3 Cine"
+               data-camera="Hasselblad 24mm Prime"
+               data-altitude="260 ft AGL"
+               data-resolution="5.1K D-Log 50FPS">
+            <div class="gallery-photo-card">
+              <div class="gallery-photo-card-inner">
+                <img src="assets/gallery-nature-2.jpg" alt="Cascading Pine Canyon Waterfalls">
+                <div class="gallery-photo-overlay">
+                  <span class="gallery-photo-tag">Nature &bull; Wilderness</span>
+                  <h4>Pine Canyon Waterfalls</h4>
+                  <p>Multi-tiered roaring waterfall cascading through deep pine river canyon.</p>
+                </div>
+                <div class="gallery-photo-zoom-icon"><i class="bi bi-arrows-fullscreen"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 9: Aerial Photography -->
+          <div class="col-lg-4 col-md-6 gallery-grid-card-wrap visible" data-category="aerial-photography"
+               data-full-src="assets/gallery-hero-sunrise.jpg"
+               data-title="Golden Coastline Sunrise Flight"
+               data-category-label="Aerial Photography"
+               data-desc="Cinematic wide-angle aerial capture of sunrise over dramatic cliffs and open sea, highlighting glowing golden hour atmosphere."
+               data-location="Big Sur Coast, California"
+               data-drone="DJI Inspire 3 Cine"
+               data-camera="Zenmuse X9-8K Air Cinema"
+               data-altitude="360 ft AGL"
+               data-resolution="8K DNG Cinema Panorama">
+            <div class="gallery-photo-card">
+              <div class="gallery-photo-card-inner">
+                <img src="assets/gallery-hero-sunrise.jpg" alt="Golden Coastline Sunrise Flight">
+                <div class="gallery-photo-overlay">
+                  <span class="gallery-photo-tag">Aerial &bull; Golden Hour</span>
+                  <h4>Golden Coastline Sunrise</h4>
+                  <p>Sunrise over dramatic cliffs and open sea, highlighting golden light.</p>
+                </div>
+                <div class="gallery-photo-zoom-icon"><i class="bi bi-arrows-fullscreen"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 10: Commercial Projects -->
+          <div class="col-lg-4 col-md-6 gallery-grid-card-wrap visible" data-category="commercial-projects"
+               data-full-src="assets/about-hero-aerial.jpg"
+               data-title="Metropolitan Financial Center Survey"
+               data-category-label="Commercial Projects"
+               data-desc="FAA Part 107 authorized night aerial photography showcasing metropolitan skyscrapers, traffic light trails, and urban infrastructure."
+               data-location="Chicago Financial District, IL"
+               data-drone="DJI Matrice 350 RTK (Night Ops)"
+               data-camera="Zenmuse H20T Triple Sensor"
+               data-altitude="390 ft AGL"
+               data-resolution="4K HDR Night Panorama">
+            <div class="gallery-photo-card">
+              <div class="gallery-photo-card-inner">
+                <img src="assets/about-hero-aerial.jpg" alt="Metropolitan Financial Center Survey">
+                <div class="gallery-photo-overlay">
+                  <span class="gallery-photo-tag">Commercial &bull; Night Ops</span>
+                  <h4>Metropolitan Financial Center</h4>
+                  <p>Skyscraper towers, urban transit light trails, and night infrastructure survey.</p>
+                </div>
+                <div class="gallery-photo-zoom-icon"><i class="bi bi-arrows-fullscreen"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 11: Cinematic Videography -->
+          <div class="col-lg-4 col-md-6 gallery-grid-card-wrap visible" data-category="cinematic-videography"
+               data-full-src="assets/Drone%20Over%20Misty%20Mountain%20River.png"
+               data-title="Misty Mountain River Drone Sweep"
+               data-category-label="Cinematic Videography"
+               data-desc="Smooth cinema drone tracking shot skimming low over a rushing alpine river enveloped in atmospheric morning mist and pine forest."
+               data-location="Blue Ridge Mountains, NC"
+               data-drone="DJI Inspire 3 Cine"
+               data-camera="Zenmuse X9-8K Air / DL 35mm"
+               data-altitude="85 ft AGL"
+               data-resolution="5.4K Cinema D-Log 60FPS">
+            <div class="gallery-photo-card">
+              <div class="gallery-photo-card-inner">
+                <img src="assets/Drone%20Over%20Misty%20Mountain%20River.png" alt="Misty Mountain River Drone Sweep">
+                <div class="gallery-photo-overlay">
+                  <span class="gallery-photo-tag">Cinematic &bull; Mist Sweep</span>
+                  <h4>Misty Mountain River Run</h4>
+                  <p>Cinematic tracking shot skimming over a rushing mountain river.</p>
+                </div>
+                <div class="gallery-photo-zoom-icon"><i class="bi bi-arrows-fullscreen"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 12: Weddings & Events -->
+          <div class="col-lg-4 col-md-6 gallery-grid-card-wrap visible" data-category="weddings-events"
+               data-full-src="assets/hero-aerial.jpg"
+               data-title="Lakeside Sunset Gathering &amp; Gala"
+               data-category-label="Weddings &amp; Events"
+               data-desc="High-elevation wide-angle flight covering an exclusive private lakeside estate reception and illuminated boat procession at twilight."
+               data-location="Lake Como, Italy"
+               data-drone="DJI Mavic 3 Cine"
+               data-camera="Hasselblad 4/3 CMOS 24mm"
+               data-altitude="160 ft AGL"
+               data-resolution="4K 60FPS Ambient Low-Light">
+            <div class="gallery-photo-card">
+              <div class="gallery-photo-card-inner">
+                <img src="assets/hero-aerial.jpg" alt="Lakeside Sunset Gathering and Gala">
+                <div class="gallery-photo-overlay">
+                  <span class="gallery-photo-tag">Events &bull; Twilight Gala</span>
+                  <h4>Lakeside Sunset Gathering</h4>
+                  <p>Lakeside estate reception with illuminated docks and boat procession.</p>
+                </div>
+                <div class="gallery-photo-zoom-icon"><i class="bi bi-arrows-fullscreen"></i></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 4: SIGNATURE PROJECTS / OUR BEST WORK ================= -->
+    <section class="section-pad" style="background: var(--paper);" id="signature-projects">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <div class="section-kicker justify-content-center"><span></span> OUR BEST WORK <span></span></div>
+          <h2 class="section-title">Signature <span>Commissions.</span></h2>
+          <p class="section-copy mx-auto" style="max-width: 680px;">
+            In-depth breakdowns of high-profile aerial campaigns where our flight planning, technical precision, and cinematography made the difference.
+          </p>
+        </div>
+
+        <!-- Signature Project 1 -->
+        <div class="signature-card">
+          <div class="row g-0 align-items-stretch">
+            <div class="col-lg-6">
+              <div class="signature-thumb">
+                <img src="assets/gallery-travel-1.jpg" alt="The Pacific Rim Cliffline Campaign">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="signature-body">
+                <span class="signature-badge"><i class="bi bi-award"></i> Automotive Commercial</span>
+                <h3>The Pacific Rim Cliffline Campaign</h3>
+                <p>
+                  Commissioned for an international electric vehicle commercial, our team operated dual DJI Inspire 3 rigs tracking high-speed vehicles along the coastal precipice at 60mph with zero signal degradation.
+                </p>
+                <div class="signature-specs-grid">
+                  <div class="signature-spec-item">
+                    <span>Location</span>
+                    <strong>Big Sur, California</strong>
+                  </div>
+                  <div class="signature-spec-item">
+                    <span>Flight Platform</span>
+                    <strong>DJI Inspire 3 Dual-Op</strong>
+                  </div>
+                  <div class="signature-spec-item">
+                    <span>Optical Setup</span>
+                    <strong>Zenmuse X9-8K Cinema</strong>
+                  </div>
+                  <div class="signature-spec-item">
+                    <span>Deliverables</span>
+                    <strong>8K CinemaDNG + D-Log</strong>
+                  </div>
+                </div>
+                <div>
+                  <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-gallery-index="2">
+                    Inspect Frame Metadata <i class="bi bi-arrow-up-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Signature Project 2 -->
+        <div class="signature-card">
+          <div class="row g-0 align-items-stretch flex-lg-row-reverse">
+            <div class="col-lg-6">
+              <div class="signature-thumb">
+                <img src="assets/gallery-realestate-2.jpg" alt="Solstice Oceanfront Residences">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="signature-body">
+                <span class="signature-badge"><i class="bi bi-building"></i> Architectural Heritage</span>
+                <h3>Solstice Oceanfront Residences</h3>
+                <p>
+                  A comprehensive dawn-to-dusk 3D architectural mapping and 48MP raw portfolio for a $42M modernist coastal compound, including interior FPV single-take transition sweeps.
+                </p>
+                <div class="signature-specs-grid">
+                  <div class="signature-spec-item">
+                    <span>Location</span>
+                    <strong>Malibu Coast, California</strong>
+                  </div>
+                  <div class="signature-spec-item">
+                    <span>Flight Platform</span>
+                    <strong>DJI Mavic 3 Cine + FPV</strong>
+                  </div>
+                  <div class="signature-spec-item">
+                    <span>Optical Setup</span>
+                    <strong>Hasselblad 4/3 CMOS</strong>
+                  </div>
+                  <div class="signature-spec-item">
+                    <span>Deliverables</span>
+                    <strong>48MP RAW Stills + 5.1K Tour</strong>
+                  </div>
+                </div>
+                <div>
+                  <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-gallery-index="6">
+                    Inspect Frame Metadata <i class="bi bi-arrow-up-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SECTION 5: VIDEO SHOWCASE ================= -->
+    <section class="section-pad" style="background: var(--sky-tint);" id="video-showcase">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <div class="section-kicker justify-content-center"><span></span> MOTION &amp; CINEMA <span></span></div>
+          <h2 class="section-title">Video <span>Showcase.</span></h2>
+          <p class="section-copy mx-auto" style="max-width: 680px;">
+            Watch dynamic aerial tracking sequences, ultra-smooth orbital sweeps, and continuous FPV fly-throughs produced for cinema, broadcast, and digital campaigns.
+          </p>
+        </div>
+
+        <!-- Main Video Card -->
+        <div class="video-hero-card mb-4 video-player-trigger" id="mainVideoPlayerTrigger"
+             data-video-src="assets/drone-showreel-30s.webm"
+             data-video-title="AeroNest Cinema Showreel 2026 (30s 4K Master Cut)"
+             data-video-desc="High-altitude alpine tracking, coastal high-speed chases, and twilight architectural sweeps across 12 countries, captured with DJI Inspire 3 &amp; Zenmuse X9-8K cinema optics."
+             data-video-aircraft="DJI Inspire 3 Cine"
+             data-video-optics="Zenmuse X9-8K Air / DL 35mm F2.8"
+             data-video-specs="4K 60FPS • 10-Bit ProRes 422 HQ • 280 ft AGL"
+             style="cursor: pointer;">
+          <img src="assets/gallery-cinematic-1.jpg" alt="2026 AeroNest Aerial Cinema Reel">
+          <div class="video-hero-overlay">
+            <button class="video-play-btn" aria-label="Play 2026 AeroNest Reel">
+              <i class="bi bi-play-fill"></i>
+            </button>
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="badge bg-primary text-uppercase px-3 py-2" style="font-size: 11px; letter-spacing: 0.5px;">4K UHD 60FPS</span>
+              <span class="badge bg-dark bg-opacity-75 text-white px-3 py-2" style="font-size: 11px;"><i class="bi bi-clock me-1"></i> Duration: 00:30</span>
+            </div>
+            <h3 class="text-white fw-bold mb-1" style="font-size: clamp(24px, 3vw, 36px);">AeroNest Cinema Showreel 2026</h3>
+            <p class="text-white-50 mb-0" style="max-width: 640px; font-size: 14.5px;">
+              Click to play the 30-second 4K cinema highlight reel featuring alpine summits, coastal switchbacks, and twilight architectural sweeps.
+            </p>
+          </div>
+        </div>
+
+        <!-- 3 Sub Video Reels -->
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="sub-video-card video-player-trigger"
+                 data-video-src="assets/drone-showreel-30s.webm"
+                 data-video-title="FPV Dynamic Single-Take Architectural Tour (30s)"
+                 data-video-desc="Seamless continuous flight transition from outdoor coastal airspaces through multi-story glass atriums with uncompressed 10-bit color."
+                 data-video-aircraft="Custom FPV Cinewhoop"
+                 data-video-optics="Sony 4K Low-Distortion Lens"
+                 data-video-specs="4K 60FPS • D-Log M • 15 ft AGL"
+                 style="cursor: pointer;">
+              <div class="sub-video-thumb">
+                <img src="assets/gallery-travel-1.jpg" alt="FPV Dynamic Architectural Walkthrough">
+                <span class="sub-video-duration"><i class="bi bi-play-fill me-1"></i> 00:30</span>
+              </div>
+              <div class="sub-video-body">
+                <h5>FPV Dynamic Single-Take</h5>
+                <p>Seamless transition from outdoor cliffside airspaces through multi-story glass atriums.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="sub-video-card video-player-trigger"
+                 data-video-src="assets/drone-showreel-30s.webm"
+                 data-video-title="Misty Mountain River Tracking Pass (30s)"
+                 data-video-desc="Skimming 3 feet above rushing alpine rapids enveloped in atmospheric morning mist and pine forest canopy."
+                 data-video-aircraft="DJI Inspire 3 Cine"
+                 data-video-optics="Zenmuse X9-8K Air / DL 50mm"
+                 data-video-specs="5.4K 60FPS • Cinema D-Log • 25 ft AGL"
+                 style="cursor: pointer;">
+              <div class="sub-video-thumb">
+                <img src="assets/Drone%20Over%20Misty%20Mountain%20River.png" alt="Dawn River Hyperlapse">
+                <span class="sub-video-duration"><i class="bi bi-play-fill me-1"></i> 00:30</span>
+              </div>
+              <div class="sub-video-body">
+                <h5>Misty River Tracking Pass</h5>
+                <p>Skimming 3 feet above rushing rapids with gyrostabilized 5.4K cinema cameras.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="sub-video-card video-player-trigger"
+                 data-video-src="assets/drone-showreel-30s.webm"
+                 data-video-title="Pacific Coastline Dawn Reel (30s)"
+                 data-video-desc="Pure 10-bit D-Log footage capturing morning mist burning off coastal cliffs and ocean swells."
+                 data-video-aircraft="DJI Mavic 3 Cine"
+                 data-video-optics="Hasselblad 4/3 CMOS 24mm"
+                 data-video-specs="5.1K 50FPS • ProRes 422 HQ • 340 ft AGL"
+                 style="cursor: pointer;">
+              <div class="sub-video-thumb">
+                <img src="assets/gallery-nature-1.jpg" alt="Pacific Coastline Golden Hour">
+                <span class="sub-video-duration"><i class="bi bi-play-fill me-1"></i> 00:30</span>
+              </div>
+              <div class="sub-video-body">
+                <h5>Pacific Coastline Dawn Reel</h5>
+                <p>Pure 10-bit D-Log footage capturing morning mist burning off coastal cliffs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SECTION 6: BEHIND THE LENS ================= -->
+    <section class="section-pad" style="background: var(--paper);" id="behind-the-lens">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <div class="section-kicker justify-content-center"><span></span> OPERATIONS &amp; PRODUCTION <span></span></div>
+          <h2 class="section-title">Behind the <span>Lens.</span></h2>
+          <p class="section-copy mx-auto" style="max-width: 680px;">
+            Professional aerial cinematography requires far more than flying. Here is how our dual-pilot crews execute zero-incident, studio-grade productions.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Setup 1 -->
+          <div class="col-lg-3 col-md-6">
+            <div class="behind-lens-card">
+              <div class="behind-lens-icon"><i class="bi bi-controller"></i></div>
+              <h4>Dual-Operator Deck</h4>
+              <p>Dedicated remote pilot for aircraft trajectory while a cinema director controls gimbal roll, tilt, and focus wirelessly.</p>
+            </div>
+          </div>
+
+          <!-- Setup 2 -->
+          <div class="col-lg-3 col-md-6">
+            <div class="behind-lens-card">
+              <div class="behind-lens-icon"><i class="bi bi-shield-check"></i></div>
+              <h4>FAA Part 107 &amp; LAANC</h4>
+              <p>Real-time digital airspace authorizations and $5M commercial aviation liability coverage for urban and controlled airspace.</p>
+            </div>
+          </div>
+
+          <!-- Setup 3 -->
+          <div class="col-lg-3 col-md-6">
+            <div class="behind-lens-card">
+              <div class="behind-lens-icon"><i class="bi bi-battery-charging"></i></div>
+              <h4>Intelligent Power Hub</h4>
+              <p>Hot-swappable TB51 intelligent flight batteries with dedicated generator stations, ensuring continuous non-stop filming days.</p>
+            </div>
+          </div>
+
+          <!-- Setup 4 -->
+          <div class="col-lg-3 col-md-6">
+            <div class="behind-lens-card">
+              <div class="behind-lens-icon"><i class="bi bi-sliders"></i></div>
+              <h4>DaVinci D-Log Grading</h4>
+              <p>Color grading in DaVinci Resolve Studio with custom LUTs matching client A-cam color science (Arri, RED, Sony Venice).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 7: OUR WORK IN NUMBERS ================= -->
+    <section class="section-pad" style="background: var(--sky-tint);" id="portfolio-numbers">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-3 col-6">
+            <div class="gallery-stat-box">
+              <div class="gallery-stat-number">450+</div>
+              <div class="gallery-stat-label">Projects Completed</div>
+              <p class="gallery-stat-desc">Commercial, film &amp; real estate</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <div class="gallery-stat-box">
+              <div class="gallery-stat-number">85+</div>
+              <div class="gallery-stat-label">Flight Locations</div>
+              <p class="gallery-stat-desc">Across 12 global regions</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <div class="gallery-stat-box">
+              <div class="gallery-stat-number">3,200+</div>
+              <div class="gallery-stat-label">Flight Hours</div>
+              <p class="gallery-stat-desc">Logged on commercial drones</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <div class="gallery-stat-box">
+              <div class="gallery-stat-number">100%</div>
+              <div class="gallery-stat-label">Safety Compliance</div>
+              <p class="gallery-stat-desc">Zero incidents, fully insured</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 8: CLIENT FEEDBACK ================= -->
+    <section class="section-pad" style="background: var(--paper);" id="client-feedback">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <div class="section-kicker justify-content-center"><span></span> TESTIMONIALS <span></span></div>
+          <h2 class="section-title">Client <span>Feedback.</span></h2>
+          <p class="section-copy mx-auto" style="max-width: 680px;">
+            Read what commercial directors, luxury architects, and marketing directors say about partnering with AeroNest on location.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Feedback 1 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="gallery-feedback-card">
+              <div class="gallery-feedback-stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p class="gallery-feedback-quote">
+                "AeroNest captured our waterfront commercial development with unbelievable clarity. Their pilot coordinated seamless airspace permits within 48 hours, and the raw 48MP files anchored our campaign."
+              </p>
+              <div class="gallery-feedback-author">
+                <div class="feedback-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Marcus Vance"></div>
+                <div class="feedback-info">
+                  <h5>Marcus Vance</h5>
+                  <span>Principal Architect, Studio Vance</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feedback 2 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="gallery-feedback-card">
+              <div class="gallery-feedback-stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p class="gallery-feedback-quote">
+                "Tracking high-speed vehicles along Big Sur cliffs at 60mph required nerves of steel. AeroNest's dual-operator team delivered cinema D-Log footage that matched our RED Monstro cameras flawlessly."
+              </p>
+              <div class="gallery-feedback-author">
+                <div class="feedback-avatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Elena Rostova"></div>
+                <div class="feedback-info">
+                  <h5>Elena Rostova</h5>
+                  <span>Executive Producer, Horizon Media</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feedback 3 -->
+          <div class="col-lg-4 col-md-12">
+            <div class="gallery-feedback-card">
+              <div class="gallery-feedback-stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p class="gallery-feedback-quote">
+                "Their twilight architectural portfolio and interior-to-exterior FPV one-take fly-through generated over 300 inquiries for our $40M property. AeroNest sets the gold standard for aerial media."
+              </p>
+              <div class="gallery-feedback-author">
+                <div class="feedback-avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Liam Gallagher"></div>
+                <div class="feedback-info">
+                  <h5>Liam Gallagher</h5>
+                  <span>Managing Director, Coastal Sotheby's</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 9: CALL-TO-ACTION SECTION ================= -->
+    <section class="section-pad gallery-cta-section text-center" id="gallery-cta">
+      <div class="container" style="max-width: 760px;">
+        <div class="section-kicker justify-content-center">
+          <span></span> ELEVATE YOUR PERSPECTIVE <span></span>
+        </div>
+        <h2 class="section-title mb-3">
+          Have a Vision? <span>Let's Capture It from Above.</span>
+        </h2>
+        <p class="section-copy mx-auto mb-4" style="font-size: 16px;">
+          Bring your ideas to life with professional aerial photography and cinematic drone videography. Our certified flight crew handles flight permits, creative direction, and rapid delivery.
+        </p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <a href="contact.html" class="btn btn-primary rounded-pill btn-lg px-5 py-3">
+            Book Your Shoot <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+          <a href="services.html" class="btn btn-outline-sky rounded-pill btn-lg px-4 py-3">
+            Explore Services &amp; Rates
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= COMPACT ON-SCREEN LIGHTBOX MODAL WITH DRONE DETAILS ================= -->
+  <div class="modal fade gallery-lightbox-modal" id="galleryLightbox" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="lightbox-wrapper position-relative">
+          <button type="button" class="btn-close btn-close-white lightbox-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          
+          <!-- Image Display (Strictly height-controlled to fit comfortably on screen) -->
+          <div class="lightbox-img-frame">
+            <img id="lightboxImg" src="" alt="Gallery Preview">
+          </div>
+
+          <!-- Metadata Header -->
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+            <div>
+              <span id="lightboxCategory" class="badge bg-primary text-uppercase" style="letter-spacing: 0.6px; font-size: 11px;"></span>
+              <h4 id="lightboxTitle" class="fw-bold mb-1 text-white mt-1" style="font-size: 19px;"></h4>
+            </div>
+            <div class="d-flex gap-2 align-items-center">
+              <button class="lightbox-nav-btn" id="prevLightboxBtn" aria-label="Previous image" title="Previous (Left Arrow)">
+                <i class="bi bi-chevron-left"></i>
+              </button>
+              <button class="lightbox-nav-btn" id="nextLightboxBtn" aria-label="Next image" title="Next (Right Arrow)">
+                <i class="bi bi-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <p id="lightboxDesc" class="text-white-50 mb-0 small" style="line-height: 1.5;"></p>
+
+          <!-- Our Drone Details Grid -->
+          <div class="lightbox-details-grid">
+            <div class="lightbox-detail-item">
+              <div class="lightbox-detail-label">Location</div>
+              <div class="lightbox-detail-value"><i class="bi bi-geo-alt"></i> <span id="lightboxLocation"></span></div>
+            </div>
+            <div class="lightbox-detail-item">
+              <div class="lightbox-detail-label">Aircraft / Drone</div>
+              <div class="lightbox-detail-value"><i class="bi bi-airplane"></i> <span id="lightboxDrone"></span></div>
+            </div>
+            <div class="lightbox-detail-item">
+              <div class="lightbox-detail-label">Optics &amp; Sensor</div>
+              <div class="lightbox-detail-value"><i class="bi bi-camera"></i> <span id="lightboxCamera"></span></div>
+            </div>
+            <div class="lightbox-detail-item">
+              <div class="lightbox-detail-label">Flight Altitude &amp; Specs</div>
+              <div class="lightbox-detail-value"><i class="bi bi-broadcast"></i> <span id="lightboxAltitude"></span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- ================= CINEMA 30S VIDEO SHOWCASE MODAL ================= -->
+  <div class="modal fade video-showcase-modal" id="videoShowcaseModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="video-modal-wrapper position-relative">
+          <button type="button" class="btn-close btn-close-white video-modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+          <!-- 4K Video Player Container -->
+          <div class="video-player-container">
+            <span class="video-live-badge"><i class="bi bi-record-circle-fill text-danger me-1"></i> 4K 60FPS CINEMA REEL</span>
+            <video id="showcaseVideoPlayer" controls playsinline preload="auto">
+              <source src="assets/drone-showreel-30s.webm" type="video/webm">
+              Your browser does not support HTML5 video playback.
+            </video>
+          </div>
+
+          <!-- Video Details & Metadata -->
+          <div class="mt-3">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+              <div>
+                <span class="badge bg-primary text-uppercase" style="letter-spacing: 0.6px; font-size: 11px;">00:30 Cinematic Cut</span>
+                <h4 id="showcaseVideoTitle" class="fw-bold mb-1 text-white mt-1" style="font-size: 19px;">AeroNest Cinema Showreel 2026</h4>
+              </div>
+              <div class="text-white-50 small">
+                <i class="bi bi-clock me-1"></i> 30 Seconds Reel
+              </div>
+            </div>
+            <p id="showcaseVideoDesc" class="text-white-50 mb-3 small" style="line-height: 1.5;">
+              High-altitude alpine tracking, coastal high-speed chases, and twilight architectural sweeps captured with certified remote pilot precision.
+            </p>
+
+            <!-- Telemetry & Camera Specs Grid -->
+            <div class="lightbox-details-grid">
+              <div class="lightbox-detail-item">
+                <div class="lightbox-detail-label">Aircraft / Platform</div>
+                <div class="lightbox-detail-value"><i class="bi bi-airplane"></i> <span id="showcaseVideoAircraft">DJI Inspire 3 Cine</span></div>
+              </div>
+              <div class="lightbox-detail-item">
+                <div class="lightbox-detail-label">Optics &amp; Sensor</div>
+                <div class="lightbox-detail-value"><i class="bi bi-camera"></i> <span id="showcaseVideoOptics">Zenmuse X9-8K Air / DL 35mm F2.8</span></div>
+              </div>
+              <div class="lightbox-detail-item">
+                <div class="lightbox-detail-label">Video Format &amp; Telemetry</div>
+                <div class="lightbox-detail-value"><i class="bi bi-broadcast"></i> <span id="showcaseVideoSpecs">4K 60FPS &bull; 10-Bit ProRes 422 HQ</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+            <div class="row g-4 footer-main">
+        <div class="col-lg-3 col-md-6">
+          <a class="brand-container footer-brand" href="index.html" aria-label="AeroNest home">
+            <div class="brand-logo-mark">
+              <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="48" height="48" rx="12" fill="url(#footerBrandGrad)"/>
+                <path d="M15 15L33 33M33 15L15 33" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="14" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="34" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="14" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="34" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="24" cy="24" r="8" fill="#071a31" stroke="white" stroke-width="2"/>
+                <circle cx="24" cy="24" r="4" fill="#38bdf8"/>
+                <defs>
+                  <linearGradient id="footerBrandGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#168df3"/>
+                    <stop offset="1" stop-color="#0284c7"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <div class="brand-title"><span class="brand-aero">Aero</span><span class="brand-nest">Nest</span></div>
+              <div class="brand-subtitle">AERIAL PHOTOGRAPHY &amp; VIDEO</div>
+            </div>
+          </a>
+          <p class="footer-tagline">See the world differently.<br>From high above with certified pilots.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="home2.html">Home 2</a>
+          <a href="about.html">About Us</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="services.html">Services</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Services</h4>
+          <a href="services.html">Aerial Photography</a>
+          <a href="services.html">Cinematic Video</a>
+          <a href="services.html">Real Estate 3D Tours</a>
+          <a href="services.html">Event Live Feeds</a>
+          <a href="services.html">3D Photogrammetry</a>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Support</h4>
+          <a href="contact.html#frequently-asked-questions">FAQs</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms &amp; Policy</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+          <a href="contact.html">Contact Support</a>
+        </div>
+        <div class="col-12 col-lg-3 col-md-6">
+          <h4>Stay in the loop</h4>
+          <p>Get occasional aerial perspectives and flight updates.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" required placeholder="Your email address" aria-label="Your email address">
+            <button type="submit" aria-label="Subscribe"><i class="bi bi-arrow-right"></i></button>
+          </form>
+          <small id="newsletterMessage"></small>
+          <div class="mt-3" style="font-size: 12px; color: #9cb2cb;">
+            <span><i class="bi bi-envelope me-1"></i> hello@aeronest.com</span>
+            <span class="mx-2">&bull;</span>
+            <span><i class="bi bi-telephone me-1"></i> +91 98765 43210</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> AeroNest. All rights reserved. Licensed Part 107 Operations.</span>
+        <div>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of Flight</a>
+          <a href="#top">Back to top &uarr;</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- ================= GALLERY INTERACTIVE FILTER & LIGHTBOX SCRIPT ================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Interactive Category Filtering
+      const filterPills = document.querySelectorAll('.gallery-filter-pill');
+      const galleryItems = document.querySelectorAll('.gallery-grid-card-wrap');
+
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          filterPills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          const selectedFilter = pill.getAttribute('data-filter');
+
+          galleryItems.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (selectedFilter === 'all' || category === selectedFilter) {
+              card.style.display = 'block';
+              requestAnimationFrame(() => {
+                card.classList.add('visible');
+              });
+            } else {
+              card.classList.remove('visible');
+              setTimeout(() => {
+                if (!card.classList.contains('visible')) {
+                  card.style.display = 'none';
+                }
+              }, 250);
+            }
+          });
+        });
+      });
+
+      // 2. Lightbox Modal with Next / Prev Navigation and Drone Details
+      const galleryData = Array.from(galleryItems).map(item => ({
+        src: item.getAttribute('data-full-src'),
+        title: item.getAttribute('data-title'),
+        category: item.getAttribute('data-category-label'),
+        desc: item.getAttribute('data-desc'),
+        location: item.getAttribute('data-location') || 'Global Airspace',
+        drone: item.getAttribute('data-drone') || 'DJI Cinema Platform',
+        camera: item.getAttribute('data-camera') || 'Hasselblad 4/3 CMOS',
+        altitude: item.getAttribute('data-altitude') || '250 ft AGL',
+        resolution: item.getAttribute('data-resolution') || '4K 60FPS HDR'
+      }));
+
+      let currentPhotoIndex = 0;
+      const lightboxModalEl = document.getElementById('galleryLightbox');
+      const lightboxModal = new bootstrap.Modal(lightboxModalEl);
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxTitle = document.getElementById('lightboxTitle');
+      const lightboxCategory = document.getElementById('lightboxCategory');
+      const lightboxDesc = document.getElementById('lightboxDesc');
+      const lightboxLocation = document.getElementById('lightboxLocation');
+      const lightboxDrone = document.getElementById('lightboxDrone');
+      const lightboxCamera = document.getElementById('lightboxCamera');
+      const lightboxAltitude = document.getElementById('lightboxAltitude');
+      const prevBtn = document.getElementById('prevLightboxBtn');
+      const nextBtn = document.getElementById('nextLightboxBtn');
+
+      function displayLightboxItem(index) {
+        currentPhotoIndex = index;
+        const photo = galleryData[currentPhotoIndex];
+        lightboxImg.src = photo.src;
+        lightboxImg.alt = photo.title;
+        lightboxTitle.textContent = photo.title;
+        lightboxCategory.textContent = photo.category;
+        lightboxDesc.textContent = photo.desc;
+        lightboxLocation.textContent = photo.location;
+        lightboxDrone.textContent = photo.drone;
+        lightboxCamera.textContent = photo.camera;
+        lightboxAltitude.textContent = photo.altitude + ' • ' + photo.resolution;
+      }
+
+      galleryItems.forEach((card, index) => {
+        card.addEventListener('click', (e) => {
+          e.preventDefault();
+          displayLightboxItem(index);
+          lightboxModal.show();
+        });
+      });
+
+      
+      // 3. Cinema 30s Video Showcase Modal Handler
+      const videoModalEl = document.getElementById('videoShowcaseModal');
+      const videoModal = new bootstrap.Modal(videoModalEl);
+      const videoPlayer = document.getElementById('showcaseVideoPlayer');
+      const videoTitle = document.getElementById('showcaseVideoTitle');
+      const videoDesc = document.getElementById('showcaseVideoDesc');
+      const videoAircraft = document.getElementById('showcaseVideoAircraft');
+      const videoOptics = document.getElementById('showcaseVideoOptics');
+      const videoSpecs = document.getElementById('showcaseVideoSpecs');
+
+      document.querySelectorAll('.video-player-trigger').forEach(card => {
+        card.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const src = card.getAttribute('data-video-src') || 'assets/drone-showreel-30s.webm';
+          const title = card.getAttribute('data-video-title') || 'AeroNest 30s Aerial Cinema Reel';
+          const desc = card.getAttribute('data-video-desc') || 'Cinematic 4K drone sequence captured with certified remote pilot precision.';
+          const aircraft = card.getAttribute('data-video-aircraft') || 'DJI Inspire 3 Cinema System';
+          const optics = card.getAttribute('data-video-optics') || 'Zenmuse X9-8K Air / DL 35mm F2.8';
+          const specs = card.getAttribute('data-video-specs') || '4K 60FPS • 10-Bit ProRes 422 HQ';
+
+          videoPlayer.src = src;
+          videoTitle.textContent = title;
+          videoDesc.textContent = desc;
+          videoAircraft.textContent = aircraft;
+          videoOptics.textContent = optics;
+          videoSpecs.textContent = specs;
+
+          videoModal.show();
+          videoPlayer.currentTime = 0;
+          videoPlayer.play().catch(() => {});
+        });
+      });
+
+      videoModalEl.addEventListener('hidden.bs.modal', () => {
+        videoPlayer.pause();
+        videoPlayer.currentTime = 0;
+      });
+
+      // Click on any element with data-gallery-index
+      document.querySelectorAll('[data-gallery-index]').forEach(elem => {
+        elem.addEventListener('click', (e) => {
+          e.preventDefault();
+          const idx = parseInt(elem.getAttribute('data-gallery-index'), 10);
+          if (!isNaN(idx) && idx >= 0 && idx < galleryData.length) {
+            displayLightboxItem(idx);
+            lightboxModal.show();
+          }
+        });
+      });
+
+      prevBtn.addEventListener('click', () => {
+        currentPhotoIndex = (currentPhotoIndex - 1 + galleryData.length) % galleryData.length;
+        displayLightboxItem(currentPhotoIndex);
+      });
+
+      nextBtn.addEventListener('click', () => {
+        currentPhotoIndex = (currentPhotoIndex + 1) % galleryData.length;
+        displayLightboxItem(currentPhotoIndex);
+      });
+
+      // Keyboard left/right arrows navigation
+      document.addEventListener('keydown', (e) => {
+        if (lightboxModalEl.classList.contains('show')) {
+          if (e.key === 'ArrowLeft') {
+            prevBtn.click();
+          } else if (e.key === 'ArrowRight') {
+            nextBtn.click();
+          }
+        }
+      });
+    });
+  </script>
+
+  <!-- Terms & Policy Modal -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content" style="border-radius: 18px; border: 1px solid rgba(22, 141, 243, 0.2); overflow: hidden;">
+        <div class="modal-header" style="background: linear-gradient(135deg, #071a31 0%, #0c2d53 100%); color: white; border-bottom: none; padding: 20px 24px;">
+          <div>
+            <span class="badge" style="background: rgba(22, 141, 243, 0.3); color: #38bdf8; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 5px 12px; border-radius: 30px; margin-bottom: 6px; display: inline-block;">AERONEST POLICIES</span>
+            <h5 class="modal-title fw-bold m-0" id="termsModalLabel">Terms &amp; Flight Policy</h5>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4" style="color: #475569; font-size: 14px; line-height: 1.7; max-height: 60vh; overflow-y: auto;">
+          <h6 class="fw-bold text-dark">1. Part 107 Commercial Flight Compliance</h6>
+          <p>All AeroNest operations comply strictly with FAA Part 107 (and DGCA / national civil aviation authorities). Our pilots hold commercial drone licenses and full airspace risk authorizations.</p>
+          <h6 class="fw-bold text-dark mt-3">2. Weather &amp; Safety Ground Rules</h6>
+          <p>Safety is non-negotiable. Flights will be rescheduled at zero cost to the client in the event of rain, sustained winds exceeding 20 knots, restricted temporary flight limits (TFRs), or severe geomagnetic interference.</p>
+          <h6 class="fw-bold text-dark mt-3">3. Commercial Licensing &amp; Usage Rights</h6>
+          <p>Clients receive full commercial usage rights for delivered media as specified in the service package. Unedited RAW files and proprietary flight telemetry logs remain the property of AeroNest unless licensed separately.</p>
+          <h6 class="fw-bold text-dark mt-3">4. Turnaround &amp; Revisions</h6>
+          <p>Standard delivery timelines are 24-48 hours for photography and 3-5 business days for edited cinema reels. Two rounds of color grade/edit adjustments are included in all packages.</p>
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid #e2e8f0; padding: 16px 24px;">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" style="border-radius: 10px; font-size: 13px; font-weight: 600;">Close</button>
+          <a href="contact.html" class="btn btn-brand btn-modal-action">Contact Support &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content" style="border-radius: 18px; border: 1px solid rgba(22, 141, 243, 0.2); overflow: hidden;">
+        <div class="modal-header" style="background: linear-gradient(135deg, #071a31 0%, #0c2d53 100%); color: white; border-bottom: none; padding: 20px 24px;">
+          <div>
+            <span class="badge" style="background: rgba(22, 141, 243, 0.3); color: #38bdf8; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 5px 12px; border-radius: 30px; margin-bottom: 6px; display: inline-block;">PRIVACY &amp; DATA SECURITY</span>
+            <h5 class="modal-title fw-bold m-0" id="privacyModalLabel">Privacy Policy</h5>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4" style="color: #475569; font-size: 14px; line-height: 1.7; max-height: 60vh; overflow-y: auto;">
+          <h6 class="fw-bold text-dark">1. Information We Collect</h6>
+          <p>We collect project details, contact information, GPS flight coordinates, and shoot requirements submitted via our inquiry forms to coordinate flight plans and deliver high-resolution assets.</p>
+          <h6 class="fw-bold text-dark mt-3">2. Airspace &amp; Property Privacy Safeguards</h6>
+          <p>AeroNest respects private property and personal privacy. During aerial capture, sensors are angled to focus strictly on the commissioned subject, avoiding adjacent residential interiors and restricted neighbor premises.</p>
+          <h6 class="fw-bold text-dark mt-3">3. Cloud Storage &amp; Asset Delivery</h6>
+          <p>Deliverables are securely hosted on encrypted cloud vaults for 90 days following project completion. We do not sell or share your contact data with third-party advertisers.</p>
+          <h6 class="fw-bold text-dark mt-3">4. Cookies &amp; Newsletter</h6>
+          <p>We use lightweight local storage to remember your theme and language preferences. You may unsubscribe from our monthly flight digest at any time with one click.</p>
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid #e2e8f0; padding: 16px 24px;">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" style="border-radius: 10px; font-size: 13px; font-weight: 600;">Close</button>
+          <a href="contact.html" class="btn btn-brand btn-modal-action">Contact Support &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
