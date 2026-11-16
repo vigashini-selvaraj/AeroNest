@@ -2041,6 +2041,43 @@ body.dark-mode .cta-section {
   transition: all 0.2s ease;
 }
 
+/* Light mode high-contrast placeholders */
+.form-control::placeholder,
+.form-select::placeholder,
+textarea.form-control::placeholder,
+input.form-control::placeholder,
+.contact-form-card .form-control::placeholder,
+.booking-form .form-control::placeholder,
+.newsletter-form input::placeholder {
+  color: #64748b !important;
+  opacity: 0.9 !important;
+  font-weight: 500;
+}
+.form-control::-webkit-input-placeholder,
+textarea.form-control::-webkit-input-placeholder,
+input.form-control::-webkit-input-placeholder,
+.contact-form-card .form-control::-webkit-input-placeholder,
+.booking-form .form-control::-webkit-input-placeholder,
+.newsletter-form input::-webkit-input-placeholder {
+  color: #64748b !important;
+  opacity: 0.9 !important;
+  font-weight: 500;
+}
+.form-control::-moz-placeholder,
+textarea.form-control::-moz-placeholder,
+input.form-control::-moz-placeholder {
+  color: #64748b !important;
+  opacity: 0.9 !important;
+  font-weight: 500;
+}
+.form-control:-ms-input-placeholder,
+textarea.form-control:-ms-input-placeholder,
+input.form-control:-ms-input-placeholder {
+  color: #64748b !important;
+  opacity: 0.9 !important;
+  font-weight: 500;
+}
+
 .form-control:focus,
 .form-select:focus {
   border-color: var(--sky-blue);
@@ -2816,15 +2853,120 @@ body.dark-mode .gallery-section .section-title {
   color: #f0f7ff;
 }
 
-body.dark-mode .booking-form {
+body.dark-mode .booking-form,
+html.dark-mode .booking-form {
   background: #0c2038;
 }
 
 body.dark-mode .form-control,
-body.dark-mode .form-select {
-  background: #071629;
-  color: #edf5ff;
-  border-color: rgba(56, 189, 248, 0.15);
+html.dark-mode .form-control,
+body.dark-mode .form-select,
+html.dark-mode .form-select,
+body.dark-mode .contact-form-card .form-control,
+html.dark-mode .contact-form-card .form-control,
+body.dark-mode .contact-form-card .form-select,
+html.dark-mode .contact-form-card .form-select,
+body.dark-mode .booking-form .form-control,
+html.dark-mode .booking-form .form-control,
+body.dark-mode .booking-form .form-select,
+html.dark-mode .booking-form .form-select {
+  background-color: #071629 !important;
+  color: #edf5ff !important;
+  border-color: rgba(56, 189, 248, 0.22) !important;
+}
+
+body.dark-mode .form-control:focus,
+html.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus,
+html.dark-mode .form-select:focus,
+body.dark-mode .contact-form-card .form-control:focus,
+html.dark-mode .contact-form-card .form-control:focus,
+body.dark-mode .contact-form-card .form-select:focus,
+html.dark-mode .contact-form-card .form-select:focus,
+body.dark-mode .booking-form .form-control:focus,
+html.dark-mode .booking-form .form-control:focus,
+body.dark-mode .booking-form .form-select:focus,
+html.dark-mode .booking-form .form-select:focus {
+  background-color: #0c2038 !important;
+  color: #ffffff !important;
+  border-color: var(--sky-blue) !important;
+  box-shadow: 0 0 0 3px rgba(22, 141, 243, 0.25) !important;
+}
+
+/* Dark mode radiant, high-clarity placeholders */
+body.dark-mode .form-control::placeholder,
+html.dark-mode .form-control::placeholder,
+body.dark-mode textarea.form-control::placeholder,
+html.dark-mode textarea.form-control::placeholder,
+body.dark-mode input.form-control::placeholder,
+html.dark-mode input.form-control::placeholder,
+body.dark-mode .contact-form-card .form-control::placeholder,
+html.dark-mode .contact-form-card .form-control::placeholder,
+body.dark-mode .booking-form .form-control::placeholder,
+html.dark-mode .booking-form .form-control::placeholder,
+body.dark-mode .newsletter-form input::placeholder,
+html.dark-mode .newsletter-form input::placeholder {
+  color: #9cb5d1 !important;
+  opacity: 1 !important;
+  font-weight: 500;
+}
+
+body.dark-mode .form-control::-webkit-input-placeholder,
+html.dark-mode .form-control::-webkit-input-placeholder,
+body.dark-mode textarea.form-control::-webkit-input-placeholder,
+html.dark-mode textarea.form-control::-webkit-input-placeholder,
+body.dark-mode input.form-control::-webkit-input-placeholder,
+html.dark-mode input.form-control::-webkit-input-placeholder,
+body.dark-mode .contact-form-card .form-control::-webkit-input-placeholder,
+html.dark-mode .contact-form-card .form-control::-webkit-input-placeholder,
+body.dark-mode .booking-form .form-control::-webkit-input-placeholder,
+html.dark-mode .booking-form .form-control::-webkit-input-placeholder,
+body.dark-mode .newsletter-form input::-webkit-input-placeholder,
+html.dark-mode .newsletter-form input::-webkit-input-placeholder {
+  color: #9cb5d1 !important;
+  opacity: 1 !important;
+  font-weight: 500;
+}
+
+body.dark-mode .form-control::-moz-placeholder,
+html.dark-mode .form-control::-moz-placeholder,
+body.dark-mode textarea.form-control::-moz-placeholder,
+html.dark-mode textarea.form-control::-moz-placeholder,
+body.dark-mode input.form-control::-moz-placeholder,
+html.dark-mode input.form-control::-moz-placeholder {
+  color: #9cb5d1 !important;
+  opacity: 1 !important;
+  font-weight: 500;
+}
+
+/* Dark mode Date Picker fields and calendar icon */
+body.dark-mode input[type="date"].form-control,
+html.dark-mode input[type="date"].form-control {
+  color: #9cb5d1 !important;
+}
+body.dark-mode input[type="date"].form-control:focus,
+html.dark-mode input[type="date"].form-control:focus,
+body.dark-mode input[type="date"].form-control:valid,
+html.dark-mode input[type="date"].form-control:valid {
+  color: #edf5ff !important;
+}
+
+body.dark-mode input[type="date"]::-webkit-calendar-picker-indicator,
+html.dark-mode input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(1.2);
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+/* Dark mode select dropdown styling */
+body.dark-mode .form-select option,
+html.dark-mode .form-select option {
+  background-color: #0c2038 !important;
+  color: #edf5ff !important;
+}
+body.dark-mode .form-select option[value=""],
+html.dark-mode .form-select option[value=""] {
+  color: #9cb5d1 !important;
 }
 
 body.dark-mode .hero-wave {
@@ -3753,4 +3895,154 @@ html[dir="rtl"] .home2-hero-overlay {
   transform: translateY(-2px) !important;
   box-shadow: 0 10px 24px rgba(22, 141, 243, 0.45) !important;
   text-decoration: none !important;
+}
+
+/* ========================================================
+   GLOBAL TEXT CONTRAST & DARK MODE VISIBILITY CORRECTIONS
+   Fixes Bootstrap .text-muted, .text-dark, Accordions,
+   Search placeholders, and Blog card author/meta contrast
+   ======================================================== */
+.text-muted {
+  color: var(--muted) !important;
+}
+
+body.dark-mode .text-muted,
+html.dark-mode .text-muted,
+body.dark-mode small.text-muted,
+html.dark-mode small.text-muted,
+body.dark-mode p.text-muted,
+html.dark-mode p.text-muted,
+body.dark-mode span.text-muted,
+html.dark-mode span.text-muted,
+body.dark-mode div.text-muted,
+html.dark-mode div.text-muted {
+  color: #9cb5d1 !important;
+}
+
+body.dark-mode .text-dark,
+html.dark-mode .text-dark {
+  color: #f0f7ff !important;
+}
+
+body.dark-mode .text-secondary,
+html.dark-mode .text-secondary {
+  color: #cbd5e1 !important;
+}
+
+/* Accordion Component - Light & Dark Mode */
+.accordion-item {
+  background-color: var(--card) !important;
+  border: 1px solid var(--line) !important;
+}
+
+.accordion-button {
+  background-color: var(--card) !important;
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--sky-tint) !important;
+  color: var(--sky-blue) !important;
+}
+
+body.dark-mode .accordion-button:not(.collapsed),
+html.dark-mode .accordion-button:not(.collapsed) {
+  background-color: rgba(22, 141, 243, 0.16) !important;
+  color: var(--sky-light) !important;
+}
+
+.accordion-body {
+  background-color: var(--card) !important;
+  color: var(--muted) !important;
+}
+
+body.dark-mode .accordion-body,
+html.dark-mode .accordion-body,
+body.dark-mode .accordion-body.text-muted,
+html.dark-mode .accordion-body.text-muted {
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .accordion-button::after,
+html.dark-mode .accordion-button::after {
+  filter: invert(1) brightness(1.6);
+}
+
+/* Blog Search Input & Placeholder in Dark Mode */
+#blogSearchInput::placeholder,
+.blog-search-wrap input::placeholder {
+  color: #64748b !important;
+  opacity: 0.9 !important;
+}
+
+body.dark-mode #blogSearchInput,
+html.dark-mode #blogSearchInput {
+  background-color: #071629 !important;
+  color: #edf5ff !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+}
+
+body.dark-mode #blogSearchInput::placeholder,
+html.dark-mode #blogSearchInput::placeholder,
+body.dark-mode .blog-search-wrap input::placeholder,
+html.dark-mode .blog-search-wrap input::placeholder {
+  color: #9cb5d1 !important;
+  opacity: 1 !important;
+}
+
+/* Blog Cards Author, Meta & Description in Dark Mode */
+body.dark-mode .blog-card,
+html.dark-mode .blog-card,
+body.dark-mode .blog-featured-card,
+html.dark-mode .blog-featured-card,
+body.dark-mode .blog-popular-card,
+html.dark-mode .blog-popular-card {
+  background-color: var(--card) !important;
+  color: var(--ink) !important;
+}
+
+body.dark-mode .blog-card small,
+html.dark-mode .blog-card small,
+body.dark-mode .blog-featured-card small,
+html.dark-mode .blog-featured-card small,
+body.dark-mode .blog-meta,
+html.dark-mode .blog-meta,
+body.dark-mode .blog-popular-meta,
+html.dark-mode .blog-popular-meta {
+  color: #9cb5d1 !important;
+}
+
+body.dark-mode .blog-card p,
+html.dark-mode .blog-card p,
+body.dark-mode .blog-featured-card p,
+html.dark-mode .blog-featured-card p {
+  color: #cbd5e1 !important;
+}
+
+/* WhatsApp Box in Contact Page */
+.whatsapp-quick-box {
+  background: rgba(22, 141, 243, 0.06);
+  border: 1px solid rgba(22, 141, 243, 0.2);
+  border-radius: 18px;
+  padding: 24px;
+}
+
+body.dark-mode .whatsapp-quick-box,
+html.dark-mode .whatsapp-quick-box {
+  background: rgba(22, 141, 243, 0.12) !important;
+  border-color: rgba(56, 189, 248, 0.32) !important;
+}
+
+body.dark-mode .whatsapp-quick-box h6,
+html.dark-mode .whatsapp-quick-box h6 {
+  color: #f0f7ff !important;
+}
+
+body.dark-mode .whatsapp-quick-box p,
+html.dark-mode .whatsapp-quick-box p,
+body.dark-mode .whatsapp-quick-box small,
+html.dark-mode .whatsapp-quick-box small {
+  color: #cbd5e1 !important;
 }

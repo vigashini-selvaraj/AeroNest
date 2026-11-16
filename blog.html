@@ -143,7 +143,7 @@
         <!-- Search Input Bar with Neutral Card Background -->
         <div class="blog-search-wrap mb-4">
           <div class="input-group">
-            <input type="text" id="blogSearchInput" class="form-control form-control-lg rounded-pill ps-4 pe-5" placeholder="Search by topic, keyword, or drone technique..." aria-label="Search articles" style="height: 54px; background: var(--paper); border: 1.5px solid var(--line); color: var(--ink);">
+            <input type="text" id="blogSearchInput" class="form-control form-control-lg rounded-pill ps-4 pe-5" placeholder="Search by topic, keyword, or drone technique..." aria-label="Search articles" style="height: 54px;">
             <button type="button" id="blogSearchClear" class="blog-search-clear" aria-label="Clear search"><i class="bi bi-x-circle-fill"></i></button>
           </div>
           <div id="searchFeedback" class="text-muted small mt-2 text-center" style="display: none;"></div>
@@ -381,12 +381,12 @@
               <h3 class="fw-bold mb-3" style="letter-spacing: -0.8px; line-height: 1.25; font-size: clamp(22px, 2.5vw, 32px); color: var(--ink);">
                 <a href="${detailUrl}" class="text-decoration-none" style="color: var(--ink);">${featured.title}</a>
               </h3>
-              <p class="text-muted mb-4" style="font-size: 15px; line-height: 1.75;">${featured.desc}</p>
+              <p class="mb-4" style="font-size: 15px; line-height: 1.75; color: var(--muted);">${featured.desc}</p>
               <div class="d-flex align-items-center gap-3">
                 <img src="${featured.authorImg}" class="rounded-circle shadow-sm" style="width: 44px; height: 44px; object-fit: cover;" alt="${featured.author}">
                 <div>
                   <h6 class="mb-0 fw-bold" style="color: var(--ink);">${featured.author}</h6>
-                  <small class="text-muted">${featured.date} &bull; ${featured.readTime} &bull; <i class="bi bi-eye ms-1"></i> ${featured.views}</small>
+                  <small style="color: var(--muted);">${featured.date} &bull; ${featured.readTime} &bull; <i class="bi bi-eye ms-1"></i> ${featured.views}</small>
                 </div>
               </div>
               <div class="mt-4">
@@ -423,11 +423,11 @@
                   <span><i class="bi bi-clock"></i> ${b.readTime}</span>
                 </div>
                 <h3><a href="${detailUrl}" style="color: var(--ink); text-decoration: none;">${b.title}</a></h3>
-                <p>${b.desc}</p>
+                <p style="color: var(--muted); line-height: 1.6; font-size: 13.5px;">${b.desc}</p>
                 <div class="d-flex align-items-center justify-content-between mt-auto pt-3 border-top border-light border-opacity-25">
                   <div class="d-flex align-items-center gap-2">
-                    <img src="${b.authorImg}" class="rounded-circle" style="width: 28px; height: 28px; object-fit: cover;" alt="${b.author}">
-                    <small class="text-muted fw-semibold" style="font-size: 12px;">${b.author}</small>
+                    <img src="${b.authorImg}" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;" alt="${b.author}">
+                    <span class="fw-bold" style="font-size: 13px; color: var(--ink);">${b.author}</span>
                   </div>
                   <a href="${detailUrl}" class="btn btn-primary btn-sm rounded-pill px-3 fw-bold">
                     View Details <i class="bi bi-arrow-right ms-1"></i>

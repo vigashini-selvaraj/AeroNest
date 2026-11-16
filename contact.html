@@ -179,6 +179,35 @@
       font-size: 14px;
       transition: all 0.25s ease;
     }
+    .contact-form-card .form-control::placeholder {
+      color: #64748b !important;
+      opacity: 0.9 !important;
+      font-weight: 500;
+    }
+    body.dark-mode .contact-form-card .form-control::placeholder,
+    html.dark-mode .contact-form-card .form-control::placeholder {
+      color: #9cb5d1 !important;
+      opacity: 1 !important;
+      font-weight: 500;
+    }
+    body.dark-mode .contact-form-card .form-control,
+    html.dark-mode .contact-form-card .form-control,
+    body.dark-mode .contact-form-card .form-select,
+    html.dark-mode .contact-form-card .form-select {
+      background-color: #071629 !important;
+      color: #edf5ff !important;
+      border-color: rgba(56, 189, 248, 0.22) !important;
+    }
+    body.dark-mode .contact-form-card input[type="date"].form-control,
+    html.dark-mode .contact-form-card input[type="date"].form-control {
+      color: #9cb5d1 !important;
+    }
+    body.dark-mode .contact-form-card input[type="date"]::-webkit-calendar-picker-indicator,
+    html.dark-mode .contact-form-card input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(1) brightness(1.2);
+      cursor: pointer;
+      opacity: 0.85;
+    }
     .contact-form-card .form-control:focus,
     .contact-form-card .form-select:focus {
       background: var(--card);
@@ -189,6 +218,11 @@
     .contact-form-card .form-select option {
       background: var(--card);
       color: var(--ink);
+    }
+    body.dark-mode .contact-form-card .form-select option,
+    html.dark-mode .contact-form-card .form-select option {
+      background: #0c2038 !important;
+      color: #edf5ff !important;
     }
 
     /* Section 4: Our Services Quick Links */
@@ -621,10 +655,10 @@
                   </div>
                   <div>
                     <h6 class="fw-bold mb-0" style="color: var(--ink);">Prefer Instant Messaging?</h6>
-                    <small class="text-muted">Direct WhatsApp line with Chief Pilot</small>
+                    <small style="color: var(--muted);">Direct WhatsApp line with Chief Pilot</small>
                   </div>
                 </div>
-                <p class="small text-muted mb-3" style="line-height: 1.5;">
+                <p class="small mb-3" style="line-height: 1.5; color: var(--muted);">
                   Need an urgent quotation or same-day flight availability? Text our flight coordination deck directly.
                 </p>
                 <a href="https://wa.me/919876543210?text=Hello%20AeroNest%2C%20I%20would%20like%20to%20enquire%20about%20a%20drone%20shoot%20quote." target="_blank" rel="noopener" class="btn btn-outline-sky w-100 rounded-pill py-2" style="font-size: 13.5px; font-weight: 700;">
@@ -715,7 +749,7 @@
                     <button type="submit" class="btn btn-primary rounded-pill px-5 py-3 fw-bold shadow">
                       <span>Submit Enquiry</span> <i class="bi bi-arrow-right ms-2"></i>
                     </button>
-                    <div class="text-muted small">
+                    <div class="small fw-semibold" style="color: var(--muted);">
                       <i class="bi bi-shield-check text-primary me-1"></i> $5M Insured &bull; Zero Spam Guarantee
                     </div>
                   </div>
@@ -919,7 +953,7 @@
               </button>
             </h2>
             <div id="faqContact1" class="accordion-collapse collapse show" aria-labelledby="faqContact1Head" data-bs-parent="#contactFaqAccordion">
-              <div class="accordion-body text-muted" style="font-size: 14.5px; line-height: 1.7;">
+              <div class="accordion-body" style="font-size: 14.5px; line-height: 1.7; color: var(--muted);">
                 For standard uncontrolled airspace shoots (real estate, private estates, general events), booking 3 to 5 days in advance is typically sufficient. For urban centers, controlled airport approach zones, or night operations requiring specialized digital LAANC or DGCA airspace waivers, we recommend 10 to 14 business days.
               </div>
             </div>
@@ -933,7 +967,7 @@
               </button>
             </h2>
             <div id="faqContact2" class="accordion-collapse collapse" aria-labelledby="faqContact2Head" data-bs-parent="#contactFaqAccordion">
-              <div class="accordion-body text-muted" style="font-size: 14.5px; line-height: 1.7;">
+              <div class="accordion-body" style="font-size: 14.5px; line-height: 1.7; color: var(--muted);">
                 Our basic photography packages start at $399, cinema 4K video packages at $899, and full-day commercial productions at $1,699. We require a 30% deposit upon booking confirmation to lock your flight date, with the remaining balance due upon review of draft watermarked deliverables.
               </div>
             </div>
@@ -947,7 +981,7 @@
               </button>
             </h2>
             <div id="faqContact3" class="accordion-collapse collapse" aria-labelledby="faqContact3Head" data-bs-parent="#contactFaqAccordion">
-              <div class="accordion-body text-muted" style="font-size: 14.5px; line-height: 1.7;">
+              <div class="accordion-body" style="font-size: 14.5px; line-height: 1.7; color: var(--muted);">
                 We track multi-model meteorological telemetry 72 hours prior to every mission. If sustained winds exceed 35 km/h, heavy fog limits visibility below 3 statute miles, or precipitation occurs, we trigger our Weather Guarantee: your mission is rescheduled to the next available sunny slot with zero rebooking fees.
               </div>
             </div>
@@ -961,7 +995,7 @@
               </button>
             </h2>
             <div id="faqContact4" class="accordion-collapse collapse" aria-labelledby="faqContact4Head" data-bs-parent="#contactFaqAccordion">
-              <div class="accordion-body text-muted" style="font-size: 14.5px; line-height: 1.7;">
+              <div class="accordion-body" style="font-size: 14.5px; line-height: 1.7; color: var(--muted);">
                 Yes, 100%. All AeroNest remote pilots hold valid commercial drone certifications (FAA Part 107 and equivalent DGCA authorizations). Every single flight mission is protected by up to $5,000,000 in comprehensive commercial aviation liability coverage, providing complete peace of mind.
               </div>
             </div>
@@ -975,7 +1009,7 @@
               </button>
             </h2>
             <div id="faqContact5" class="accordion-collapse collapse" aria-labelledby="faqContact5Head" data-bs-parent="#contactFaqAccordion">
-              <div class="accordion-body text-muted" style="font-size: 14.5px; line-height: 1.7;">
+              <div class="accordion-body" style="font-size: 14.5px; line-height: 1.7; color: var(--muted);">
                 Deliverables include color-graded Apple ProRes 422 HQ and web-optimized MP4/H.265 master files, along with 48MP DNG RAW stills and full-resolution JPEGs. For production agencies, we also transfer full unedited RAW cinema footage via secure high-speed cloud drive.
               </div>
             </div>
@@ -989,7 +1023,7 @@
               </button>
             </h2>
             <div id="faqContact6" class="accordion-collapse collapse" aria-labelledby="faqContact6Head" data-bs-parent="#contactFaqAccordion">
-              <div class="accordion-body text-muted" style="font-size: 14.5px; line-height: 1.7;">
+              <div class="accordion-body" style="font-size: 14.5px; line-height: 1.7; color: var(--muted);">
                 Yes! We maintain custom lightweight Cinewhoop FPV airframes equipped with 360° ducted propeller guards and non-GPS optical positioning systems, enabling silky smooth continuous transitions from outdoor skies into indoor atriums, auditoriums, and luxury residences.
               </div>
             </div>
