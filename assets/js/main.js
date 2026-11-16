@@ -438,4 +438,25 @@
       newsletterForm.reset();
     });
   }
+
+  // ----------------------------------------------------
+  // Back to Top Smooth Scroll to Top / Hero Section
+  // ----------------------------------------------------
+  document.querySelectorAll('a[href="#top"], .back-to-top-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+      const hero = document.querySelector('.hero-section, .sd-hero, #home, [id$="-hero"]');
+      if (hero) {
+        hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.pathname + window.location.search);
+      }
+    });
+  });
 })();

@@ -239,17 +239,18 @@ a {
 
 .nav-btn-ltr {
   height: 40px;
+  min-width: 54px;
   padding: 0 14px;
   background: var(--btn-bg);
   border: 1px solid var(--btn-border);
   border-radius: 8px;
   color: var(--btn-text);
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -261,7 +262,7 @@ a {
 }
 
 .nav-btn-ltr i {
-  font-size: 14px;
+  display: none;
 }
 
 .nav-btn-icon {
@@ -362,6 +363,7 @@ a {
 
 .nav-btn-mobile {
   height: 38px;
+  min-width: 48px;
   padding: 0 10px;
   background: var(--btn-bg);
   border: 1px solid var(--btn-border);
@@ -369,15 +371,17 @@ a {
   color: var(--btn-text);
   font-size: 12px;
   font-weight: 700;
+  letter-spacing: 0.5px;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .nav-btn-mobile.nav-btn-icon {
   width: 38px;
+  min-width: 38px;
   padding: 0;
   justify-content: center;
   font-size: 16px;
@@ -390,7 +394,12 @@ a {
 }
 
 .nav-btn-mobile i {
-  font-size: 13px;
+  display: none;
+}
+
+.nav-btn-mobile.nav-btn-icon i {
+  display: inline-block;
+  font-size: 16px;
 }
 
 @media (max-width: 576px) {
@@ -476,12 +485,14 @@ a {
   }
 }
 
-/* Gradient overlay to ensure drone visibility + perfect text readability */
+/* Gradient overlay allowing warm golden sunrise to radiate through while keeping text 100% readable */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(7, 26, 49, 0.90) 0%, rgba(9, 31, 58, 0.62) 48%, rgba(11, 38, 70, 0.18) 100%),
-    linear-gradient(0deg, rgba(7, 26, 49, 0.85) 0%, transparent 45%);
+  background:
+    linear-gradient(180deg, rgba(4, 15, 30, 0.65) 0%, rgba(4, 15, 30, 0.15) 24%, transparent 40%),
+    linear-gradient(0deg, rgba(7, 26, 49, 0.85) 0%, rgba(7, 26, 49, 0.25) 28%, transparent 50%),
+    radial-gradient(ellipse at center 48%, rgba(7, 26, 49, 0.08) 0%, rgba(7, 26, 49, 0.42) 65%, rgba(4, 15, 30, 0.82) 100%);
   z-index: 2;
   pointer-events: none;
 }
@@ -490,10 +501,13 @@ a {
   position: relative;
   z-index: 3;
   padding-top: 85px;
+  text-align: center;
 }
 
 .hero-copy {
-  max-width: 620px;
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
   animation: heroFadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -528,12 +542,27 @@ a {
   background: var(--sky-light);
 }
 
+.hero-copy .eyebrow {
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.hero-copy .eyebrow::after {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 2px;
+  background: var(--sky-light);
+}
+
 .hero-copy h1 {
   font-size: clamp(40px, 5.2vw, 68px);
   line-height: 1.08;
   letter-spacing: -2.5px;
   font-weight: 800;
   margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.75), 0 2px 6px rgba(0, 0, 0, 0.85);
 }
 
 .hero-copy h1 em {
@@ -542,15 +571,18 @@ a {
 }
 
 .hero-description {
-  max-width: 500px;
-  color: #e2eaf5;
+  max-width: 680px;
+  margin: 0 auto 30px;
+  color: #f1f5f9;
   font-size: 16.5px;
   line-height: 1.65;
-  margin-bottom: 30px;
+  text-align: center;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8);
 }
 
 .hero-buttons {
   display: flex;
+  justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
   animation: heroButtonsEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -1962,7 +1994,7 @@ body.dark-mode .cta-section {
   border-radius: 24px;
   padding: 50px 55px;
   background: linear-gradient(110deg, rgba(7, 26, 49, 0.94) 0%, rgba(22, 141, 243, 0.88) 100%),
-    url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=85') center/cover;
+    url('https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=1800&q=85') center/cover;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2303,7 +2335,7 @@ html[dir="rtl"] .footer-main h4::after {
   aspect-ratio: 16/9;
   border-radius: 22px;
   background: linear-gradient(rgba(7, 26, 49, 0.7), rgba(7, 26, 49, 0.9)),
-    url('../Drone%20Over%20Misty%20Mountain%20River.png') center/cover;
+    url('https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=1200&q=85') center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2363,7 +2395,7 @@ html[dir="rtl"] .footer-main h4::after {
 .drone-flight-bg {
   position: absolute;
   inset: -14%;
-  background-image: url('../Drone%20Over%20Misty%20Mountain%20River.png');
+  background-image: url('https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=1920&q=85');
   background-size: cover;
   background-position: center 46%;
   transform-origin: center center;
@@ -2374,7 +2406,7 @@ html[dir="rtl"] .footer-main h4::after {
 }
 
 .drone-flight-bg.is-alpine {
-  background-image: url('../gallery-cinematic-1.jpg');
+  background-image: url('https://images.unsplash.com/photo-1520690214124-2405c5217036?auto=format&fit=crop&w=1920&q=85');
 }
 
 .drone-flight-bg.is-playing {
@@ -3098,7 +3130,6 @@ html[dir="rtl"] .feature-item:last-child {
   border: 0;
 }
 
-html[dir="rtl"] .hero-copy,
 html[dir="rtl"] .section-copy {
   text-align: right;
 }
@@ -3205,8 +3236,10 @@ html[dir="rtl"] .contact-hero-bg {
 
 html[dir="rtl"] .hero-overlay,
 html[dir="rtl"] .home2-hero-overlay {
-  background: linear-gradient(270deg, rgba(7, 26, 49, 0.90) 0%, rgba(9, 31, 58, 0.62) 48%, rgba(11, 38, 70, 0.18) 100%),
-    linear-gradient(0deg, rgba(7, 26, 49, 0.85) 0%, transparent 45%);
+  background:
+    linear-gradient(180deg, rgba(4, 15, 30, 0.65) 0%, rgba(4, 15, 30, 0.15) 24%, transparent 40%),
+    linear-gradient(0deg, rgba(7, 26, 49, 0.85) 0%, rgba(7, 26, 49, 0.25) 28%, transparent 50%),
+    radial-gradient(ellipse at center 48%, rgba(7, 26, 49, 0.08) 0%, rgba(7, 26, 49, 0.42) 65%, rgba(4, 15, 30, 0.82) 100%);
 }
 
 /* ========================================================
@@ -3393,8 +3426,10 @@ html[dir="rtl"] .home2-hero-overlay {
 .home2-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(7, 26, 49, 0.88) 0%, rgba(9, 31, 58, 0.58) 48%, rgba(11, 38, 70, 0.15) 100%),
-    linear-gradient(0deg, rgba(7, 26, 49, 0.82) 0%, transparent 45%);
+  background:
+    linear-gradient(180deg, rgba(4, 15, 30, 0.65) 0%, rgba(4, 15, 30, 0.15) 24%, transparent 40%),
+    linear-gradient(0deg, rgba(7, 26, 49, 0.85) 0%, rgba(7, 26, 49, 0.25) 28%, transparent 50%),
+    radial-gradient(ellipse at center 48%, rgba(7, 26, 49, 0.08) 0%, rgba(7, 26, 49, 0.42) 65%, rgba(4, 15, 30, 0.82) 100%);
   z-index: 2;
   pointer-events: none;
 }
@@ -3549,18 +3584,25 @@ html[dir="rtl"] .home2-hero-overlay {
 
 .home2-expertise-icon-float {
   position: absolute;
-  bottom: -20px;
-  right: 22px;
-  width: 50px;
-  height: 50px;
-  border-radius: 14px;
+  bottom: 14px;
+  right: 18px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   background: linear-gradient(135deg, var(--sky-blue) 0%, #0284c7 100%);
   color: #ffffff;
   display: grid;
   place-items: center;
-  font-size: 22px;
-  box-shadow: 0 6px 18px rgba(22, 141, 243, 0.35);
+  font-size: 20px;
+  box-shadow: 0 6px 18px rgba(22, 141, 243, 0.45);
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
   z-index: 2;
+}
+
+html[dir="rtl"] .home2-expertise-icon-float {
+  right: auto;
+  left: 18px;
 }
 
 .home2-expertise-body {
@@ -3783,7 +3825,7 @@ html[dir="rtl"] .home2-hero-overlay {
   padding: 110px 0;
   color: white;
   overflow: hidden;
-  background: #071a31 url('https://images.unsplash.com/photo-1506947411487-a56738267384?auto=format&fit=crop&w=1920&q=85') center 35% / cover no-repeat;
+  background: #071a31 url('https://images.unsplash.com/photo-1477959858617-67f30bc75b82?auto=format&fit=crop&w=1920&q=85') center 35% / cover no-repeat;
 }
 
 .home2-final-cta-overlay {
@@ -4045,4 +4087,158 @@ html.dark-mode .whatsapp-quick-box p,
 body.dark-mode .whatsapp-quick-box small,
 html.dark-mode .whatsapp-quick-box small {
   color: #cbd5e1 !important;
+}
+
+/* ========================================================
+   404 ERROR & MAINTENANCE PAGES
+   ======================================================== */
+.flight-status-page {
+  min-height: calc(100vh - 120px);
+  padding: 140px 0 80px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.flight-status-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 50px 40px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+@media (max-width: 575.98px) {
+  .flight-status-card {
+    padding: 36px 20px;
+  }
+}
+
+.error-big-number {
+  font-size: clamp(80px, 14vw, 150px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -4px;
+  background: linear-gradient(135deg, var(--sky-blue) 0%, #38bdf8 55%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+  display: inline-block;
+  animation: telemetryFloat 4s ease-in-out infinite alternate;
+}
+
+@keyframes telemetryFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
+.telemetry-hud-card {
+  background: var(--sky-tint);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+  margin: 32px 0;
+  text-align: start;
+}
+
+.telemetry-hud-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.telemetry-hud-item {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+
+.telemetry-hud-item label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.telemetry-hud-item .val {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--ink);
+  font-family: monospace, system-ui;
+}
+
+/* Radar scanner graphic */
+.radar-scanner-wrap {
+  width: 140px;
+  height: 140px;
+  position: relative;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(22, 141, 243, 0.15) 0%, rgba(22, 141, 243, 0.04) 70%, transparent 100%);
+  border: 2px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 0 30px rgba(22, 141, 243, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radar-scanner-ring {
+  position: absolute;
+  inset: 20px;
+  border-radius: 50%;
+  border: 1px dashed rgba(56, 189, 248, 0.4);
+}
+
+.radar-scanner-sweep {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(22, 141, 243, 0.45) 0deg, transparent 65deg, transparent 360deg);
+  animation: radarSweep 3s linear infinite;
+}
+
+@keyframes radarSweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.radar-scanner-icon {
+  position: relative;
+  z-index: 2;
+  font-size: 34px;
+  color: var(--sky-blue);
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.85; }
+}
+
+/* Maintenance calibration progress */
+.calibration-bar-wrap {
+  background: var(--line);
+  height: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.calibration-bar-fill {
+  background: linear-gradient(90deg, #0284c7 0%, var(--sky-blue) 100%);
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.8s ease;
 }

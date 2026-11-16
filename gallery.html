@@ -276,9 +276,18 @@
       box-shadow: var(--shadow-lg);
       transform: translateY(-4px);
     }
+    .signature-card .row {
+      align-items: stretch;
+    }
+    .signature-card .col-lg-6 {
+      display: flex;
+      flex-direction: column;
+    }
     .signature-thumb {
+      flex: 1 1 auto;
+      width: 100%;
       height: 100%;
-      min-height: 320px;
+      min-height: 380px;
       position: relative;
       overflow: hidden;
       background: #07172c;
@@ -287,10 +296,19 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
+      display: block;
       transition: transform 0.6s ease;
     }
     .signature-card:hover .signature-thumb img {
       transform: scale(1.05);
+    }
+    @media (max-width: 991.98px) {
+      .signature-thumb {
+        min-height: 260px;
+        max-height: 320px;
+        height: 280px;
+      }
     }
     .signature-body {
       padding: 36px 32px;
@@ -728,8 +746,10 @@
       animation-name: heroCinematicZoomRTL;
     }
     html[dir="rtl"] .hero-overlay {
-      background: linear-gradient(270deg, rgba(7, 26, 49, 0.90) 0%, rgba(9, 31, 58, 0.62) 48%, rgba(11, 38, 70, 0.18) 100%),
-                  linear-gradient(0deg, rgba(7, 26, 49, 0.85) 0%, transparent 45%);
+      background:
+        linear-gradient(180deg, rgba(4, 15, 30, 0.65) 0%, rgba(4, 15, 30, 0.15) 24%, transparent 40%),
+        linear-gradient(0deg, rgba(7, 26, 49, 0.85) 0%, rgba(7, 26, 49, 0.25) 28%, transparent 50%),
+        radial-gradient(ellipse at center 48%, rgba(7, 26, 49, 0.08) 0%, rgba(7, 26, 49, 0.42) 65%, rgba(4, 15, 30, 0.82) 100%);
     }
   
     /* Cinema 30s Video Showcase Modal */
@@ -805,9 +825,9 @@
 
   </style>
 </head>
-<body>
+<body id="top">
   <!-- ================= STICKY NAVBAR ================= -->
-  <nav class="navbar navbar-expand-xl fixed-top site-nav" id="top">
+  <nav class="navbar navbar-expand-xl fixed-top site-nav">
     <div class="container">
       <a class="navbar-brand brand-container" href="index.html" aria-label="AeroNest home">
         <div class="brand-logo-mark">
@@ -841,7 +861,7 @@
       <div class="nav-mobile-actions d-xl-none ms-auto me-2">
         <button class="nav-btn-mobile" id="mobileDirectionToggle" aria-label="Switch text direction" title="Switch LTR / RTL">
           <span class="direction-text">LTR</span>
-          <i class="bi bi-arrow-left-right"></i>
+          
         </button>
         <button class="nav-btn-mobile nav-btn-icon" id="mobileThemeToggle" aria-label="Toggle theme" title="Toggle theme">
           <i class="bi bi-sun mobileThemeIcon"></i>
@@ -863,7 +883,7 @@
         <div class="nav-actions d-flex align-items-center">
           <button class="nav-btn-ltr d-none d-xl-inline-flex" id="directionToggle" aria-label="Switch text direction" title="Switch LTR / RTL">
             <span class="direction-text">LTR</span>
-            <i class="bi bi-arrow-left-right"></i>
+            
           </button>
           <button class="nav-btn-icon d-none d-xl-inline-flex" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
             <i class="bi bi-sun" id="themeIcon"></i>
@@ -915,7 +935,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="featured-spotlight-card" data-gallery-index="4">
               <div class="featured-spotlight-thumb">
-                <img src="assets/gallery-commercial-1.jpg" alt="Marina Bay Commercial Resort Showcase">
+                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=85" alt="Marina Bay Commercial Resort Showcase">
                 <span class="featured-spotlight-tag">Commercial &bull; 48MP</span>
               </div>
               <div class="featured-spotlight-body">
@@ -933,7 +953,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="featured-spotlight-card" data-gallery-index="1">
               <div class="featured-spotlight-thumb">
-                <img src="assets/gallery-realestate-1.jpg" alt="Cliffside Sunset Luxury Villa">
+                <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=85" alt="Cliffside Sunset Luxury Villa">
                 <span class="featured-spotlight-tag">Real Estate &bull; Twilight</span>
               </div>
               <div class="featured-spotlight-body">
@@ -951,7 +971,7 @@
           <div class="col-lg-4 col-md-12">
             <div class="featured-spotlight-card" data-gallery-index="5">
               <div class="featured-spotlight-thumb">
-                <img src="assets/gallery-cinematic-1.jpg" alt="Sunrise Over Rugged Alpine Peaks">
+                <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=800&q=85" alt="Sunrise Over Rugged Alpine Peaks">
                 <span class="featured-spotlight-tag">Cinematic &bull; 8K RAW</span>
               </div>
               <div class="featured-spotlight-body">
@@ -1201,7 +1221,7 @@
 
           <!-- Item 9: Aerial Photography -->
           <div class="col-lg-4 col-md-6 gallery-grid-card-wrap visible" data-category="aerial-photography"
-               data-full-src="assets/gallery-hero-sunrise.jpg"
+               data-full-src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=85"
                data-title="Golden Coastline Sunrise Flight"
                data-category-label="Aerial Photography"
                data-desc="Cinematic wide-angle aerial capture of sunrise over dramatic cliffs and open sea, highlighting glowing golden hour atmosphere."
@@ -1212,7 +1232,7 @@
                data-resolution="8K DNG Cinema Panorama">
             <div class="gallery-photo-card">
               <div class="gallery-photo-card-inner">
-                <img src="assets/gallery-hero-sunrise.jpg" alt="Golden Coastline Sunrise Flight">
+                <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=85" alt="Golden Coastline Sunrise Flight">
                 <div class="gallery-photo-overlay">
                   <span class="gallery-photo-tag">Aerial &bull; Golden Hour</span>
                   <h4>Golden Coastline Sunrise</h4>
@@ -1249,7 +1269,7 @@
 
           <!-- Item 11: Cinematic Videography -->
           <div class="col-lg-4 col-md-6 gallery-grid-card-wrap visible" data-category="cinematic-videography"
-               data-full-src="assets/Drone%20Over%20Misty%20Mountain%20River.png"
+               data-full-src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=1200&q=85"
                data-title="Misty Mountain River Drone Sweep"
                data-category-label="Cinematic Videography"
                data-desc="Smooth cinema drone tracking shot skimming low over a rushing alpine river enveloped in atmospheric morning mist and pine forest."
@@ -1260,7 +1280,7 @@
                data-resolution="5.4K Cinema D-Log 60FPS">
             <div class="gallery-photo-card">
               <div class="gallery-photo-card-inner">
-                <img src="assets/Drone%20Over%20Misty%20Mountain%20River.png" alt="Misty Mountain River Drone Sweep">
+                <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=1200&q=85" alt="Misty Mountain River Drone Sweep">
                 <div class="gallery-photo-overlay">
                   <span class="gallery-photo-tag">Cinematic &bull; Mist Sweep</span>
                   <h4>Misty Mountain River Run</h4>
@@ -1315,7 +1335,7 @@
           <div class="row g-0 align-items-stretch">
             <div class="col-lg-6">
               <div class="signature-thumb">
-                <img src="assets/gallery-travel-1.jpg" alt="The Pacific Rim Cliffline Campaign">
+                <img src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=1200&q=85" alt="The Pacific Rim Cliffline Campaign">
               </div>
             </div>
             <div class="col-lg-6">
@@ -1358,7 +1378,7 @@
           <div class="row g-0 align-items-stretch flex-lg-row-reverse">
             <div class="col-lg-6">
               <div class="signature-thumb">
-                <img src="assets/gallery-realestate-2.jpg" alt="Solstice Oceanfront Residences">
+                <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1000&q=85" alt="Solstice Oceanfront Residences">
               </div>
             </div>
             <div class="col-lg-6">
@@ -1419,7 +1439,7 @@
              data-video-optics="Zenmuse X9-8K Air / DL 35mm F2.8"
              data-video-specs="4K 60FPS • 10-Bit ProRes 422 HQ • 280 ft AGL"
              style="cursor: pointer;">
-          <img src="assets/gallery-cinematic-1.jpg" alt="2026 AeroNest Aerial Cinema Reel">
+          <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1200&q=85" alt="2026 AeroNest Aerial Cinema Reel">
           <div class="video-hero-overlay">
             <button class="video-play-btn" aria-label="Play 2026 AeroNest Reel">
               <i class="bi bi-play-fill"></i>
@@ -1447,7 +1467,7 @@
                  data-video-specs="4K 60FPS • D-Log M • 15 ft AGL"
                  style="cursor: pointer;">
               <div class="sub-video-thumb">
-                <img src="assets/gallery-travel-1.jpg" alt="FPV Dynamic Architectural Walkthrough">
+                <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=85" alt="FPV Dynamic Architectural Walkthrough">
                 <span class="sub-video-duration"><i class="bi bi-play-fill me-1"></i> 00:30</span>
               </div>
               <div class="sub-video-body">
@@ -1466,7 +1486,7 @@
                  data-video-specs="5.4K 60FPS • Cinema D-Log • 25 ft AGL"
                  style="cursor: pointer;">
               <div class="sub-video-thumb">
-                <img src="assets/Drone%20Over%20Misty%20Mountain%20River.png" alt="Dawn River Hyperlapse">
+                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=700&q=80" alt="Dawn River Hyperlapse">
                 <span class="sub-video-duration"><i class="bi bi-play-fill me-1"></i> 00:30</span>
               </div>
               <div class="sub-video-body">
@@ -1485,7 +1505,7 @@
                  data-video-specs="5.1K 50FPS • ProRes 422 HQ • 340 ft AGL"
                  style="cursor: pointer;">
               <div class="sub-video-thumb">
-                <img src="assets/gallery-nature-1.jpg" alt="Pacific Coastline Golden Hour">
+                <img src="https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?auto=format&fit=crop&w=700&q=80" alt="Pacific Coastline Golden Hour">
                 <span class="sub-video-duration"><i class="bi bi-play-fill me-1"></i> 00:30</span>
               </div>
               <div class="sub-video-body">
@@ -1608,7 +1628,7 @@
                 "AeroNest captured our waterfront commercial development with unbelievable clarity. Their pilot coordinated seamless airspace permits within 48 hours, and the raw 48MP files anchored our campaign."
               </p>
               <div class="gallery-feedback-author">
-                <div class="feedback-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Marcus Vance"></div>
+                <div class="feedback-avatar"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" alt="Marcus Vance"></div>
                 <div class="feedback-info">
                   <h5>Marcus Vance</h5>
                   <span>Principal Architect, Studio Vance</span>
@@ -1627,7 +1647,7 @@
                 "Tracking high-speed vehicles along Big Sur cliffs at 60mph required nerves of steel. AeroNest's dual-operator team delivered cinema D-Log footage that matched our RED Monstro cameras flawlessly."
               </p>
               <div class="gallery-feedback-author">
-                <div class="feedback-avatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Elena Rostova"></div>
+                <div class="feedback-avatar"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=150&q=80" alt="Elena Rostova"></div>
                 <div class="feedback-info">
                   <h5>Elena Rostova</h5>
                   <span>Executive Producer, Horizon Media</span>
@@ -1646,7 +1666,7 @@
                 "Their twilight architectural portfolio and interior-to-exterior FPV one-take fly-through generated over 300 inquiries for our $40M property. AeroNest sets the gold standard for aerial media."
               </p>
               <div class="gallery-feedback-author">
-                <div class="feedback-avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Liam Gallagher"></div>
+                <div class="feedback-avatar"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80" alt="Liam Gallagher"></div>
                 <div class="feedback-info">
                   <h5>Liam Gallagher</h5>
                   <span>Managing Director, Coastal Sotheby's</span>
@@ -1836,6 +1856,7 @@
           <a href="gallery.html">Gallery</a>
           <a href="services.html">Services</a>
           <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
         </div>
         <div class="col-6 col-lg-2 col-md-3">
           <h4>Services</h4>
@@ -1850,6 +1871,8 @@
           <a href="contact.html#frequently-asked-questions">FAQs</a>
           <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms &amp; Policy</a>
           <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+          <a href="404.html">404 Error</a>
+          <a href="maintenance.html">Maintenance</a>
           <a href="contact.html">Contact Support</a>
         </div>
         <div class="col-12 col-lg-3 col-md-6">

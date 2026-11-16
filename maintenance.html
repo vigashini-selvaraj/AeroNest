@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scheduled Avionics Maintenance | AeroNest Aerial Photography</title>
+  <meta name="description" content="AeroNest flight systems and drone telemetry servers are undergoing routine hangar maintenance and avionics calibration.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="alternate icon" href="assets/favicon.svg">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script>
+    (function() {
+      try {
+        var d = localStorage.getItem('aeronest-dir') || 'ltr';
+        document.documentElement.setAttribute('dir', d);
+        var t = localStorage.getItem('aeronest-theme');
+        if (t === 'dark') {
+          document.documentElement.classList.add('dark-mode');
+        } else {
+          document.documentElement.classList.remove('dark-mode');
+        }
+      } catch(e){}
+    })();
+  </script>
+</head>
+<body id="top">
+  <!-- ================= STICKY NAVBAR ================= -->
+  <nav class="navbar navbar-expand-xl fixed-top site-nav">
+    <div class="container">
+      <a class="navbar-brand brand-container" href="index.html" aria-label="AeroNest home">
+        <div class="brand-logo-mark">
+          <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="12" fill="url(#navBrandGrad)"/>
+            <path d="M15 15L33 33M33 15L15 33" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="14" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="34" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="14" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="34" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+            <circle cx="14" cy="14" r="1.8" fill="white"/>
+            <circle cx="34" cy="14" r="1.8" fill="white"/>
+            <circle cx="14" cy="34" r="1.8" fill="white"/>
+            <circle cx="34" cy="34" r="1.8" fill="white"/>
+            <circle cx="24" cy="24" r="8" fill="#071a31" stroke="white" stroke-width="2"/>
+            <circle cx="24" cy="24" r="4" fill="#38bdf8"/>
+            <defs>
+              <linearGradient id="navBrandGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#168df3"/>
+                <stop offset="1" stop-color="#0284c7"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title"><span class="brand-aero">Aero</span><span class="brand-nest">Nest</span></div>
+          <div class="brand-subtitle">AERIAL PHOTOGRAPHY &amp; VIDEO</div>
+        </div>
+      </a>
+      <!-- Mobile Quick Actions: RTL & Color Theme right next to hamburger -->
+      <div class="nav-mobile-actions d-xl-none ms-auto me-2">
+        <button class="nav-btn-mobile" id="mobileDirectionToggle" aria-label="Switch text direction" title="Switch LTR / RTL">
+          <span class="direction-text">LTR</span>
+        </button>
+        <button class="nav-btn-mobile nav-btn-icon" id="mobileThemeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <i class="bi bi-sun mobileThemeIcon"></i>
+        </button>
+      </div>
+      <button class="navbar-toggler nav-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto align-items-xl-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="home2.html">Home 2</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions d-flex align-items-center">
+          <button class="nav-btn-ltr d-none d-xl-inline-flex" id="directionToggle" aria-label="Switch text direction" title="Switch LTR / RTL">
+            <span class="direction-text">LTR</span>
+          </button>
+          <button class="nav-btn-icon d-none d-xl-inline-flex" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+            <i class="bi bi-sun theme-icon"></i>
+          </button>
+          <a href="contact.html" class="btn btn-primary nav-cta">Book a Shoot &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= MAIN MAINTENANCE CONTENT ================= -->
+  <main class="flight-status-page">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9 col-xl-8">
+          <div class="flight-status-card">
+            
+            <!-- Animated Avionics Radar/Gear Icon -->
+            <div class="radar-scanner-wrap">
+              <div class="radar-scanner-sweep"></div>
+              <div class="radar-scanner-ring"></div>
+              <i class="bi bi-gear-wide-connected radar-scanner-icon"></i>
+            </div>
+
+            <!-- Maintenance Status Badge -->
+            <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-3" style="background: rgba(22, 141, 243, 0.12); border: 1px solid rgba(22, 141, 243, 0.3); color: var(--sky-blue); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px;">
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              ROUTINE HANGAR MAINTENANCE &bull; AVIONICS CALIBRATION
+            </div>
+
+            <h1 class="fw-bold mb-3" style="font-size: clamp(26px, 3.5vw, 38px); color: var(--ink);">Avionics Calibration Underway.</h1>
+            <p class="text-muted mx-auto mb-4" style="max-width: 620px; font-size: 16px; line-height: 1.65;">
+              Our fleet visual servers, RTK base station links, and flight coordination databases are undergoing scheduled firmware updates and telemetry optimization. We will be back airborne shortly.
+            </p>
+
+            <!-- Calibration Progress Gauges -->
+            <div class="telemetry-hud-card">
+              <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-2" style="border-color: var(--line) !important;">
+                <span class="small fw-bold text-uppercase" style="letter-spacing: 0.6px; color: var(--sky-blue);">
+                  <i class="bi bi-tools me-1"></i> Fleet Readiness &bull; Pre-Flight Diagnostics
+                </span>
+                <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 px-2 py-1">Overall 96% Complete</span>
+              </div>
+              <div class="row g-3 text-start">
+                <div class="col-sm-6">
+                  <div class="telemetry-hud-item">
+                    <div class="d-flex justify-content-between">
+                      <label>Propulsion &amp; ESC Firmware</label>
+                      <span class="small fw-bold text-primary">98%</span>
+                    </div>
+                    <div class="val">TB51 Smart Power Hub</div>
+                    <div class="calibration-bar-wrap">
+                      <div class="calibration-bar-fill" style="width: 98%;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="telemetry-hud-item">
+                    <div class="d-flex justify-content-between">
+                      <label>3-Axis Gimbal Gyroscopes</label>
+                      <span class="small fw-bold text-success">100% Calibrated</span>
+                    </div>
+                    <div class="val">Zenmuse X9-8K Air</div>
+                    <div class="calibration-bar-wrap">
+                      <div class="calibration-bar-fill" style="width: 100%; background: #10b981;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="telemetry-hud-item">
+                    <div class="d-flex justify-content-between">
+                      <label>Obstacle Sensing LIDAR</label>
+                      <span class="small fw-bold text-success">Active &bull; 6 Directions</span>
+                    </div>
+                    <div class="val">Omnidirectional Radar</div>
+                    <div class="calibration-bar-wrap">
+                      <div class="calibration-bar-fill" style="width: 100%; background: #10b981;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="telemetry-hud-item">
+                    <div class="d-flex justify-content-between">
+                      <label>Airspace LAANC Authorization</label>
+                      <span class="small fw-bold text-primary">Standby</span>
+                    </div>
+                    <div class="val">FAA Part 107 Sync</div>
+                    <div class="calibration-bar-wrap">
+                      <div class="calibration-bar-fill" style="width: 90%;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Urgent Dispatch Notification -->
+            <div class="whatsapp-quick-box text-start mb-4">
+              <div class="d-flex align-items-center gap-3">
+                <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(37, 211, 102, 0.15); display: flex; align-items: center; justify-content: center; font-size: 24px; color: #25d366; flex-shrink: 0;">
+                  <i class="bi bi-whatsapp"></i>
+                </div>
+                <div class="flex-grow-1">
+                  <h6 class="fw-bold mb-1">Need Urgent Flight Dispatch or Emergency Aerial Survey?</h6>
+                  <p class="small text-muted mb-0">Our Chief Pilot and Flight Operations desk remain on active radio &amp; WhatsApp standby 24/7 for urgent shoots and breaking news media.</p>
+                </div>
+                <div class="d-none d-md-block">
+                  <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm rounded-pill px-3 text-nowrap">
+                    Chat with Pilot &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="d-flex flex-wrap align-items-center justify-content-center gap-3">
+              <a href="index.html" class="btn btn-primary btn-lg rounded-pill px-4">
+                <i class="bi bi-house-door me-2"></i>Return to Flight Deck
+              </a>
+              <a href="contact.html" class="btn btn-outline-sky btn-lg rounded-pill px-4">
+                <i class="bi bi-envelope me-2"></i>Send Flight Enquiry
+              </a>
+              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-lg rounded-pill px-4">
+                <i class="bi bi-whatsapp me-2"></i>WhatsApp Operations
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4 footer-main">
+        <div class="col-lg-3 col-md-6">
+          <a class="brand-container footer-brand" href="index.html" aria-label="AeroNest home">
+            <div class="brand-logo-mark">
+              <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="48" height="48" rx="12" fill="url(#footerBrandGrad)"/>
+                <path d="M15 15L33 33M33 15L15 33" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="14" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="34" cy="14" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="14" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="34" cy="34" r="5" stroke="white" stroke-width="1.8" fill="#38bdf8"/>
+                <circle cx="14" cy="14" r="1.8" fill="white"/>
+                <circle cx="34" cy="14" r="1.8" fill="white"/>
+                <circle cx="14" cy="34" r="1.8" fill="white"/>
+                <circle cx="34" cy="34" r="1.8" fill="white"/>
+                <circle cx="24" cy="24" r="8" fill="#071a31" stroke="white" stroke-width="2"/>
+                <circle cx="24" cy="24" r="4" fill="#38bdf8"/>
+                <defs>
+                  <linearGradient id="footerBrandGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#168df3"/>
+                    <stop offset="1" stop-color="#0284c7"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <div class="brand-title"><span class="brand-aero">Aero</span><span class="brand-nest">Nest</span></div>
+              <div class="brand-subtitle">AERIAL PHOTOGRAPHY &amp; VIDEO</div>
+            </div>
+          </a>
+          <p class="footer-tagline">See the world differently.<br>From high above with certified pilots.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="home2.html">Home 2</a>
+          <a href="about.html">About Us</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="services.html">Services</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Services</h4>
+          <a href="services.html">Aerial Photography</a>
+          <a href="services.html">Cinematic Video</a>
+          <a href="services.html">Real Estate 3D Tours</a>
+          <a href="services.html">Event Live Feeds</a>
+          <a href="services.html">3D Photogrammetry</a>
+        </div>
+        <div class="col-6 col-lg-2 col-md-3">
+          <h4>Support</h4>
+          <a href="contact.html#frequently-asked-questions">FAQs</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms &amp; Policy</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+          <a href="404.html">404 Error</a>
+          <a href="maintenance.html">Maintenance</a>
+          <a href="contact.html">Contact Support</a>
+        </div>
+        <div class="col-12 col-lg-3 col-md-6">
+          <h4>Stay in the loop</h4>
+          <p>Get occasional aerial perspectives and flight updates.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" required placeholder="Your email address" aria-label="Your email address">
+            <button type="submit" aria-label="Subscribe"><i class="bi bi-arrow-right"></i></button>
+          </form>
+          <small id="newsletterMessage"></small>
+          <div class="mt-3" style="font-size: 12px; color: #9cb2cb;">
+            <span><i class="bi bi-envelope me-1"></i> hello@aeronest.com</span>
+            <span class="mx-2">&bull;</span>
+            <span><i class="bi bi-telephone me-1"></i> +91 98765 43210</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> AeroNest. All rights reserved. Licensed Part 107 Operations.</span>
+        <div>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of Flight</a>
+          <a href="#top">Back to top &uarr;</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= MODALS ================= -->
+  <!-- Terms & Policy Modal -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content" style="background: #ffffff; color: #0f172a; border-radius: 20px; border: 1px solid #e2e8f0; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);">
+        <div class="modal-header" style="border-bottom: 1px solid #e2e8f0; padding: 20px 24px;">
+          <h5 class="modal-title fw-bold" id="termsModalLabel" style="color: #0284c7; display: flex; align-items: center; gap: 8px;">
+            <i class="bi bi-file-earmark-ruled"></i> AeroNest Terms of Flight &amp; Operations
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="padding: 24px; font-size: 14.5px; line-height: 1.7; color: #334155;">
+          <h6 class="fw-bold text-dark mt-2">1. FAA Part 107 &amp; Airspace Compliance</h6>
+          <p>All flight operations are conducted strictly in compliance with applicable civil aviation authorities, including FAA Part 107 and DGCA guidelines. Flights in controlled airspace require prior LAANC digital authorization or airspace waivers.</p>
+          <h6 class="fw-bold text-dark mt-3">2. Weather &amp; Safety Grounding</h6>
+          <p>The Pilot in Command (PIC) reserves final authority to postpone, reschedule, or cancel any flight if weather conditions (gusts exceeding 25 knots, precipitation, or low visibility) compromise flight safety. In such cases, deposits transfer to the next available flight window without penalty.</p>
+          <h6 class="fw-bold text-dark mt-3">3. Copyright &amp; Commercial Usage</h6>
+          <p>Clients receive full commercial usage rights for delivered media as specified in the service package. Unedited RAW files and proprietary flight telemetry logs remain the property of AeroNest unless licensed separately.</p>
+          <h6 class="fw-bold text-dark mt-3">4. Turnaround &amp; Revisions</h6>
+          <p>Standard delivery timelines are 24-48 hours for photography and 3-5 business days for edited cinema reels. Two rounds of color grade/edit adjustments are included in all packages.</p>
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid #e2e8f0; padding: 16px 24px;">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" style="border-radius: 10px; font-size: 13px; font-weight: 600;">Close</button>
+          <a href="contact.html" class="btn btn-brand btn-modal-action">Contact Support &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content" style="background: #ffffff; color: #0f172a; border-radius: 20px; border: 1px solid #e2e8f0; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);">
+        <div class="modal-header" style="border-bottom: 1px solid #e2e8f0; padding: 20px 24px;">
+          <h5 class="modal-title fw-bold" id="privacyModalLabel" style="color: #0284c7; display: flex; align-items: center; gap: 8px;">
+            <i class="bi bi-shield-check"></i> AeroNest Privacy &amp; Data Policy
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="padding: 24px; font-size: 14.5px; line-height: 1.7; color: #334155;">
+          <h6 class="fw-bold text-dark mt-2">1. Aerial Privacy Guidelines</h6>
+          <p>AeroNest operates under strict aerial privacy protocols. We do not deliberately capture, catalog, or publish recognizable imagery of private non-client properties, residents, or restricted industrial installations without explicit written authorization.</p>
+          <h6 class="fw-bold text-dark mt-3">2. Information Collection</h6>
+          <p>When you request a flight quote or book an aerial shoot, we collect flight coordinates, property addresses, client contact details, and production briefs solely for flight planning and FAA compliance filings.</p>
+          <h6 class="fw-bold text-dark mt-3">3. Media Storage &amp; Encryption</h6>
+          <p>Deliverables are securely hosted on encrypted cloud vaults for 90 days following project completion. We do not sell or share your contact data with third-party advertisers.</p>
+          <h6 class="fw-bold text-dark mt-3">4. Cookies &amp; Newsletter</h6>
+          <p>We use lightweight local storage to remember your theme and language preferences. You may unsubscribe from our monthly flight digest at any time with one click.</p>
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid #e2e8f0; padding: 16px 24px;">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" style="border-radius: 10px; font-size: 13px; font-weight: 600;">Close</button>
+          <a href="contact.html" class="btn btn-brand btn-modal-action">Contact Support &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
